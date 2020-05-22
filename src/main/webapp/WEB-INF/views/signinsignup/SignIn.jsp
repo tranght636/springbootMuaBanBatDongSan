@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    Sign in
+    Sign in page Thanh Thuis oiw oiwf oiws
     <script src="/js/signinsignup/signin.api.js"></script>
     <script src="/js/signinsignup/signin.view.js"></script>
     <script src="/js/signinsignup/signin.js"></script>
