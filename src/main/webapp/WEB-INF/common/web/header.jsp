@@ -1,33 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="<c:url value="/trang-chu"/>">Jwat</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="<c:url value="/trang-chu"/>">Trang chủ
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <c:if test="${not empty USERMODEL}">
-              <li class="nav-item">
-                <a class="nav-link" href='#'>Wellcome, ${USERMODEL.username}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<c:url value='/logout?action=logout' />" >Thoát</a>
-              </li>
-            </c:if>
-            <c:if test="${empty USERMODEL}">
-              <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/login?action=login"/>'>Đăng nhập</a>
-              </li>
-            </c:if>
-          </ul>
-        </div>
-      </div>
-</nav>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<header>
+	<!-- Header Start -->
+	<div class="header-area">
+		<div class="main-header ">
+			<div class="header-top top-bg d-none d-lg-block">
+				<div class="container-fluid">
+					<div class="col-xl-12">
+						<div class="row d-flex justify-content-between align-items-center">
+							<div class="header-info-left">
+								<ul>
+									<li>Website Mua Bán Bất Động Sản</li>
+								</ul>
+							</div>
+							<div class="header-info-right">
+								<ul class="header-social">
+									<li><a href="/sign-in"> Đăng nhập</a></li>
+									<li><a href="/sign-up"> Đăng ký</a></li>
+									<li><a href="/trang-ca-nhan">Trang cá nhân</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Header End -->
+</header>

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SignInSignUpController {
     @GetMapping("/sign-in")
     public String login(){
-        return "signinsignup/SignIn";
+        return "signinsignup/DangNhap";
     }
     @GetMapping("/sign-up")
     public String register(){
-        return "signinsignup/SignUp";
+        return "signinsignup/DangKy";
     }
 }

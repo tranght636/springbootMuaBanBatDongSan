@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8" />
