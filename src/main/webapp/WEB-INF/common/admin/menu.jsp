@@ -16,16 +16,26 @@
             <li class="nav-item">
                 <a class="nav-link ">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Nhà đất bán</span>
+                    <span>Tin Bán</span><!-- quản lý bài đăng, duyệt -->
                 </a>
             </li>
-
-
-
+            <li class="nav-item">
+                <a class="nav-link ">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tin Thuê</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tin Tức</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">Quản lý User</div>
+            
 
             <%-- 
 <!-- Heading -->

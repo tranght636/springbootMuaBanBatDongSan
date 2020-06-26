@@ -1,0 +1,292 @@
+@charset "UTF-8";
+/* html, body {
+	width: 100%;
+	height: 100%;
+	font-family: Robato
+} */
+/* dùng chung */
+.edit:before {
+	content: "\f040";
+	font-family: "FontAwesome";
+	position: absolute;
+	right: 30px;
+	color: #8f8fa8;
+}
+
+.delete:before {
+	content: "\f014";
+	font-family: "FontAwesome";
+	position: absolute;
+	right: 5px;
+	color: #8f8fa8
+}
+.delete-duyet:before {
+	content: "\f014";
+	font-family: "FontAwesome";
+	position: absolute;
+	right: 25px;
+	color: #8f8fa8
+}
+
+/* .filter:before {
+	content: "\f0b0";
+	font-family: "FontAwesome";
+	position: absolute;
+	right: 50px;
+	color: #8f8fa8
+} */
+.backward:before {
+	content: "\f049";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+
+.forward:after {
+	content: "\f050";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+
+.h2-admin {
+	width: 100%;
+	font-family: Sarabun;
+	text-transform: uppercase;
+	text-align: center;
+	background: #E8E8E8;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-right: 10px;
+	color: #B94A48
+}
+
+.ModalTitle {
+	font-family: Sarabun;
+	text-transform: uppercase;
+	color: #B94A48;
+}
+
+.ModalSizeInput {
+	width: 300px;
+	border-radius: 4px;
+	border: 1px solid #999;
+	
+}
+
+.select-filter {
+	width: fit-content;
+ 	border-radius: 4px;
+	border: 1px solid #999;
+}
+
+.div-select-filter {
+	text-align: right;
+}
+
+.div-search {
+	text-align: right;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-right: 10px;
+}
+
+.span-ward {
+	width: 50px;
+	background-color: #fff;
+	border-radius: 4px 0px 0px 4px;
+	border: 1px solid #999;
+}
+/* end dùng chung */
+
+/* start menu left  */
+.div-menu-left {
+	background: #F8F8F8;
+	margin-top: 50px;
+	border-bottom: 1px solid #ecebeb;
+	padding-bottom: 0;
+	padding-left: 19px;
+	list-style: none;
+	line-height: 30px;
+	border-bottom: 1px solid #ecebeb;
+}
+/* end menu left  */
+
+/* accountApproval.jsp */
+/* start accountApproval */
+.slbtnSort {
+	text-align: right;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	border: 1px solid #999;
+}
+/* end accountApproval */
+
+/* home.jsp */
+/* start notification admin home.jsp */
+.button-search-notification {
+	width: 50px;
+}
+
+.span-search-notifacation {
+	background-color: #0085A0;
+}
+
+.span-search-notifacation:before {
+	content: "\f002";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #fff;
+}
+
+.ul-notification-admin {
+	width: 100%;
+	font-size: 20px
+}
+
+.a-notification-admin:before {
+	content: "\f105";
+	font-family: "FontAwesome";
+	position: absolute;
+	left: 5px;
+	color: #f00
+}
+
+ul li {
+	list-style: none;
+}
+
+ul li a {
+	text-decoration: none;
+	color: #007bff;
+}
+/* end notification admin home.jsp*/
+
+/* listUsers.jsp */
+/* start listUsers */
+.a-list-users {
+	text-align: right;
+	font-size: 25px;
+	color: #2b2b2b;
+}
+
+/* end listUsers */
+
+/* ContentNotification.jsp */
+/* start ContentNotification */
+.title-content-notification {
+	text-align: left;
+	font-size: 25px;
+	color: #B94A48;
+}
+
+.time-content-notification {
+	font-size: 14px;
+	color: #969696;
+	text-align: left
+}
+
+.content-notification {
+	font-size: 20px;
+	color: #333;
+}
+
+.due-date-content-notification {
+	text-align: left;
+	font-size: 15px;
+	color: rgba(43, 43, 43, 0.8);
+	font-weight: bold;
+	font-style: italic;
+}
+
+.views-content-notification {
+	text-align: right;
+	font-size: 15px;
+	color: rgba(43, 43, 43, 0.8);
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 10px;
+	margin-top: 50px;
+	padding-right: 10px;
+}
+/* end  ContentNotification  */
+
+/* classChange.jsp */
+/* start classChange */
+#btnClassChange > div{
+	justify-content: center;
+}
+.span-ward-classChange{
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+	background-color: #fff;
+	border-radius: 4px 4px 4px 4px;
+	border: 1px solid #999;
+}
+.angle-double-left:before{
+	content: "\f100";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+.angle-double-right:before{
+	content: "\f101";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+.angle-left:before{
+	content: "\f104";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+.angle-right:before{
+	
+	content: "\f105";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: #2b2b2b;
+	margin-left: 5px;
+}
+.ul-scrollspy-list-group{
+	width:100%;
+	height:500px;
+	overflow: auto;
+	border: 1px solid #6c757d;
+    border-radius: 4px;
+}
+/* end classChange */
+
+
+.tableBodyScroll tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+/* .tableBodyScroll thead,
+tbody tr {
+  display: table;
+  width: 100%;
+} */
+/* thông báo và deadline  */
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+	color: f3f3f3;
+	background-color: transparent;
+	border-color: transparent transparent f3f3f3;
+	border-bottom: 4px solid !important;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#tabs .nav-tabs .nav-link {
+	color: #B94A48;
+	font-size: 20px;
+}
