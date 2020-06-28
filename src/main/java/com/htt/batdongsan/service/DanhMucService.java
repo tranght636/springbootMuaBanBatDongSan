@@ -19,5 +19,8 @@ public class DanhMucService {
 	 public List<DanhMucModel> selectDanhMucByDanhMucChungId(Integer dmc_id){
 	        return danhMucMapper.selectDanhMucByDanhMucChungId(dmc_id);
 	  }
+	public DanhMucModel selectDanhMucById(Integer dm_id) {
+		return danhMucMapper.selectDanhMucById(dm_id);
+	}
 
 }

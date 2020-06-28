@@ -19,5 +19,8 @@ public class ProvinceService {
 	 public List<ProvinceModel> selectAll(){
 	        return provinceMapper.selectAll();
 	  }
+	public ProvinceModel selectProvinceById(Integer city_id) {
+		 return provinceMapper.selectProvinceById(city_id);
+	}
 	    
 }

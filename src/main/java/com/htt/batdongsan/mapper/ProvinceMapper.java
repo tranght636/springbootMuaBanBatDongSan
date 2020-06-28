@@ -10,4 +10,6 @@ public interface ProvinceMapper {
 
 	List<ProvinceModel> selectAll();
 
+	ProvinceModel selectProvinceById(Integer city_id);
+
 }
