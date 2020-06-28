@@ -24,9 +24,12 @@
 <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css"
 	type="text/css">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+<script src="/templates/web/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <!-- editor -->
  <script src="/templates/ckeditor/ckeditor.js"></script>
 <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+
 
 </head>
 
@@ -53,7 +56,7 @@
         <script src="/templates/web/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="/templates/web/assets/js/vendor/jquery-1.12.4.min.js"></script>
+		
         <script src="/templates/web/assets/js/popper.min.js"></script>
         <script src="/templates/web/assets/js/bootstrap.min.js"></script>
 	    <!-- Jquery Mobile Menu -->

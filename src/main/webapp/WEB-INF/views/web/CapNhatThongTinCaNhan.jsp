@@ -1,45 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-
-<body>
-	<div class="row justify-content-center">
-		<div class="col-xl-10 col-lg-12 col-md-9">
-			<div class="card o-hidden border-0 shadow-lg my-5">
-				<div class="card-body p-0">
+<div class="row" style="width: 100%;">
+		<div class="col-lg-12">
+			<div class="main-card mb-12 card">
+				<div class="card-body">
+					<h5 class="card-title">Cập nhật thông tin cá nhân</h5>
+					
 					<div style="margin: 15px;">
 					    <c:if test="${not empty message}">
 					        <div class="alert alert-${alert}">
 					            ${message}
 					        </div>
 					    </c:if>
-					    <form id="form-profile" action="/admin/thong-tin-tai-khoan" method="POST">
-					        <input name="id" value="${USERMODEL.id}" hidden="true" />
+					    <form id="form-profile" action="/trang-ca-nhan/cap-nhat-thong-tin" method="post">
+					        <input name="id" value="${userModel.id}" hidden="true" />
 					        
 					        <div class="form-group">
 								<input type="text" class="form-control form-control-user"
-									id="username" placeholder="Full Name" name="username">
+									id="username" placeholder="Full Name" name="username" value="${userModel.username}">
 							</div>
 							<div class="form-group">
-								<div class="span-email-exist" style="margin-left: 15px;"
-									hidden="true">
-									<span style="color: red;">Email đã tồn tại</span>
-								</div>
 								<input type="email" class="form-control form-control-user input-register-email"
 								 placeholder="Email Address"
-									name="email">
+									name="email" value="${userModel.email}" disabled="disabled">
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-6 mb-3 mb-sm-0">
 									<input type="password" class="form-control form-control-user"
-										id="newpassword" placeholder="New Password" name="newpassword">
+										id="newpassword" placeholder="New Password" name="password">
 								</div>
 								<div class="col-sm-6">
 									<input type="password" class="form-control form-control-user"
@@ -58,19 +47,19 @@
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control form-control-user"
-										id="phone" placeholder="Phone" name="phoneNumber">
+										id="phone" placeholder="Phone" name="phone_number">
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-6 mb-3 mb-sm-0">
+								<!-- <div class="col-sm-6 mb-3 mb-sm-0">
 									<input type="text" class="form-control form-control-user"
 									id="gender" placeholder="Gender" name="gender">
-								</div>
-								<div class="col-sm-6">
+								</div> -->
+								<div class="col-sm-12">
 									<input type="date" class="form-control form-control-user"
 										id="dob" name="dob" title="Date of birth">
 								</div>
 							</div>
-							<button type="submit" class="btn  btn-user btn-block btn-create" style="width: 300px; float: right; margin-bottom: 15px;">Save</button>
+							<button type="submit" class="mb-2 mr-2 btn btn-primary" style="width: 300px; float: right; margin-bottom: 15px;">Save</button>
     					</form>
     					</div>
 				</div>
@@ -79,7 +68,3 @@
 	</div>
 				
 
-
-
-</body>
-</html>

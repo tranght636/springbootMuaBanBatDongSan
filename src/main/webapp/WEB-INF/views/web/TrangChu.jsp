@@ -16,14 +16,12 @@
 					<div class="row">
 						<div class="col-xl-6 col-lg-6 col-md-8">
 							<div class="hero__caption">
-								<p data-animation="fadeInLeft" data-delay=".4s">Welcome to
-									Website</p>
-								<h1 data-animation="fadeInLeft" data-delay=".6s">We help
-									you to grow your business</h1>
+								<p data-animation="fadeInLeft" data-delay=".4s">Chào mừng bạn đến với website mua bán bất động sản</p>
+								<h1 data-animation="fadeInLeft" data-delay=".6s">Chúng tôi giúp bạn phát triển kinh doanh</h1>
 								<!-- Hero-btn -->
 								<div class="hero__btn" data-animation="fadeInLeft"
 									data-delay=".8s">
-									<a href="industries.html" class="btn hero-btn">Learn More</a>
+									<a href="<c:url value='/trang-ca-nhan/tao-bat-dong-san'/>" class="btn header-btn" style="margin-bottom: 2px;">Đăng tin rao</a>
 								</div>
 							</div>
 						</div>
@@ -39,91 +37,78 @@
 		<div class="container">
 			<h3 style="color: blue;">Tin rao nổi bật</h3>
 			<div class="row">
-				<c:forEach var="i" begin="1" end="1">
+				 <c:forEach var="baiDang" items="${baiDangModel}">
 					<div class="col-xl-3 col-lg-3 col-md-6">
-						<a class="small" href="<c:url value='/chi-tiet'/>">
+						<a class="small" href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
 						<div class="single-profile mb-30" style="background-color: white;   border-radius: 10px 10px 10px 10px;">
 							<!-- Front -->
-							<div class="single-profile-front">
+							<div class="single-profile-front" style="height: 320px;">
 								<div class="profile-img">
 									<img src="/img/web/item1.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
 								</div>
 								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
-									 <h6 style="color: black;">
-										Nhượng 3600m2 đất trang
-											trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn, Hòa
-											Bình
+									 <h6 class="title" style="color: black;">
+										${baiDang.title}
 									</h6>
-									<h6 style="color: blue;">17 tỷ</h6>
-									<p style="color: black;">12000 m2.</p>
-									<p style="color: black;">Lương Sơn, Hòa Bình.</p> 
+									<p style="color: blue; font-size: 12px;">Giá: ${baiDang.money}, Diện tích: ${baiDang.dien_tich}</p>
+									<small style="color: black; ">${baiDang.dia_chi_chi_tiet}</small>
 								</div>
 							</div>
 						</div>
 						</a>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-md-6">
-						<div class="single-profile mb-30" style="background-color: white;   border-radius: 10px 10px 10px 10px;">
-							<!-- Front -->
-							<div class="single-profile-front">
-								<div class="profile-img">
-									<img src="/img/web/item2.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
-								</div>
-								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
-									 <h6>
-										<a href="#" style="color: black;">Nhượng 3600m2 đất trang
-											trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn, Hòa
-											Bình</a>
-									</h6>
-									<h6 style="color: blue;">17 tỷ</h6>
-									<p style="color: black;">12000 m2.</p>
-									<p style="color: black;">Lương Sơn, Hòa Bình.</p> 
-								</div>
-							</div>
 						</div>
-					</div>
+				</c:forEach>
+				<a href="<c:url value='/tin-rao-noi-bat'/>" class="genric-btn success-border circle" style="margin-left: 50%;">Xem thêm</a>
+			</div>
+			<h3 style="color: blue;">Tin rao mới nhất</h3>
+			<div class="row">
+				 <c:forEach var="baiDang" items="${baiDangModel2}">
 					<div class="col-xl-3 col-lg-3 col-md-6">
+						<a class="small" href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
 						<div class="single-profile mb-30" style="background-color: white;   border-radius: 10px 10px 10px 10px;">
 							<!-- Front -->
-							<div class="single-profile-front">
+							<div class="single-profile-front" style="height: 320px;">
 								<div class="profile-img">
 									<img src="/img/web/item3.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
 								</div>
 								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
-									 <h6>
-										<a href="#" style="color: black;">Nhượng 3600m2 đất trang
-											trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn, Hòa
-											Bình</a>
+									 <h6 class="title" style="color: black;">
+										${baiDang.title}
 									</h6>
-									<h6 style="color: blue;">17 tỷ</h6>
-									<p style="color: black;">12000 m2.</p>
-									<p style="color: black;">Lương Sơn, Hòa Bình.</p> 
+									<p style="color: blue; font-size: 12px;">Giá: ${baiDang.money}, Diện tích: ${baiDang.dien_tich}</p>
+									<small style="color: black; ">${baiDang.dia_chi_chi_tiet}</small>
 								</div>
 							</div>
 						</div>
-					</div>
+						</a>
+						</div>
+				</c:forEach>
+				<a href="<c:url value='/tin-rao-noi-bat'/>" class="genric-btn success-border circle" style="margin-left: 50%;">Xem thêm</a>
+			</div>
+			<h3 style="color: blue;">Dự án nổi bật</h3>
+			<div class="row">
+				 <c:forEach var="baiDang" items="${baiDangModel3}">
 					<div class="col-xl-3 col-lg-3 col-md-6">
+						<a class="small" href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
 						<div class="single-profile mb-30" style="background-color: white;   border-radius: 10px 10px 10px 10px;">
 							<!-- Front -->
-							<div class="single-profile-front">
+							<div class="single-profile-front" style="height: 320px;">
 								<div class="profile-img">
-									<img src="/img/web/item4.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
+									<img src="/img/web/item2.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
 								</div>
 								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
-									 <h6>
-										<a href="#" style="color: black;">Nhượng 3600m2 đất trang
-											trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn, Hòa
-											Bình</a>
+									 <h6 class="title" style="color: black;">
+										${baiDang.title}
 									</h6>
-									<h6 style="color: blue;">17 tỷ</h6>
-									<p style="color: black;">12000 m2.</p>
-									<p style="color: black;">Lương Sơn, Hòa Bình.</p> 
+									<p style="color: blue; font-size: 12px;">Giá: ${baiDang.money}, Diện tích: ${baiDang.dien_tich}</p>
+									<small style="color: black; ">${baiDang.dia_chi_chi_tiet}</small>
 								</div>
 							</div>
 						</div>
-					</div>
+						</a>
+						</div>
 				</c:forEach>
-				<a href="#" class="genric-btn success-border circle" style="margin-left: 50%;">Xem thêm</a>
+				<a href="<c:url value='/tin-rao-noi-bat'/>" class="genric-btn success-border circle" style="margin-left: 50%;">Xem thêm</a>
 			</div>
 			<h3 style="color: blue;">Tin rao theo địa điểm</h3>
 			<!-- ---------------------------------------- -->
@@ -237,6 +222,17 @@
 		</div>
 	</div>
 	<!-- Team-profile End-->
+	<script type="text/javascript">// <![CDATA[
+		$(function(){
+		  $(".title").each(function(i){
+		    len=$(this).text().length;
+		    if(len>80)
+		    {
+		      $(this).text($(this).text().substr(0,60)+'...');
+		    }
+		  });
+		});
+	</script>
 	
 	
 </main>

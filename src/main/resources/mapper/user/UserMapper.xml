@@ -3,7 +3,32 @@
  
 <mapper namespace="com.htt.batdongsan.mapper.UserMapper">
     <select id="getAllUser" resultMap="result" >
-        select * from user;
+        select * from user
     </select>
-    <resultMap id = "result" type = "User"/>
+    
+    <select id="selectOne" resultMap="result" parameterType="Integer" >
+        select * from user
+        where id = #{id}
+        and status = #{status}
+    </select>
+    
+    <select id="selectOneByEmail" resultMap="result" parameterType="Hashmap" >
+        select * from user
+        where email = #{email}
+        and status = #{status}
+    </select>
+    
+     <update id="update" parameterType="UserModel" >
+        update user
+        set username = #{username}
+        where 1 = 1
+        and email = #{email}
+    </update>
+    
+     <insert id="insert" parameterType="UserModel" >
+    INSERT INTO user (email,  username ,  password ,  phone_number ,  address ,  status ,  created_date ,  modified_date ,  created_by ,  modified_by ,  deactived_at ,  dob )
+     VALUES (#{email}, #{username}, #{password}, #{phone_number}, #{address}, #{status}, #{created_date},  #{modified_date},  #{created_by},  #{modified_by},  #{deactived_at},  #{dob})
+    </insert>
+    
+    <resultMap id = "result" type = "UserModel"/>
 </mapper>

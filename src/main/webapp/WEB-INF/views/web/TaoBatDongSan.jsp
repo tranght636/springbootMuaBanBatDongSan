@@ -1,33 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-</head>
-<body>
-
-
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="main-card mb-12 card">
-				<div class="card-body">
-					<h5 class="card-title">Tạo bất động sản mới</h5>
-					<div class="scroll-area-md" style="height: 550px;">
-						<div class="card-body">
+<div class="row" style="width: 100%;">
+	<div class="col-lg-12">
+		<div class="main-card mb-12 card">
+			<div class="card-body">
+				<h5 class="card-title">Tạo bất động sản mới</h5>
+				<div class="scroll-area-md" style="height: 550px;">
+					<div class="card-body">
+						<form class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
 							<div class="container">
 								<div class="form-group row">
 									<h2>Thông tin cơ bản:</h2>
 								</div>
 								<div class="form-group row">
+
+									<label class="col-sm-4 col-form-label">Danh mục bất
+										động sản:</label>
+									<div class="col-sm-4">
+										<select id="TBDS_DanhMucChung" class="btnSort "
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
+											<c:forEach var="danhMucChung" items="${danhMucChungModel}">
+												<option value="${danhMucChung.id}">${danhMucChung.name}</option>
+											</c:forEach>
+
+										</select>
+									</div>
+									<div class="col-sm-4">
+										<select name="danh_muc_id" id="TBDS_DanhMuc" class="btnSort "
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
+											<c:forEach var="danhMuc" items="${danhMucModel}">
+												<option value="${danhMuc.id}">${danhMuc.name}</option>
+											</c:forEach>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
 									<label for="title" class="col-sm-2 col-form-label">Tiêu
 										đề:</label>
 									<div class="col-sm-10">
-										<textarea name="title" id="title" class="form-control"
+										<textarea name="title" id="TBDS_title" class="form-control"
 											rows="1" style="width: 100%; color: black;"></textarea>
 									</div>
 								</div>
@@ -35,14 +47,16 @@
 									<label for="title" class="col-sm-2 col-form-label"> Mô
 										tả tổng quát:</label>
 									<div class="col-sm-10">
-										<textarea name="title" id="title" class="form-control"
-											rows="1" style="width: 100%; color: black;"></textarea>
+										<textarea name="mo_ta_tong_quat" id="TBDS_mo_ta_tong_quat"
+											class="form-control" rows="1"
+											style="width: 100%; color: black;"></textarea>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="title" class="col-sm-2 col-form-label">Giá:</label>
+									<label for="title" class="col-sm-2 col-form-label">Giá
+										(VND):</label>
 									<div class="col-sm-10">
-										<input class="" type="number" id="" name=""
+										<input type="text" id="TBDS_money" name="money"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 
 									</div>
@@ -54,18 +68,13 @@
 									<label for="title" class="col-sm-2 col-form-label">Loại
 										bất động sản:</label>
 									<div class="col-sm-10">
-										<select name="" id="" class="btnSort "
+										<select name="loai_bat_dong_san_id"
+											id="TBDS_loai_bat_dong_san_id" class="btnSort "
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">Căn hộ</option>
-											<option value="">Nhà ở</option>
-											<option value="">Biệt thự</option>
-											<option value="">Nhà phố</option>
-											<option value="">Đất dự án</option>
-											<option value="">Đất</option>
-											<option value="">Nông trại</option>
-											<option value="">Nhà kho, công xưởng</option>
-											<option value="">Khác</option>
-
+											<c:forEach var="loaiBatDongSan"
+												items="${loaiBatDongSanModel}">
+												<option value="${loaiBatDongSan.id}">${loaiBatDongSan.name}</option>
+											</c:forEach>
 										</select>
 									</div>
 								</div>
@@ -73,7 +82,7 @@
 									<label for="title" class="col-sm-2 col-form-label">Diện
 										tích (m2):</label>
 									<div class="col-sm-10">
-										<input class="" type="number" id="" name=""
+										<input type="text" id="TBDS_dien_tich" name="dien_tich"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
@@ -81,20 +90,21 @@
 									<label for="title" class="col-sm-2 col-form-label">Thành
 										phố/Tỉnh:</label>
 									<div class="col-sm-4">
-										<select name="" id="" class="btnSort "
+										<select name="city_id" id="TBDS_city_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">tp.HCM</option>
-											<option value="">Tỉnh DakNong</option>
-											<option value="">Tỉnh Hậu Giang</option>
+											<c:forEach var="province" items="${provinceModel}">
+												<option value="${province.id}">${province._name}</option>
+											</c:forEach>
 										</select>
 									</div>
 									<label for="title" class="col-sm-2 col-form-label">Quận/Huyện:</label>
 									<div class="col-sm-4">
-										<select name="" id="" class="btnSort "
+										<select name="huyen_id" id="TBDS_huyen_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">Quận 12</option>
-											<option value="">Quận Thủ Đức</option>
-											<option value="">Quận 8</option>
+											<c:forEach var="district" items="${districtModel}">
+												<option value="${district.id}">${district._prefix}
+													${district._name}</option>
+											</c:forEach>
 										</select>
 									</div>
 								</div>
@@ -102,21 +112,23 @@
 									<label for="title" class="col-sm-2 col-form-label">
 										Phường/Xã:</label>
 									<div class="col-sm-4">
-										<select name="" id="" class="btnSort "
+										<select name="xa_id" id="TBDS_xa_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">A</option>
-											<option value="">B</option>
-											<option value="">C</option>
+											<c:forEach var="ward" items="${wardModel}">
+												<option value="${ward.id}">${ward._prefix}
+													${ward._name}</option>
+											</c:forEach>
 										</select>
 									</div>
 									<label for="title" class="col-sm-2 col-form-label">Tên
 										đường:</label>
 									<div class="col-sm-4">
-										<select name="" id="" class="btnSort "
+										<select name="duong_id" id="TBDS_duong_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">D</option>
-											<option value="">E</option>
-											<option value="">F</option>
+											<c:forEach var="street" items="${streetModel}">
+												<option value="${street.id}">${street._prefix}
+													${street._name}</option>
+											</c:forEach>
 										</select>
 									</div>
 								</div>
@@ -124,39 +136,41 @@
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										nhà/Chi tiết khác:</label>
 									<div class="col-sm-10">
-										<input class="" type="text" id="" name=""
+										<input type="text" id="TBDS_so_nha_chi_tiet_khac"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="title" class="col-sm-2 col-form-label"> Địa
-										chỉ chi tiết:</label>
+									<label for="title"
+										class="col-sm-2 col-form-label"> Địa chỉ chi tiết:</label>
 									<div class="col-sm-10">
-										<input class="" type="text" id="" name=""
+										<input type="text" class="TBDS_dia_chi_chi_tiet" 
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
 											disabled="disabled">
+										<input type="text" class="TBDS_dia_chi_chi_tiet"  name="dia_chi_chi_tiet"
+											hidden="true">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="title" class="col-sm-2 col-form-label"> Mặt
 										tiền:</label>
 									<div class="col-sm-4">
-										<input class="" type="text" id="" name=""
+										<input type="text" name="mat_tien"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label">
 										Hướng:</label>
 									<div class="col-sm-4">
-										<select name="" id="" class="btnSort "
+										<select name="huong_nha" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="">Đông</option>
-											<option value="">Tây</option>
-											<option value="">Nam</option>
-											<option value="">Bắc</option>
-											<option value="">Tây Bắc</option>
-											<option value="">Đông Nam</option>
-											<option value="">Nam Đông</option>
-											<option value="">Bắc Tây</option>
+											<option value="D">Đông</option>
+											<option value="T">Tây</option>
+											<option value="N">Nam</option>
+											<option value="B">Bắc</option>
+											<option value="TB">Tây Bắc</option>
+											<option value="DN">Đông Nam</option>
+											<option value="BD">Bắc Đông</option>
+											<option value="NT">Nam Tây</option>
 										</select>
 									</div>
 
@@ -165,7 +179,7 @@
 									<label for="title" class="col-sm-2 col-form-label">
 										Chiều rộng đường vào(m2):</label>
 									<div class="col-sm-4">
-										<input class="" type="number" id="" name=""
+										<input type="number" name="duong_vao_m"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
@@ -173,19 +187,19 @@
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										nhà vệ sinh:</label>
 									<div class="col-sm-2">
-										<input class="" type="number" id="" name=""
+										<input type="number" name="so_nha_ve_sinh"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										phòng ngủ:</label>
 									<div class="col-sm-2">
-										<input class="" type="number" id="" name=""
+										<input type="number" name="so_phong_ngu"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										tầng:</label>
 									<div class="col-sm-2">
-										<input class="" type="number" id="" name=""
+										<input type="number" name="so_tang"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
@@ -194,9 +208,9 @@
 									<label for="editorContentThongBao"
 										class="col-sm-2 col-form-label">Mô tả chi tiết</label>
 									<div class="col-sm-10">
-										<textarea id="textareacontent" name="textareacontent"
-											cols="500" rows="10" style="width: 100%;">
-				</textarea>
+										<textarea id="textareacontent" name="content" cols="500"
+											rows="10" style="width: 100%;">
+										</textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -230,10 +244,17 @@
 													</div>
 												</div>
 											</div>
-											<input name="file" id="exampleFile" type="file"
-												class="form-control-file" style="margin-top: 5px;">
+											<input name="file" id="exampleFile" type="file" 
+												class="form-control-file" style="margin-top: 5px; ">
 											<small class="form-text text-muted"></small>
 										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="editorContentThongBao"
+										class="col-sm-2 col-form-label">Thông tin liên hệ:</label>
+									<div class="col-sm-10">
+										<input  name="thong_tin_lien_he" type="text" style="width: 100%;">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -577,7 +598,7 @@
 																	style="color: rgba(0, 0, 0, 0.54); font-size: 12px;">Bạn
 																		có sở hữu trang web này không?</a></td>
 																<td style="text-align: right;"><button
-																		class="dismissButton">OK</button></td>
+																		class="btn dismissButton">OK</button></td>
 															</tr>
 														</table>
 													</div>
@@ -592,20 +613,17 @@
 
 							<div class="form-group row">
 								<div class="col-sm-2"></div>
-								<div class="col-sm-10">
+								<div class="col-sm-10" style="text-align: right;">
 									<button id="btn-add-bds" type="submit"
-										class="mb-2 mr-2 btn btn-info">Lưu</button>
-									<button onclick="goBack()" class="mb-2 mr-2 btn btn-info"
-										type="button">Thoát</button>
+										class="mb-2 mr-2 btn btn-primary">Lưu</button>
 								</div>
 							</div>
+						</form>
 
-
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+</div>
+<script src="/js/trangcanhan/taobatdongsan.js"></script>

@@ -15,8 +15,7 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 						</div>
-						<form class="user"
-							action='<c:url value="/register?action=register"/>' method="POST">
+						<form class="user" action='<c:url value="/sign-up"/>' method="POST">
 							<div class="form-group">
 								<input type="text" class="form-control form-control-user"
 									id="username" placeholder="Full Name" name="username">
@@ -49,11 +48,7 @@
 										id="phone" placeholder="Phone" name="phoneNumber">
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-6 mb-3 mb-sm-0">
-									<input type="text" class="form-control form-control-user"
-									id="gender" placeholder="Gender" name="gender">
-								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<input type="date" class="form-control form-control-user"
 										id="dob" name="dob" title="Date of birth">
 								</div>

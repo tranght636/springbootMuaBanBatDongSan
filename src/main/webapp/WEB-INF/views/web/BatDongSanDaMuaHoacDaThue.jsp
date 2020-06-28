@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<div class="row">
-	<div class="col-lg-12">
+<div class="row" style="width: 100%;">
+	<div class="col-lg-12" >
 	    <div class="main-card mb-12 card">
-	        <div class="card-body"><h5 class="card-title">Bất động sản chờ giao dịch</h5>
+	        <div class="card-body"><h5 class="card-title">Bất động sản đã mua hoặc thuê</h5>
 	            <div class="scroll-area-md" style="height: 550px;">
 	               	<div class="card-body">
 						<ul class="list-group">
