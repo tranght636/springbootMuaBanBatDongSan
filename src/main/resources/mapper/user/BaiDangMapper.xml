@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.htt.batdongsan.mapper.BaiDangMapper">
+   
+     <insert id="insert" parameterType="BaiDangModel" >
+     INSERT INTO  bai_dang  (danh_muc_id , title ,  content ,  money ,  dien_tich ,  city_id ,  huyen_id ,  xa_id ,  duong_id ,  mat_tien ,  duong_vao_m ,  huong_nha ,  thong_tin_lien_he ,  start_day ,  end_day ,  status ,  actived ,  mo_ta_tong_quat ,  loai_bat_dong_san_id ,  dia_chi_chi_tiet ,  so_nha_ve_sinh ,  so_phong_ngu ,  so_tang ) 
+	VALUES (#{danh_muc_id}, #{title}, #{content},#{money},#{dien_tich},#{city_id}, #{huyen_id}, #{xa_id}, #{duong_id}, #{mat_tien}, #{duong_vao_m},#{huong_nha}, #{thong_tin_lien_he},  #{start_day}, #{end_day},#{status}, #{actived}, #{mo_ta_tong_quat},#{loai_bat_dong_san_id}, #{dia_chi_chi_tiet},  #{so_nha_ve_sinh}, #{so_phong_ngu}, #{so_tang})
+    </insert>
+    
+    <select id="selectTop4All" resultMap="result" >
+        select * from bai_dang ORDER BY status desc  LIMIT 4
+    </select>
+    
+    <select id="selectAll" resultMap="result" >
+        select * from bai_dang ORDER BY status desc
+    </select>
+    
+    <select id="selectTop4New" resultMap="result" >
+        select * from bai_dang ORDER BY start_day desc  LIMIT 4
+    </select>
+    
+     <select id="selectTop4DuAn" resultMap="result" >
+        select * from bai_dang where 1=1 and danh_muc_id BETWEEN 18 AND 27 ORDER BY start_day desc  LIMIT 4
+    </select>
+    
+    <select id="selectOne" resultMap="result" parameterType="Integer">
+        select * from bai_dang where 1=1 and id= #{id}
+    </select>
+    
+    
+    <resultMap id = "result" type = "BaiDangModel"/>
+</mapper>

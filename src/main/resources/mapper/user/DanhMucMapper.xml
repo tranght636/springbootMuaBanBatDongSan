@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.htt.batdongsan.mapper.DanhMucMapper">
+    <select id="selectDanhMucByDanhMucChungId" resultMap="result"  parameterType="Integer">
+       select * from danh_muc
+        where dmc_id = #{dmc_id}
+    </select>
+    
+    <resultMap id = "result" type = "DanhMucModel"/>
+</mapper>

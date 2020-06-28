@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<div class="row">
-	<div class="col-lg-12">
+<div class="row" style="width: 100%;">
+	<div class="col-lg-12" >
 	    <div class="main-card mb-12 card">
 	        <div class="card-body"><h5 class="card-title">Bất động sản chờ giao dịch</h5>
 	            <div class="scroll-area-md" style="height: 550px;">
@@ -20,9 +20,9 @@
 											<h6 style="color: blue;">17 tỷ - 12000 m2 - Lương Sơn, Hòa Bình</h6>
 										</div>
 									</div>
-									<div class="profile-img col-lg-2" >
-										<a class="mb-2 mr-2 btn btn-info" href="<c:url value='/trang-ca-nhan/cap-nhat-bat-dong-san'/>" style="float: right;">Xóa</a>
-										<a class="mb-2 mr-2 btn btn-info" href="<c:url value='/trang-ca-nhan/cap-nhat-bat-dong-san'/>" style="float: right;">Chỉnh sửa</a>
+									<div class="profile-img col-lg-2" style="text-align: right; font-size: 30px;" >
+										<i class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
+										<i class="metismenu-icon pe-7s-trash font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
 									</div>
 								</div>
 							</li>

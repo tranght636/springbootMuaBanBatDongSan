@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="../common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +17,7 @@
 
 <!-- webix -->
 <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css" type="text/css">
+<script src="/templates/web/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
 </head>
 

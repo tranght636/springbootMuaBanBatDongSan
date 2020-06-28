@@ -1,24 +1,111 @@
 package com.htt.batdongsan.controller.web;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.htt.batdongsan.model.BaiDangModel;
+import com.htt.batdongsan.model.UserModel;
+import com.htt.batdongsan.service.BaiDangService;
+import com.htt.batdongsan.service.DanhMucChungService;
+import com.htt.batdongsan.service.DanhMucService;
+import com.htt.batdongsan.service.DistrictService;
+import com.htt.batdongsan.service.LoaiBatDongSanService;
+import com.htt.batdongsan.service.ProvinceService;
+import com.htt.batdongsan.service.StreetService;
+import com.htt.batdongsan.service.UserService;
+import com.htt.batdongsan.service.WardService;
 
 @Controller(value = "TrangCaNhan")
 @RequestMapping("/trang-ca-nhan")
 public class TrangCaNhanController {
+	
+	@Autowired
+	UserService userService;
+	@Autowired
+	DanhMucChungService danhMucChungService;
+	@Autowired
+	DanhMucService danhMucService;
+	@Autowired
+	LoaiBatDongSanService loaiBatDongSanService;
+	@Autowired
+	ProvinceService provinceService;
+	@Autowired
+	DistrictService districtService;
+	@Autowired
+	WardService wardService;
+	@Autowired
+	StreetService streetService;
+	@Autowired
+	BaiDangService baiDangService;
+	
+	
     @GetMapping("/cap-nhat-thong-tin")
-    public String CapNhatThongTin(){
-    	
+    public String CapNhatThongTin(ModelMap modelMap){
+    	//get id sesson
+    	UserModel userModel = userService.selectOne(1);
+    	modelMap.addAttribute("userModel", userModel);
         return "web/CapNhatThongTinCaNhan";
     }
+    @GetMapping("/tao-bat-dong-san")
+    public String TaoBDS(ModelMap modelMap){
+    	// lấy danh sách TBDS_DanhMucChung
+    	Object danhMucChungModel = danhMucChungService.selectAll();
+    	modelMap.addAttribute("danhMucChungModel", danhMucChungModel);
+    	// lấy danh sách Danh mục
+    	Object danhMucModel = danhMucService.selectDanhMucByDanhMucChungId(4);
+    	modelMap.addAttribute("danhMucModel", danhMucModel);
+    	
+    	// lấy danh sách loại Bất động sản
+    	Object loaiBatDongSanModel = loaiBatDongSanService.selectAll();
+    	modelMap.addAttribute("loaiBatDongSanModel", loaiBatDongSanModel);
+    	// lấy danh sách tỉnh/ thành phố
+    	Object provinceModel = provinceService.selectAll();
+    	modelMap.addAttribute("provinceModel", provinceModel);
+    	// lấy danh sách Quận/ huyện
+    	Object districtModel = districtService.selectDistrictByProvinceId(30);
+    	modelMap.addAttribute("districtModel", districtModel);
+    	
+    	// lấy danh sách Phường/Xã
+    	Object wardModel = wardService.selectWardbyDistrictIdAndProvinceId(388, 30);
+    	modelMap.addAttribute("wardModel", wardModel);
+    	
+    	// lấy danh sách đường
+    	Object streetModel = streetService.selectStreetbyDistrictIdAndProvinceId(388, 30);
+    	modelMap.addAttribute("streetModel", streetModel);
+    	
+        return "web/TaoBatDongSan";
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GetMapping("/bat-dong-san-cho-giao-dich")
     public String BDSChoGiaoDich() {
     	return "web/BatDongSanChoGiaoDich";
     }
-    @GetMapping("/tao-bat-dong-san")
-    public String TaoBDS(){
-        return "web/TaoBatDongSan";
-    }
+    
+  
     @GetMapping("/cap-nhat-bat-dong-san")
     public String CapNhatBDS(){
         return "web/CapNhatThongTinBatDongSan";
@@ -56,5 +143,38 @@ public class TrangCaNhanController {
         return "admin/ChiTietBatDongSan";
     }
     
+    @GetMapping("/bat-dong-san-yeu-thich")
+    public String BDSYeuThich(){
+        return "web/BatDongSanYeuThich";
+    }
     
+    @PostMapping("/cap-nhat-thong-tin")
+    public String updateUserInfo(@ModelAttribute UserModel userModel) {
+    	Integer result = userService.update(userModel);
+    	if(result > 0) {
+    		return "redirect:/trang-ca-nhan/cap-nhat-thong-tin";
+    	}
+    	return "redirect:/trang-ca-nhan/cap-nhat-thong-tin";
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //post
+    @PostMapping("/tao-bat-dong-san")
+    public String PostTaoBDS(@ModelAttribute BaiDangModel baiDangModel){
+    	
+    	Integer result = baiDangService.insert(baiDangModel);
+    	if(result > 0) {
+    		return "redirect:/trang-ca-nhan/tao-bat-dong-san";
+    	}
+    	return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=Tạo bài đăng thất bại";
+    	
+    }
+   
 }
