@@ -13,21 +13,37 @@
     </select>
     
     <select id="selectAll" resultMap="result" >
-        select * from bai_dang ORDER BY status desc
+        select * from bai_dang where danh_muc_id NOT BETWEEN 18 AND 27 ORDER BY status desc
     </select>
     
     <select id="selectTop4New" resultMap="result" >
         select * from bai_dang ORDER BY start_day desc  LIMIT 4
     </select>
     
+     <select id="selectNew" resultMap="result" >
+        select * from bai_dang ORDER BY start_day desc
+    </select>
+    
      <select id="selectTop4DuAn" resultMap="result" >
         select * from bai_dang where 1=1 and danh_muc_id BETWEEN 18 AND 27 ORDER BY start_day desc  LIMIT 4
+    </select>
+    
+     <select id="selectDANB" resultMap="result" >
+        select * from bai_dang where 1=1 and danh_muc_id BETWEEN 18 AND 27 ORDER BY start_day desc
     </select>
     
     <select id="selectOne" resultMap="result" parameterType="Integer">
         select * from bai_dang where 1=1 and id= #{id}
     </select>
+     <select id="selectWhereDanhMucId" resultMap="result" parameterType="Integer">
+        select * from bai_dang where 1=1 and danh_muc_id = #{dmc_id}
+    </select>
+    <select id="selectWhereTPId" resultMap="result" parameterType="Integer">
+        select * from bai_dang where 1=1 and city_id = #{city_id}
+    </select>
     
+    
+   
     
     <resultMap id = "result" type = "BaiDangModel"/>
 </mapper>

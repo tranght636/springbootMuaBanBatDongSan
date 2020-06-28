@@ -10,5 +10,7 @@ public interface DanhMucMapper {
 
 	List<DanhMucModel> selectDanhMucByDanhMucChungId(Integer dmc_id);
 
+	DanhMucModel selectDanhMucById(Integer dm_id);
+
 
 }

@@ -5,6 +5,9 @@
     <select id="selectAll" resultMap="result" >
         select * from province ORDER BY _name
     </select>
+    <select id="selectProvinceById" resultMap="result" >
+        select * from province where id = #{city_id}
+    </select>
     
     
     <resultMap id = "result" type = "ProvinceModel"/>

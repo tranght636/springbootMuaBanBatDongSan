@@ -6,6 +6,12 @@
        select * from danh_muc
         where dmc_id = #{dmc_id}
     </select>
+    <select id="selectDanhMucById" resultMap="result"  parameterType="Integer">
+       select * from danh_muc
+        where id = #{dm_id}
+    </select>
+    
+    
     
     <resultMap id = "result" type = "DanhMucModel"/>
 </mapper>

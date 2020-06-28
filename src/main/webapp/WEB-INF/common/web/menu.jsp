@@ -16,80 +16,81 @@
 								<nav>
 									<ul id="navigation">
 										<li><a href="/">Trang chủ</a></li>
-										<li><a href="#">Nhà đất bán</a>
+										<li><a href="/bat-dong-san?dmc_id=1">Nhà đất bán</a>
 											<ul class="submenu">
-												<li><a href="#">Bán căn hộ chung cư</a></li>
-												<li><a href="#">Bán nhà riêng</a></li>
-												<li><a href="#">Bán biệt thự, liền kề</a></li>
-												<li><a href="#">Bán nhà mặt phố</a></li>
-												<li><a href="#">Bán đất nên dự án</a></li>
-												<li><a href="#">Bán đất</a></li>
-												<li><a href="#">Bán trang trại khu nghỉ dưỡng</a></li>
-												<li><a href="#">Bán kho, nhà xưởng</a></li>
-												<li><a href="#">Bán loại bất động sản khác</a></li>
+												<li><a href="/bat-dong-san?dmc_id=1">Bán căn hộ chung cư</a></li>
+												<li><a href="/bat-dong-san?dmc_id=2">Bán nhà riêng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=3">Bán biệt thự, liền kề</a></li>
+												<li><a href="/bat-dong-san?dmc_id=4">Bán nhà mặt phố</a></li>
+												<li><a href="/bat-dong-san?dmc_id=5">Bán đất nên dự án</a></li>
+												<li><a href="/bat-dong-san?dmc_id=6">Bán đất</a></li>
+												<li><a href="/bat-dong-san?dmc_id=7">Bán trang trại khu nghỉ dưỡng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=8">Bán kho, nhà xưởng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=9">Bán loại bất động sản khác</a></li>
 
 
 											</ul></li>
-										<li><a href="#">Nhà đất cho thuê</a>
+										<li><a href="/bat-dong-san?dmc_id=10">Nhà đất cho thuê</a>
 											<ul class="submenu">
-												<li><a href="#">Cho thuê căn hộ chung cư</a></li>
-												<li><a href="#">Cho thuê nhà riêng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=10">Cho thuê căn hộ chung cư</a></li>
+												<li><a href="/bat-dong-san?dmc_id=11">Cho thuê nhà riêng</a></li>
 
-												<li><a href="#">Cho thuê nhà mặt phố</a></li>
-												<li><a href="#">Cho thuê nhà trọ, phòng trọ</a></li>
-												<li><a href="#">Cho thuê văn phòng</a></li>
-												<li><a href="#">Cho thuê cửa hàng - ki ốt</a></li>
-												<li><a href="#">Cho thuê kho, nhà xưởng, đất</a></li>
-												<li><a href="#">Cho thuê loại bất động sản khác</a></li>
+												<li><a href="/bat-dong-san?dmc_id=12">Cho thuê nhà mặt phố</a></li>
+												<li><a href="/bat-dong-san?dmc_id=13">Cho thuê nhà trọ, phòng trọ</a></li>
+												<li><a href="/bat-dong-san?dmc_id=14">Cho thuê văn phòng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=15">Cho thuê cửa hàng - ki ốt</a></li>
+												<li><a href="/bat-dong-san?dmc_id=16">Cho thuê kho, nhà xưởng, đất</a></li>
+												<li><a href="/bat-dong-san?dmc_id=17">Cho thuê loại bất động sản khác</a></li>
 
 
 											</ul></li>
-										<li><a href="#">Dự án</a>
+										<li><a href="/bat-dong-san?dmc_id=18">Dự án</a>
 											<ul class="submenu">
-												<li><a href="#">Căn hộ, Chung cư</a></li>
-												<li><a href="#">Cao ốc văn phòng</a></li>
-												<li><a href="#">Trung tâm thương mại</a></li>
-												<li><a href="#">Khu đô thị mới</a></li>
-												<li><a href="#">Khu phức hợp</a></li>
-												<li><a href="#">Nhà ở xã hội</a></li>
-												<li><a href="#">Khu nghỉ dưỡng, Sinh thái</a></li>
-												<li><a href="#">Khu công nghiệp</a></li>
-												<li><a href="#">Dự án khác</a></li>
-												<li><a href="#">Biệt thự, liền kề</a></li>
+												<li><a href="/bat-dong-san?dmc_id=18">Căn hộ, Chung cư</a></li>
+												<li><a href="/bat-dong-san?dmc_id=19">Cao ốc văn phòng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=20">Trung tâm thương mại</a></li>
+												<li><a href="/bat-dong-san?dmc_id=21">Khu đô thị mới</a></li>
+												<li><a href="/bat-dong-san?dmc_id=22">Khu phức hợp</a></li>
+												<li><a href="/bat-dong-san?dmc_id=23">Nhà ở xã hội</a></li>
+												<li><a href="/bat-dong-san?dmc_id=24">Khu nghỉ dưỡng, Sinh thái</a></li>
+												<li><a href="/bat-dong-san?dmc_id=25">Khu công nghiệp</a></li>
+												<li><a href="/bat-dong-san?dmc_id=26">Biệt thự, liền kề</a></li>
+												<li><a href="/bat-dong-san?dmc_id=27">Dự án khác</a></li>
+												
 
 
 
 
 											</ul></li>
-										<li><a href="#">Cần mua</a>
+										<li><a href="/bat-dong-san?dmc_id=28">Cần mua</a>
 											<ul class="submenu">
-												<li><a href="#">Mua căn hộ chung cư</a></li>
-												<li><a href="#">Mua nhà riêng</a></li>
-												<li><a href="#">Mua biệt thự, liền kề </a></li>
-												<li><a href="#">Mua nhà mặt phố </a></li>
-												<li><a href="#">Mua đất nền dự án </a></li>
-												<li><a href="#">Mua đất </a></li>
-												<li><a href="#">Mua trang trại, khu nghỉ dưỡng </a></li>
-												<li><a href="#">Mua kho, nhà xưởng </a></li>
-												<li><a href="#">Mua loại bất động sản khác </a></li>
+												<li><a href="/bat-dong-san?dmc_id=28">Mua căn hộ chung cư</a></li>
+												<li><a href="/bat-dong-san?dmc_id=29">Mua nhà riêng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=30">Mua biệt thự, liền kề </a></li>
+												<li><a href="/bat-dong-san?dmc_id=31">Mua nhà mặt phố </a></li>
+												<li><a href="/bat-dong-san?dmc_id=32">Mua đất nền dự án </a></li>
+												<li><a href="/bat-dong-san?dmc_id=33">Mua đất </a></li>
+												<li><a href="/bat-dong-san?dmc_id=34">Mua trang trại, khu nghỉ dưỡng </a></li>
+												<li><a href="/bat-dong-san?dmc_id=35">Mua kho, nhà xưởng </a></li>
+												<li><a href="/bat-dong-san?dmc_id=36">Mua loại bất động sản khác </a></li>
 											</ul>
 												
-										<li><a href="blog.html">Cần thuê</a>
+										<li><a href="/bat-dong-san?dmc_id=37">Cần thuê</a>
 											<ul class="submenu">
-												<li><a href="contact.html">Cần thuê căn hộ chung cư</a></li>
-												<li><a href="contact.html">Cần thuê nhà riêng</a></li>
-												<li><a href="contact.html">Cần thuê nhà mặt phố </a></li>
-												<li><a href="contact.html">Cần thuê nhà trọ, phòng trọ </a></li>
-												<li><a href="contact.html">Cần thuê văn phòng </a></li>
-												<li><a href="contact.html">Cần thuê cửa hàng - ki ốt </a></li>
-												<li><a href="contact.html">Cần thuê kho, nhà xưởng, đất </a></li>
-												<li><a href="contact.html">Cần thuê loại bất động sản khác </a></li>
+												<li><a href="/bat-dong-san?dmc_id=37">Cần thuê căn hộ chung cư</a></li>
+												<li><a href="/bat-dong-san?dmc_id=38">Cần thuê nhà riêng</a></li>
+												<li><a href="/bat-dong-san?dmc_id=39">Cần thuê nhà mặt phố </a></li>
+												<li><a href="/bat-dong-san?dmc_id=40">Cần thuê nhà trọ, phòng trọ </a></li>
+												<li><a href="/bat-dong-san?dmc_id=41">Cần thuê văn phòng </a></li>
+												<li><a href="/bat-dong-san?dmc_id=42">Cần thuê cửa hàng - ki ốt </a></li>
+												<li><a href="/bat-dong-san?dmc_id=43">Cần thuê kho, nhà xưởng, đất </a></li>
+												<li><a href="/bat-dong-san?dmc_id=44">Cần thuê loại bất động sản khác </a></li>
 											</ul>
 												
 												
 												
 											</li>
-										<li><a href="blog.html">Tin tức</a></li>
+										<li><a href="#">Tin tức</a></li>
 									</ul>
 								</nav>
 							</div>

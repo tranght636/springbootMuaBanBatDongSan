@@ -15,10 +15,20 @@ public interface BaiDangMapper {
 	List<BaiDangModel> selectTop4All();
 
 	List<BaiDangModel> selectTop4New();
+	
+	List<BaiDangModel> selectNew();
 
 	List<BaiDangModel> selectTop4DuAn();
 
+	List<BaiDangModel> selectDANB();
+	
 	BaiDangModel selectOne(Integer id);
 
+	List<BaiDangModel> selectWhereDanhMucId(Integer dmc_id);
 
+	List<BaiDangModel> selectWhereTPId(Integer city_id);
+
+
+
+	
 }
