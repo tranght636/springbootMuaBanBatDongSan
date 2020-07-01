@@ -1,19 +1,57 @@
 package com.htt.batdongsan.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.htt.batdongsan.service.BaiDangService;
+import com.htt.batdongsan.service.UserService;
 
 @Controller(value = "HomeControllerAdmin")
 @RequestMapping("/admin")
 public class HomeController {
-	 @GetMapping("/home")
-	    public String Home(){
-	        return "admin/DanhSachNguoiDung";
-	    }
+	@Autowired
+	UserService userService;
+	@Autowired 
+	BaiDangService baiDangService;
+	
     @GetMapping("/quan-ly-nguoi-dung")
-    public String DanhSachNguoiDung(){
+    public String DanhSachNguoiDung(ModelMap modelMap){
+    	Object userDangHoatDong = userService.selectListUser(1);
+    	modelMap.addAttribute("userDangHoatDong", userDangHoatDong);
+    	Object userDaXoa = userService.selectListUser(-1);
+    	modelMap.addAttribute("userDaXoa", userDaXoa);
         return "admin/DanhSachNguoiDung";
+    }
+    @GetMapping("/chi-tiet-nguoi-dung")
+    public String ChiTietNguoiDung( @RequestParam("user-id") Integer id, ModelMap modelMap){
+    	Object userModel = userService.selectUser(id);
+    	modelMap.addAttribute("userModel", userModel);
+    	
+    	Object BDSYeuThich = baiDangService.BDSYeuThich(id);
+    	modelMap.addAttribute("BDSYeuThich", BDSYeuThich);
+    	
+    	Object BDSChoXacNhan = baiDangService.BDSChoXacNhan(id);
+    	modelMap.addAttribute("BDSChoXacNhan", BDSChoXacNhan);
+    	
+    	Object BDSChoGiaoDich = baiDangService.BDSChoGiaoDich(id);
+    	modelMap.addAttribute("BDSChoGiaoDich", BDSChoGiaoDich);
+    	
+    	Object BDSDayTin = baiDangService.BDSDayTin(id);
+    	modelMap.addAttribute("BDSDayTin", BDSDayTin);
+    	
+    	Object BDSBiCam = baiDangService.BDSBiCam(id);
+    	modelMap.addAttribute("BDSBiCam", BDSBiCam);
+    	
+    	Object BDSBiXoa = baiDangService.BDSBiXoa(id);
+    	modelMap.addAttribute("BDSBiXoa", BDSBiXoa);
+    	
+    	
+    	
+        return "admin/ChiTietNguoiDung";
     }
     @GetMapping("/cap-nhat-thong-tin")
     public String CapNhatThongTin(){
@@ -51,10 +89,7 @@ public class HomeController {
     public String ChiTietBatDongSan(){
         return "admin/ChiTietBatDongSan";
     }
-    @GetMapping("/chi-tiet-nguoi-dung")
-    public String ChiTietNguoiDung(){
-        return "admin/ChiTietNguoiDung";
-    }
+   
     @GetMapping("/quan-ly-danh-muc")
     public String QuanLyDanhMuc(){
         return "admin/DanhMucTinTuc";

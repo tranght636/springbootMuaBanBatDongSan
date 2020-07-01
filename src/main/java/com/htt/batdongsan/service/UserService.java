@@ -32,6 +32,10 @@ public class UserService{
 		map.put("status", 0);
 		return userMapper.selectOneByEmail(map);
 	}
+	
+	public UserModel selectUser(Integer id) {
+		return userMapper.selectUser(id);
+	}
 
 	public Integer update(UserModel userModel) {
 		return userMapper.update(userModel);
@@ -45,4 +49,18 @@ public class UserService{
 		return -1;
 		
 	}
+
+	
+	public List<UserModel> selectListUser(Integer status) {
+		return userMapper.selectListUser(status);
+	}
+
+	public Integer updateStatusOne(String id, Integer status) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("status", status);
+		return userMapper.updateStatusOne(map);
+	}
+
+	
 }

@@ -18,7 +18,7 @@
 									<li><a href="/sign-in"> Đăng nhập</a></li>
 									<li><a href="/sign-up"> Đăng ký</a></li>
 									<li><a href="/trang-ca-nhan">Trang cá nhân</a></li>
-									<li><a href="/admin/home">Trang admin</a></li>
+									<li><a href="/admin/quan-ly-nguoi-dung">Trang admin</a></li>
 								</ul>
 							</div>
 						</div>

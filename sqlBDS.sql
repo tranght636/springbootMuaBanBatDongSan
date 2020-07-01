@@ -47004,7 +47004,10 @@ COMMIT;
 
 create table const
 (
-	date_min int
+	date_min int,
+    muc_dat_tin1 int,
+    muc_dat_tin2 int,
+    muc_dat_tin3 int
 );
 create table role
 (
@@ -47088,13 +47091,27 @@ create table bai_dang
     FOREIGN KEY (loai_bat_dong_san_id) REFERENCES loai_bat_dong_san(id),
 	mo_ta_tong_quat text,
 	status  int,
-	actived  int,
+	actived  int, --  <!-- actived >=0, 1 chờ đẩy tin, 0 bình thường, 2 đang đẩy tin, hết thời gian đẩy trả về 0, càng lớn càng có độ ưu tiên cao -->
     dia_chi_chi_tiet text,
     so_nha_ve_sinh int,
     so_phong_ngu int,
-    so_tang int
+    so_tang int,
+    user_id int ,
+	FOREIGN KEY (user_id) REFERENCES user(id)
 );
--- alter table bai_dang add  dien_tich varchar(255)
+-- alter table bai_dang add  user_id int 
+-- alter table bai_dang add  FOREIGN KEY (user_id) REFERENCES user(id),
+create table day_tin
+(
+	id  int  primary key auto_increment,
+    bai_dang_id int,
+    muc_do_day_tin int,  -- bằng hằng số 
+    start_time date, -- ngày bắt đầy đẩy tin
+    end_time date, -- ngày đẩy + hằng số
+	FOREIGN KEY (bai_dang_id) REFERENCES bai_dang(id)
+);
+
+
 
 create table hinh_anh_video
 (
@@ -47117,7 +47134,8 @@ create table comment
 	id int primary key auto_increment,
 	bai_dang_id int,
     FOREIGN KEY (bai_dang_id) REFERENCES bai_dang(id),
-	create_by VARCHAR(255),
+	create_by int,
+   FOREIGN KEY (create_by) REFERENCES user(id),
 	content text,
 	tra_loi_comment_id int,
     FOREIGN KEY (tra_loi_comment_id) REFERENCES comment(id),

@@ -3647,7 +3647,7 @@ hr {
 
 .h1-testimonial-active button.slick-arrow {
     position: absolute;
-    top: 67%;
+    top: 50%;
     left: -133px;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
