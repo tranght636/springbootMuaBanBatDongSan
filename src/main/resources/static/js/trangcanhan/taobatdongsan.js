@@ -1,3 +1,5 @@
+var images = [];
+
 function setDiaChiChiTiet() {
 	
 	if(document.getElementById("TBDS_so_nha_chi_tiet_khac").value !== ""){
@@ -103,6 +105,66 @@ $(document).ready(function() {
 	});
 	
 	
+	$("#btn-upload-img-tbds").on('click', function(){
+		let form = new FormData();
+		let files = document.querySelector('#multi-file-tbds').files;
+		
+		if(!files.length) {
+			return false;
+		}
+		
+		for(let file of files){
+			form.append('multipartFiles', file);
+		}
+		
+		$.ajax({
+            url: '/api/file/',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: form,
+            success: function(result) {
+            	if(result.length) {
+            		for(image of result) {
+            			$("#list-image-tbds").append(`<img class="col-sm-2" src="${image}" alt=""
+						style="border-radius: 10px 10px 10px 10px;">`)
+						
+						images.push(image);
+            		}
+            		document.getElementById('multi-file-tbds').value = "";
+            	}
+            }
+        });
+	});
 	
-
+	/*
+	 * 1. Lưu hình ảnh bằng cách gọi api hinh_anh_video
+	 * 2. Cho phép form submit
+	 * */
+	$("#btn-add-bds").on("click", function(){
+		if(images.length) {
+			let data = images.map(image => {
+				return {
+					bai_viet_id: 1,
+					link: image
+				}
+			});
+			
+			$.ajax({
+	            url: '/api/hinh-anh-video/',
+	            type: 'POST', 
+	            contentType: 'application/json',
+	            dataType: 'json',
+	            data: JSON.stringify(data),
+	            success: function(result) {
+	            	if(!result){
+	            		alert("Save image failed");
+	            	}
+	            }
+	        });
+		}
+		
+		
+		//$("#bai-dang").submit();
+	});
 });

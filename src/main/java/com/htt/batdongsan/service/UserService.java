@@ -29,7 +29,7 @@ public class UserService{
 	public UserModel selectOne(String email) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("email", email);
-		map.put("status", 0);
+		map.put("status", 1);
 		return userMapper.selectOneByEmail(map);
 	}
 	

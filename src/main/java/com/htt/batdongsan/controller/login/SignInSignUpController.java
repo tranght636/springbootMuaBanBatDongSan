@@ -15,11 +15,11 @@ public class SignInSignUpController {
 	UserService userService;
 	
 	
-    @GetMapping("/sign-in")
+    @GetMapping("/login")
     public String login(){
         return "signinsignup/DangNhap";
     }
-    @GetMapping("/sign-up")
+    @GetMapping("/register")
     public String register(){
         return "signinsignup/DangKy";
     }
@@ -29,8 +29,8 @@ public class SignInSignUpController {
     public String PostSignUp(@ModelAttribute UserModel userModel){
     	Integer result = userService.insert(userModel);
     	if(result > 0) {
-    		return "redirect:/sign-in";
+    		return "redirect:/login";
     	}
-    	return "redirect:/sign-up?message=Đăng ký thất bại";
+    	return "redirect:/login?message=Đăng ký thất bại";
     }
 }

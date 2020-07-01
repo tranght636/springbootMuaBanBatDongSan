@@ -8,7 +8,7 @@
 				<h5 class="card-title">Tạo bất động sản mới</h5>
 				<div class="scroll-area-md" style="height: 550px;">
 					<div class="card-body">
-						<form class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
+						<form id="bai-dang" class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
 							<div class="container">
 								<div class="form-group row">
 									<h2>Thông tin cơ bản:</h2>
@@ -221,31 +221,33 @@
 											<div>
 												<div class="single-profile-front">
 													<div class="profile-img">
-														<div class="row">
+														<div class="row" id="list-image-tbds">
 															<img class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;"> <img
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
 																class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px;">
+																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;">
 
 														</div>
 
 													</div>
 												</div>
 											</div>
-											<input name="file" id="exampleFile" type="file" 
-												class="form-control-file" style="margin-top: 5px; ">
+											<input name="file" id="multi-file-tbds" type="file" 
+												class="form-control-file" style="margin-top: 5px; " multiple required>
+											<button id="btn-upload-img-tbds" type="button"
+												class="mb-2 mr-2 mt-2 btn btn-primary">Upload</button>
 											<small class="form-text text-muted"></small>
 										</div>
 									</div>
@@ -614,7 +616,7 @@
 							<div class="form-group row">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-10" style="text-align: right;">
-									<button id="btn-add-bds" type="submit"
+									<button id="btn-add-bds" type="button"
 										class="mb-2 mr-2 btn btn-primary">Lưu</button>
 								</div>
 							</div>
