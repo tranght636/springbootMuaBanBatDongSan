@@ -4,7 +4,18 @@
 
 
 <main>
+<!-- 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+<c:choose>
+	<c:when test="1">
+	<i class="fa fa-heart fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
+ </c:when>
+ <c:otherwise>
+    <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
+ </c:otherwise>
+</c:choose>
 
+ -->
 
 	<div class="slider-area ">
 		<!-- Mobile Menu -->
@@ -39,6 +50,7 @@
 	<div class="team-profile team-padding" style="padding-top: 50px; padding-bottom: 50px;">
 		<div class="container">
 			<h3 style="color: blue;">Tin rao nổi bật</h3>
+			
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12">
 					<div class="single-cases-img  size mb-30">
@@ -46,7 +58,7 @@
 							<!-- Single Testimonial -->
 							<c:forEach var="a" items="${baiDangModel}">
 								
-								<div class="single-testimonial pt-65">
+								<div class="single-testimonial" >
 									<div class="single-profile-front">
 										<div class="profile-img">
 											<div class="row">
@@ -61,8 +73,7 @@
 																		<img src="/img/web/item3.jpg" alt=""
 																			style="border-radius: 10px 10px 10px 10px;">
 																	</div>
-																	<div class="profile-caption"
-																		style="margin-left: 5px; margin-right: 5px;">
+																	<div class="profile-caption" style="margin-left: 5px; margin-right: 5px;">
 																		<h6 class="title" style="color: black;">${baiDang.title}
 																		</h6>
 																		<p style="color: blue; font-size: 12px;">Giá:
@@ -98,7 +109,7 @@
 							<!-- Single Testimonial -->
 							<c:forEach var="a" items="${baiDangModel3}">
 								
-								<div class="single-testimonial pt-65">
+								<div class="single-testimonial">
 									<div class="single-profile-front">
 										<div class="profile-img">
 											<div class="row">
@@ -116,7 +127,7 @@
 																	<div class="profile-caption"
 																		style="margin-left: 5px; margin-right: 5px;">
 																		<h6>
-																		<a href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">${baiDang.title}</a>
+																		${baiDang.title}
 																		</h6>
 																		<p>Diện tích: ${baiDang.dien_tich}</p>
 																		<small>${baiDang.dia_chi_chi_tiet}</small>

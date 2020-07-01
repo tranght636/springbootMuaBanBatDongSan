@@ -28,6 +28,18 @@ public interface BaiDangMapper {
 
 	List<BaiDangModel> selectWhereTPId(Integer city_id);
 
+	List<BaiDangModel> BDSYeuThich(Integer id);
+
+	List<BaiDangModel> BDSChoXacNhan(Integer id);
+
+	List<BaiDangModel> BDSChoGiaoDich(Integer id);
+
+	List<BaiDangModel> BDSDayTin(Integer id);
+
+	List<BaiDangModel> BDSBiCam(Integer id);
+
+	List<BaiDangModel> BDSBiXoa(Integer id);
+
 
 
 	

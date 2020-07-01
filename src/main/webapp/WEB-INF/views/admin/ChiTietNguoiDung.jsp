@@ -43,45 +43,56 @@
 										<c:if test="${not empty message}">
 											<div class="alert alert-${alert}">${message}</div>
 										</c:if>
-										<form id="form-profile" action="/admin/thong-tin-tai-khoan"
-											method="POST">
-											<input name="id" value="${USERMODEL.id}" hidden="true" />
+											<input name="id" value="${userModel.id}" hidden="true" />
 
-											<div class="form-group">
-												<input type="text" class="form-control form-control-user"
-													id="username" placeholder="Full Name" name="username">
-											</div>
-											<div class="form-group">
-												<div class="span-email-exist" style="margin-left: 15px;"
-													hidden="true">
-													<span style="color: red;">Email đã tồn tại</span>
-												</div>
-												<input type="email"
-													class="form-control form-control-user input-register-email"
-													placeholder="Email Address" name="email">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control form-control-user"
-													id="address" placeholder="Address" name="address">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control form-control-user"
-													id="phone" placeholder="Phone" name="phoneNumber">
+											<div class="form-group row">
+												<h6 class="col-lg-2">Username</h6>
+												<input type="text"
+													class=" col-lg-10 form-control form-control-user"
+													id="username" placeholder="Full Name" name="username"
+													value="${userModel.username}" disabled="disabled">
 											</div>
 											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<input type="text" class="form-control form-control-user"
-														id="gender" placeholder="Gender" name="gender">
-												</div>
-												<div class="col-sm-6">
-													<input type="date" class="form-control form-control-user"
-														id="dob" name="dob" title="Date of birth">
-												</div>
+												<h6 class="col-lg-2">Email</h6>
+												<input type="email"
+													class=" col-lg-10 form-control form-control-user input-register-email"
+													placeholder="Email Address" name="email"
+													value="${userModel.email}" disabled="disabled">
 											</div>
-											<button type="submit" class="mb-2 mr-2 btn btn-primary"
-												style="width: 300px; float: right; margin-bottom: 15px;">Xóa
-												tài khoản</button>
-										</form>
+											<div class="form-group row">
+												<h6 class="col-lg-2">Address</h6>
+												<input type="text"
+													class="col-sm-10 form-control form-control-user"
+													id="address" placeholder="Address" name="address"
+													value="${userModel.address }" disabled="disabled">
+											</div>
+											<div class="form-group row">
+												<h6 class="col-lg-2">Phone Number</h6>
+												<input type="text"
+													class="col-sm-10 form-control form-control-user" id="phone"
+													placeholder="Phone" name="phoneNumber"
+													value="${userModel.phone_number }" disabled="disabled">
+											</div>
+											<div class="form-group row">
+												<h6 class="col-lg-2">Day of Birth</h6>
+												<input type="date"
+													class=" col-sm-10 form-control form-control-user" id="dob"
+													name="dob" title="Date of birth" ${userModel.dob}
+													disabled="disabled">
+											</div>
+											chỗ này có btn chưa xử lý được
+											<c:choose>
+												<c:when test="${userModel.status == 1}">
+													<button id="CTTKXoaTaiKhoan" id-user="${userModel.id}" type="button" class="mb-2 mr-2 btn btn-primary"
+													style="width: 300px; float: right; margin-bottom: 15px;">Xóa
+													tài khoản</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" class="mb-2 mr-2 btn btn-primary"
+													style="width: 300px; float: right; margin-bottom: 15px;">Khôi
+													phục tài khoản</button>
+												</c:otherwise>
+											</c:choose>
 									</div>
 								</div>
 							</div>
@@ -98,7 +109,7 @@
 									<div class="scroll-area-md" style="height: 450px;">
 										<div class="card-body">
 											<ul class="list-group">
-												<c:forEach var="i" begin="1" end="10">
+												<c:forEach var="bds" items="${BDSYeuThich}">
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
@@ -108,11 +119,9 @@
 															<div class="col-lg-10">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
-																	<h6 style="color: black;">Nhượng 3600m2 đất trang
-																		trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn,
-																		Hòa Bình</h6>
-																	<h6 style="color: blue;">17 tỷ - 12000 m2 - Lương
-																		Sơn, Hòa Bình</h6>
+																	<h6 style="color: black;">${bds.title}</h6>
+																	<h6 style="color: blue;">${bds.money}-
+																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
 															</div>
 														</div>
@@ -127,20 +136,246 @@
 					</div>
 				</div>
 				<!-- bds chờ giao dịch -->
-				<div class="tab-pane show " id="tab-eg4-2" role="tabpanel"></div>
-				<div class="tab-pane show " id="tab-eg4-3" role="tabpanel">tab3</div>
-				<div class="tab-pane show " id="tab-eg4-4" role="tabpanel">tab4</div>
+				<div class="tab-pane show " id="tab-eg4-2" role="tabpanel">
+					<div class="row" style="width: 100%;">
+						<div class="col-lg-12">
+							<div class="main-card mb-12 card">
+								<div class="card-body">
+									<h5 class="card-title">Bất động sản chờ giao dịch</h5>
+									<div class="scroll-area-md" style="height: 450px;">
+										<div class="card-body">
+											<ul class="list-group">
+												<c:forEach var="bds" items="${BDSChoGiaoDich}">
+													<li class="list-group-item-action list-group-item">
+														<div class="single-profile-front row">
+															<div class="profile-img col-lg-2">
+																<img src="/img/web/item2.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+															</div>
+															<div class="col-lg-10">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<h6 style="color: black;">${bds.title}</h6>
+																	<h6 style="color: blue;">${bds.money}-
+																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																</div>
+															</div>
+														</div>
+													</li>
+												</c:forEach>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Bất động sản chờ xác nhận -->
+				<div class="tab-pane show " id="tab-eg4-3" role="tabpanel">
+					<div class="row" style="width: 100%;">
+						<div class="col-lg-12">
+							<div class="main-card mb-12 card">
+								<div class="card-body">
+									<h5 class="card-title">Bất động sản chờ xác nhận</h5>
+									<div class="scroll-area-md" style="height: 450px;">
+										<div class="card-body">
+											<ul class="list-group">
+												<c:forEach var="bds" items="${BDSChoXacNhan}">
+													<li class="list-group-item-action list-group-item">
+														<div class="single-profile-front row">
+															<div class="profile-img col-lg-2">
+																<img src="/img/web/item2.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+															</div>
+															<div class="col-lg-8">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<h6 style="color: black;">${bds.title}</h6>
+																	<h6 style="color: blue;">${bds.money}-
+																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																</div>
+															</div>
+															<div class="col-lg-2">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<div style="text-align: right;">
+																		<div class="badge badge-success btn">Xác nhận</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</li>
+												</c:forEach>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Bất động sản đẩy tin -->
+				<div class="tab-pane show " id="tab-eg4-4" role="tabpanel">
+					<div class="row" style="width: 100%;">
+						<div class="col-lg-12">
+							<div class="main-card mb-12 card">
+								<div class="card-body">
+									<h5 class="card-title">Bất động sản đẩy tin</h5>
+									<div class="scroll-area-md" style="height: 450px;">
+										<div class="card-body">
+											<ul class="list-group">
+												<c:forEach var="bds" items="${BDSDayTin}">
+													<c:choose>
+														<c:when test="${bds.actived == 1}">
+															<li class="list-group-item-action list-group-item">
+																<div class="single-profile-front row">
+																	<div class="profile-img col-lg-2">
+																		<img src="/img/web/item2.jpg" alt=""
+																			style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+																	</div>
+																	<div class="col-lg-8">
+																		<div class="profile-caption"
+																			style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																			<h6 style="color: black;">${bds.title}</h6>
+																			<h6 style="color: blue;">${bds.money}-
+																				${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																		</div>
+																	</div>
+																	<div class="profile-img col-lg-2"
+																		style="text-align: right; font-size: 30px;">
+																		<i
+																			class="metismenu-icon pe-7s-rocket font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"
+																			style="color: green;"></i>
+																	</div>
+																</div>
+															</li>
+														</c:when>
+														<c:otherwise>
+															<li class="list-group-item-action list-group-item">
+																<div class="single-profile-front row">
+																	<div class="profile-img col-lg-2">
+																		<img src="/img/web/item2.jpg" alt=""
+																			style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+																	</div>
+																	<div class="col-lg-10">
+																		<div class="profile-caption"
+																			style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																			<h6 style="color: black;">${bds.title}</h6>
+																			<h6 style="color: blue;">${bds.money}-
+																				${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																		</div>
+																	</div>
+																</div>
+															</li>
+														</c:otherwise>
+													</c:choose>
+
+												</c:forEach>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="tab-pane show " id="tab-eg4-5" role="tabpanel">tab5</div>
 				<div class="tab-pane show " id="tab-eg4-6" role="tabpanel">tab6</div>
-				<div class="tab-pane show " id="tab-eg4-7" role="tabpanel">tab7</div>
-				<div class="tab-pane show " id="tab-eg4-8" role="tabpanel">tab8</div>
+				<!-- Bất động sản bị cấm -->
+				<div class="tab-pane show " id="tab-eg4-7" role="tabpanel">
+					<div class="row" style="width: 100%;">
+						<div class="col-lg-12">
+							<div class="main-card mb-12 card">
+								<div class="card-body">
+									<h5 class="card-title">Bất động sản bị cấm</h5>
+									<div class="scroll-area-md" style="height: 450px;">
+										<div class="card-body">
+											<ul class="list-group">
+												<c:forEach var="bds" items="${BDSBiCam}">
+													<li class="list-group-item-action list-group-item">
+														<div class="single-profile-front row">
+															<div class="profile-img col-lg-2">
+																<img src="/img/web/item2.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+															</div>
+															<div class="col-lg-8">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<h6 style="color: black;">${bds.title}</h6>
+																	<h6 style="color: blue;">${bds.money}-
+																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																</div>
+															</div>
+															<div class="col-lg-2">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<div style="text-align: right;">
+																		<div class="badge badge-success btn">Khôi phục</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</li>
+												</c:forEach>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- bất động sản bị xóa -->
+				<div class="tab-pane show " id="tab-eg4-8" role="tabpanel">
+					<div class="row" style="width: 100%;">
+						<div class="col-lg-12">
+							<div class="main-card mb-12 card">
+								<div class="card-body">
+									<h5 class="card-title">Bất động sản bị xóa</h5>
+									<div class="scroll-area-md" style="height: 450px;">
+										<div class="card-body">
+											<ul class="list-group">
+												<c:forEach var="bds" items="${BDSBiXoa}">
+													<li class="list-group-item-action list-group-item">
+														<div class="single-profile-front row">
+															<div class="profile-img col-lg-2">
+																<img src="/img/web/item2.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+															</div>
+															<div class="col-lg-10">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<h6 style="color: black;">${bds.title}</h6>
+																	<h6 style="color: blue;">${bds.money}-
+																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																</div>
+															</div>
+														</div>
+													</li>
+												</c:forEach>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="d-block text-right card-footer">
-			<small> Trang Hoàng - đang hoạt động</small>
+			<c:choose>
+				<c:when test="${userModel.status == 1}">
+					${userModel.username} - hoạt động
+				</c:when>
+				<c:otherwise>
+					${userModel.username} - đã bị admin xóa
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 
-
+<script src="/js/admin/chitietnguoidung.js"></script>
 
 </div>

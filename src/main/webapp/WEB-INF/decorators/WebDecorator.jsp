@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="<c:url value='/templates/web/assets/css/nice-select.css' />" />
 <link rel="stylesheet" href="<c:url value='/templates/web/assets/css/style.css' />" />
 <link rel="stylesheet" href="<c:url value='/templates/web/assets/css/responsive.css' />" />
+<link rel="stylesheet" href="<c:url value='/templates/web/style.css' />" />
  <!-- webix -->
 <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css"
 	type="text/css">
@@ -29,6 +30,7 @@
 <!-- editor -->
  <script src="/templates/ckeditor/ckeditor.js"></script>
 <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<c:url value='/templates/font-awesome.min.css' />" />
 
 
 </head>

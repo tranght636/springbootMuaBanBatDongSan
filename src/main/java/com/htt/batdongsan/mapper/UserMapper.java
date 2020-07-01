@@ -13,4 +13,8 @@ public interface UserMapper {
 	UserModel selectOneByEmail(HashMap<String, Object> map);
 	Integer update(UserModel userModel);
 	Integer insert(UserModel userModel);
+	public List<UserModel> selectListUser(Integer status);
+	Integer updateStatusOne(HashMap<String, Object> map);
+	UserModel selectUser(Integer id);
+	
 }

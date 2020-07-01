@@ -20,7 +20,7 @@ public class BaiDangService{
 
     
 	public Integer insert(BaiDangModel baiDangModel) {
-		baiDangModel.setStatus(1);
+		baiDangModel.setStatus(0);
 		baiDangModel.setActived(0);
 		try {
 			return baiDangMapper.insert(baiDangModel);
@@ -114,6 +114,36 @@ public class BaiDangService{
 
 	public List<BaiDangModel> selectWhereTPId(Integer city_id) {
 		return baiDangMapper.selectWhereTPId(city_id);
+	}
+
+
+	public List<BaiDangModel> BDSYeuThich(Integer id) {
+		return baiDangMapper.BDSYeuThich(id);
+	}
+
+
+	public List<BaiDangModel> BDSChoXacNhan(Integer id) {
+		return baiDangMapper.BDSChoXacNhan(id);
+	}
+
+
+	public List<BaiDangModel> BDSChoGiaoDich(Integer id) {
+		return baiDangMapper.BDSChoGiaoDich(id);
+	}
+
+
+	public List<BaiDangModel> BDSDayTin(Integer id) {
+		return baiDangMapper.BDSDayTin(id);
+	}
+
+
+	public List<BaiDangModel> BDSBiCam(Integer id) {
+		return baiDangMapper.BDSBiCam(id);
+	}
+
+
+	public List<BaiDangModel> BDSBiXoa(Integer id) {
+		return baiDangMapper.BDSBiXoa(id);
 	}
 
 
