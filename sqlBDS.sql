@@ -47037,7 +47037,11 @@ create table user
 );
 -- ALTER TABLE user add dob date
 
-
+CREATE TABLE `user_role` (
+ `user_id` int NOT NULL,
+ `role_id` int NOT NULL,
+ PRIMARY KEY (`user_id`,`role_id`)
+);
 create table danh_muc_chung
 (
 	id  int  primary key auto_increment,
@@ -47059,8 +47063,8 @@ create table loai_bat_dong_san(
 	id int  primary key auto_increment,
     title VARCHAR(255),
 	name VARCHAR(255)
-	
 );
+
 create table bai_dang
 (
 	id  int  primary key auto_increment,
@@ -47095,6 +47099,13 @@ create table bai_dang
     so_tang int
 );
 -- alter table bai_dang add  dien_tich varchar(255)
+
+create table files(
+	id int primary key auto_increment,
+    name nvarchar(255),
+    type nvarchar(255),
+    data mediumblob
+);
 
 create table hinh_anh_video
 (
