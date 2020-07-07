@@ -26,14 +26,14 @@
 						<div class="col-lg-6">
 							<div class="p-5">
 								<c:if test="${not empty message}">
-									<div class="alert alert-${alert}">
+									<div class="alert alert-warning">
 											${message}
 									</div>
 								</c:if>
 								<div class="text-center">
 									<h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
 								</div>
-								<form action='<c:url value="/login"/>' method="POST">
+								<form action='<c:url value="/j_spring_security_login"/>' method="POST">
 									<div class="form-group">
 										<input type="email" class="form-control form-control-user"
 											aria-describedby="emailHelp"
