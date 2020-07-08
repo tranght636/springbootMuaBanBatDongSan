@@ -27,6 +27,9 @@ public class BaiDangModel {
 	private Integer so_nha_ve_sinh;
 	private Integer so_phong_ngu;
 	private Integer so_tang;
+	private Integer user_id;
+	private Integer so_luot_thich;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -170,6 +173,18 @@ public class BaiDangModel {
 	}
 	public void setSo_tang(Integer so_tang) {
 		this.so_tang = so_tang;
+	}
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+	public Integer getSo_luot_thich() {
+		return so_luot_thich;
+	}
+	public void setSo_luot_thich(Integer so_luot_thich) {
+		this.so_luot_thich = so_luot_thich;
 	}
 	
 	

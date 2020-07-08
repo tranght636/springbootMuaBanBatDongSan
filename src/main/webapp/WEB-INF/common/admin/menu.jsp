@@ -87,7 +87,7 @@
                             </li>
                             <li>
                                 <a href='<c:url value="/admin/quan-ly-danh-muc"/>'>
-                                    <i class="metismenu-icon pe-7s-note2"></i> Quản lý danh mục
+                                    <i class="metismenu-icon pe-7s-note2"></i> Đẩy bất động sản
                                 </a>
                             </li>
                             

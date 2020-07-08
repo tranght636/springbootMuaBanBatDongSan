@@ -42,16 +42,12 @@
         select * from bai_dang where 1=1 and city_id = #{city_id} and status = 1
     </select>
     
-    <select id="BDSYeuThich" resultMap="result" parameterType="Integer">
-    	select *from bai_dang where id in (select bai_dang_id from yeu_thich where user_id = #{id});
-    </select>
-    
     <select id="BDSChoXacNhan" resultMap="result" parameterType="Integer">
-    	select *from bai_dang where user_id = #{id} and status = 0;
+    	select *from bai_dang where user_id = #{id} and status = 0
     </select>
     
     <select id="BDSChoGiaoDich" resultMap="result" parameterType="Integer">
-    	select *from bai_dang where user_id = #{id} and status = 1;
+    	select *from bai_dang where user_id = #{id} and status = 1
     </select>
     <select id="BDSDayTin" resultMap="result" parameterType="Integer">
     	select *from bai_dang where user_id = #{id} and status = 1 and actived > 0 order by actived
@@ -62,9 +58,56 @@
     <select id="BDSBiXoa" resultMap="result" parameterType="Integer">
     	select *from bai_dang where user_id = #{id} and status = -1
     </select>
+    <select id="BDSChoXacNhanAll" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where status = 0
+    </select>
+     <select id="BDSBiCamAll" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where status = -2
+    </select>
+    <select id="BDSChoGiaoDichAll" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where status = 1
+    </select>
+    <select id="BDSYeuThichAllDesc" resultMap="result">
+    	SELECT id,danh_muc_id,title,content,city_id,huyen_id,xa_id,duong_id,mat_tien,duong_vao_m,huong_nha,thong_tin_lien_he,start_day,end_day,status,actived,mo_ta_tong_quat,loai_bat_dong_san_id,dia_chi_chi_tiet,so_nha_ve_sinh,so_phong_ngu,so_tang,money,dien_tich,bai_dang.user_id,count(yeu_thich.user_id) as so_luot_thich
+		FROM bai_dang
+		INNER JOIN yeu_thich ON yeu_thich.bai_dang_id=bai_dang.id group by yeu_thich.bai_dang_id order by count(yeu_thich.user_id) desc;
+    </select>
+    <!-- <select id="BDSYeuThich" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where id in (select bai_dang_id from yeu_thich where user_id = #{id})
+    </select> -->
+    <select id="BDSYeuThichByUserId" resultMap="result" parameterType="Integer">
+    	SELECT * FROM bai_dang
+		INNER JOIN yeu_thich ON yeu_thich.bai_dang_id=bai_dang.id 
+        where yeu_thich.user_id=#{user_id} ;
+    </select>
+    <select id="BDSChoGiaoDichByUserId" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where user_id=#{user_id} and  status = 1
+    </select>
+      
     
-    <!-- status = -1 đã xóa,,-2 bị cấm, 0 chờ duyệt, 1 chờ giao dịch, > 1 đang hoạt động:  -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <update id="updateStatusBDS" parameterType="HashMap">
+    	 update bai_dang set status = #{status}  where 1 = 1 and id = #{id}
+    </update>
+    <update id="updateActivedBDS" parameterType="HashMap"><!-- đẩy tin -->
+    	 update bai_dang set actived = #{actived}  where 1 = 1 and id = #{id}
+    </update>
+    <update id="updateStatusBDSByUserId" parameterType="HashMap"><!-- đẩy tin -->
+    	 update bai_dang set status = #{actived}  where 1 = 1 and id = #{id} and user_id=#{user_id}
+    </update>
+    
+    <!-- status = -1 đã xóa,,-2 bị cấm, 0 chờ duyệt, 1 chờ giao dịch, > 1 đang hoạt động:  2 đang giao dịch-->
     <!-- actived >=0, 1 chờ đẩy tin, 0 bình thường, 2 đang đẩy tin, hết thời gian đẩy trả về 0, càng lớn càng có độ ưu tiên cao -->
+    
     
     
    

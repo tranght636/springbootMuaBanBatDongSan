@@ -8,7 +8,7 @@
 	            <div class="scroll-area-md" style="height: 550px;">
 	               	<div class="card-body">
 						<ul class="list-group">
-						<c:forEach var = "i" begin = "1" end = "10">
+						<c:forEach var="bds" items="${BDSChoXacNhan}">
 							<li class="list-group-item-action list-group-item" >
 								<div class="single-profile-front row" >
 									<div class="profile-img col-lg-2" >
@@ -16,14 +16,14 @@
 									</div>
 									<div class="col-lg-7">
 										<div class="profile-caption" style="margin-left: 5px;margin-right: 5px; text-align: left;">
-											 <h6 style="color: black;"> Nhượng 3600m2 đất trang trại nhà vườn trong đất sẵn ao tại Hòa Sơn, Lương Sơn, Hòa Bình</h6>
-											<h6 style="color: blue;">17 tỷ - 12000 m2 - Lương Sơn, Hòa Bình</h6>
-											<small>23-06-2020 12:25</small>
+											 <h6 style="color: black;"> ${bds.title}</h6>
+											<h6 style="color: blue;">${bds.money} - ${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+											<small>${bds.start_day}</small>
 										</div>
 									</div>
 									<div class="profile-img col-lg-3" style="text-align: right; font-size: 30px;" >
-										<button class="mb-2 mr-2 btn btn-primary">Xác nhận  </button>
-										<button class="mb-2 mr-2 btn btn-danger">Cấm BDS</button>
+										<button class="mb-2 mr-2 btn btn-primary btn-BDSCXN-xacnhan" id-baidang ="${bds.id}">Xác nhận  </button>
+										<button class="mb-2 mr-2 btn btn-danger btn-BDSCXN-cam" id-baidang ="${bds.id}">Cấm BDS</button>
 									</div>
 								</div>
 							</li>
@@ -35,4 +35,5 @@
 	     </div>
 	</div>
 </div>
+<script src="/js/admin/batdongsanchoxacnhan.js"></script>
 

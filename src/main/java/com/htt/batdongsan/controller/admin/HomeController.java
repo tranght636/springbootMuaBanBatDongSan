@@ -15,86 +15,97 @@ import com.htt.batdongsan.service.UserService;
 public class HomeController {
 	@Autowired
 	UserService userService;
-	@Autowired 
+	@Autowired
 	BaiDangService baiDangService;
-	
-    @GetMapping("/quan-ly-nguoi-dung")
-    public String DanhSachNguoiDung(ModelMap modelMap){
-    	Object userDangHoatDong = userService.selectListUser(1);
-    	modelMap.addAttribute("userDangHoatDong", userDangHoatDong);
-    	Object userDaXoa = userService.selectListUser(-1);
-    	modelMap.addAttribute("userDaXoa", userDaXoa);
-        return "admin/DanhSachNguoiDung";
-    }
-    @GetMapping("/chi-tiet-nguoi-dung")
-    public String ChiTietNguoiDung( @RequestParam("user-id") Integer id, ModelMap modelMap){
-    	Object userModel = userService.selectUser(id);
-    	modelMap.addAttribute("userModel", userModel);
-    	
-    	Object BDSYeuThich = baiDangService.BDSYeuThich(id);
-    	modelMap.addAttribute("BDSYeuThich", BDSYeuThich);
-    	
-    	Object BDSChoXacNhan = baiDangService.BDSChoXacNhan(id);
-    	modelMap.addAttribute("BDSChoXacNhan", BDSChoXacNhan);
-    	
-    	Object BDSChoGiaoDich = baiDangService.BDSChoGiaoDich(id);
-    	modelMap.addAttribute("BDSChoGiaoDich", BDSChoGiaoDich);
-    	
-    	Object BDSDayTin = baiDangService.BDSDayTin(id);
-    	modelMap.addAttribute("BDSDayTin", BDSDayTin);
-    	
-    	Object BDSBiCam = baiDangService.BDSBiCam(id);
-    	modelMap.addAttribute("BDSBiCam", BDSBiCam);
-    	
-    	Object BDSBiXoa = baiDangService.BDSBiXoa(id);
-    	modelMap.addAttribute("BDSBiXoa", BDSBiXoa);
-    	
-    	
-    	
-        return "admin/ChiTietNguoiDung";
-    }
-    @GetMapping("/cap-nhat-thong-tin")
-    public String CapNhatThongTin(){
-        return "web/CapNhatThongTinCaNhan";
-    }
-    @GetMapping("/phan-hoi")
-    public String PhanHoi(){
-        return "admin/PhanHoi";
-    }
-    
-    @GetMapping("/bat-dong-san-yeu-thich")
-    public String BDSYeuThich(){
-        return "admin/BatDongSanYeuThich";
-    }
-    
-    @GetMapping("/bat-dong-san-cho-xac-nhan")
-    public String BDSChoXacNhan(){
-        return "admin/BatDongSanChoXacNhan";
-    }
-    @GetMapping("/bat-dong-san-cho-giao-dich")
-    public String BDSChoGiaoDich(){
-        return "admin/BatDongSanChoXacNhan";
-    }
-    
-    @GetMapping("/bat-dong-san-bi-cam")
-    public String BDSBiCam(){
-        return "admin/BatDongSanBiCam";
-    }
-    
-    @GetMapping("/bao-cao-thong-ke")
-    public String BaoCaoThongKe(){
-        return "admin/BaoCaoThongKe";
-    }
-    @GetMapping("/chi-tiet-bat-dong-san")
-    public String ChiTietBatDongSan(){
-        return "admin/ChiTietBatDongSan";
-    }
-   
-    @GetMapping("/quan-ly-danh-muc")
-    public String QuanLyDanhMuc(){
-        return "admin/DanhMucTinTuc";
-    }
-    
-    
-   
+
+	@GetMapping("/quan-ly-nguoi-dung")
+	public String DanhSachNguoiDung(ModelMap modelMap) {
+		Object userDangHoatDong = userService.selectListUser(1);
+		modelMap.addAttribute("userDangHoatDong", userDangHoatDong);
+		Object userDaXoa = userService.selectListUser(-1);
+		modelMap.addAttribute("userDaXoa", userDaXoa);
+		return "admin/DanhSachNguoiDung";
+	}
+
+	@GetMapping("/chi-tiet-nguoi-dung")
+	public String ChiTietNguoiDung(@RequestParam("user-id") Integer id, ModelMap modelMap) {
+		Object userModel = userService.selectUser(id);
+		modelMap.addAttribute("userModel", userModel);
+
+		Object BDSYeuThich = baiDangService.BDSYeuThich(id);
+		modelMap.addAttribute("BDSYeuThich", BDSYeuThich);
+
+		Object BDSChoXacNhan = baiDangService.BDSChoXacNhan(id);
+		modelMap.addAttribute("BDSChoXacNhan", BDSChoXacNhan);
+
+		Object BDSChoGiaoDich = baiDangService.BDSChoGiaoDich(id);
+		modelMap.addAttribute("BDSChoGiaoDich", BDSChoGiaoDich);
+
+		Object BDSDayTin = baiDangService.BDSDayTin(id);
+		modelMap.addAttribute("BDSDayTin", BDSDayTin);
+
+		Object BDSBiCam = baiDangService.BDSBiCam(id);
+		modelMap.addAttribute("BDSBiCam", BDSBiCam);
+
+		Object BDSBiXoa = baiDangService.BDSBiXoa(id);
+		modelMap.addAttribute("BDSBiXoa", BDSBiXoa);
+
+		return "admin/ChiTietNguoiDung";
+	}
+
+	@GetMapping("/cap-nhat-thong-tin")
+	public String CapNhatThongTin() {
+		return "web/CapNhatThongTinCaNhan";
+	}
+
+	@GetMapping("/phan-hoi")
+	public String PhanHoi() {
+		return "admin/PhanHoi";
+	}
+
+	@GetMapping("/bat-dong-san-yeu-thich")
+	public String BDSYeuThich(ModelMap modelMap) {
+		Object BDSYeuThich = baiDangService.BDSYeuThichAllDesc();
+		modelMap.addAttribute("BDSYeuThich", BDSYeuThich);
+		
+		return "admin/BatDongSanYeuThich";
+	}
+
+	@GetMapping("/bat-dong-san-cho-xac-nhan")
+	public String BDSChoXacNhan(ModelMap modelMap) {
+		Object BDSChoXacNhan = baiDangService.BDSChoXacNhanAll();
+		modelMap.addAttribute("BDSChoXacNhan", BDSChoXacNhan);
+		return "admin/BatDongSanChoXacNhan";
+	}
+
+	@GetMapping("/bat-dong-san-cho-giao-dich")
+	public String BDSChoGiaoDich(ModelMap modelMap) {
+		Object BDSChoGiaoDich = baiDangService.BDSChoGiaoDichAll();
+		modelMap.addAttribute("BDSChoGiaoDich", BDSChoGiaoDich);
+		
+		return "admin/BatDongSanChoGiaoDich";
+	}
+
+	@GetMapping("/bat-dong-san-bi-cam")
+	public String BDSBiCam(ModelMap modelMap) {
+		Object BDSBiCam = baiDangService.BDSBiCamAll();
+		modelMap.addAttribute("BDSBiCam", BDSBiCam);
+		return "admin/BatDongSanBiCam";
+	}
+
+	@GetMapping("/bao-cao-thong-ke")
+	public String BaoCaoThongKe() {
+		return "admin/BaoCaoThongKe";
+	}
+
+	@GetMapping("/chi-tiet-bat-dong-san")
+	public String ChiTietBatDongSan() {
+		return "admin/ChiTietBatDongSan";
+	}
+
+	@GetMapping("/quan-ly-danh-muc")
+	public String QuanLyDanhMuc() {
+		return "admin/DanhMucTinTuc";
+	}
+
 }

@@ -80,15 +80,14 @@
 													name="dob" title="Date of birth" ${userModel.dob}
 													disabled="disabled">
 											</div>
-											chỗ này có btn chưa xử lý được
 											<c:choose>
 												<c:when test="${userModel.status == 1}">
-													<button id="CTTKXoaTaiKhoan" id-user="${userModel.id}" type="button" class="mb-2 mr-2 btn btn-primary"
+													<button id="btn-CTTK-XoaTaiKhoan" id-user="${userModel.id}" type="button" class="mb-2 mr-2 btn btn-primary"
 													style="width: 300px; float: right; margin-bottom: 15px;">Xóa
 													tài khoản</button>
 												</c:when>
 												<c:otherwise>
-													<button type="button" class="mb-2 mr-2 btn btn-primary"
+													<button id="btn-CTTK-KhoiPhucTaiKhoan" id-user="${userModel.id}" type="button" class="mb-2 mr-2 btn btn-primary"
 													style="width: 300px; float: right; margin-bottom: 15px;">Khôi
 													phục tài khoản</button>
 												</c:otherwise>
@@ -152,12 +151,20 @@
 																<img src="/img/web/item2.jpg" alt=""
 																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
 															</div>
-															<div class="col-lg-10">
+															<div class="col-lg-8">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}-
 																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																</div>
+															</div>
+															<div class="col-lg-2">
+																<div class="profile-caption"
+																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
+																	<div style="text-align: right;">
+																		<div class="badge badge-success btn btn-CTND-camBDS" id-baidang ="${bds.id}">Cấm BDS</div>
+																	</div>
 																</div>
 															</div>
 														</div>
@@ -200,7 +207,7 @@
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<div style="text-align: right;">
-																		<div class="badge badge-success btn">Xác nhận</div>
+																		<div class="badge badge-success btn btn-CTND-xacnhan" id-baidang ="${bds.id}">Xác nhận</div>
 																	</div>
 																</div>
 															</div>
@@ -244,9 +251,8 @@
 																	</div>
 																	<div class="profile-img col-lg-2"
 																		style="text-align: right; font-size: 30px;">
-																		<i
-																			class="metismenu-icon pe-7s-rocket font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"
-																			style="color: green;"></i>
+																		<i class="btn-CTND-daytin metismenu-icon pe-7s-rocket font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"
+																			style="color: green;" id-baidang ="${bds.id}" data-toggle="tooltip" title="Đẩy tin" ></i>
 																	</div>
 																</div>
 															</li>
@@ -303,15 +309,14 @@
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
-																	<h6 style="color: blue;">${bds.money}-
-																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																	<h6 style="color: blue;">${bds.money}- ${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
 															</div>
 															<div class="col-lg-2">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<div style="text-align: right;">
-																		<div class="badge badge-success btn">Khôi phục</div>
+																		<div class="btn-CTND-khoiphuc badge badge-success btn" id-baidang ="${bds.id}">Khôi phục</div>
 																	</div>
 																</div>
 															</div>

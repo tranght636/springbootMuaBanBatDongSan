@@ -5,7 +5,8 @@
     <select id="selectAll" resultMap="result" >
         select * from danh_muc_chung ORDER BY name
     </select>
-    
-    
+    <select id="selectOne" resultMap="result" parameterType="Integer">
+      select * from danh_muc_chung where id = (select dmc_id from danh_muc where id=30)
+    </select>
     <resultMap id = "result" type = "DanhMucChungModel"/>
 </mapper>

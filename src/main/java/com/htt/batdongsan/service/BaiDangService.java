@@ -1,6 +1,7 @@
 package com.htt.batdongsan.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -145,8 +146,56 @@ public class BaiDangService{
 	public List<BaiDangModel> BDSBiXoa(Integer id) {
 		return baiDangMapper.BDSBiXoa(id);
 	}
+	public Integer updateStatusBDS(Integer id, Integer status) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("status", status);
+		return baiDangMapper.updateStatusBDS(map);
+	}
+	public Integer updateActivedBDS(Integer id, Integer actived) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("actived", actived);
+		return baiDangMapper.updateActivedBDS(map);
+	}
 
 
+	public List<BaiDangModel> BDSChoXacNhanAll() {
+		return baiDangMapper.BDSChoXacNhanAll();
+	}
+
+
+	public List<BaiDangModel> BDSBiCamAll() {
+		return baiDangMapper.BDSBiCamAll();
+	}
+
+
+	public List<BaiDangModel> BDSChoGiaoDichAll() {
+		return baiDangMapper.BDSChoGiaoDichAll();
+	}
+	public List<BaiDangModel> BDSYeuThichAllDesc() {
+		return baiDangMapper.BDSYeuThichAllDesc();
+	}
+
+
+	public List<BaiDangModel> BDSYeuThichByUserId(Integer user_id) {
+		return baiDangMapper.BDSYeuThichByUserId(user_id);
+	}
+
+
+	public List<BaiDangModel> BDSChoGiaoDichByUserId(Integer user_id) {
+		return baiDangMapper.BDSChoGiaoDichByUserId(user_id);
+	}
+
+
+	public Integer updateStatusBDS(Integer user_id, Integer id, Integer status) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("user_id", user_id);
+		map.put("status", status);
+		return baiDangMapper.updateStatusBDSByUserId(map);
+	}
+	
 	
 	    
 }

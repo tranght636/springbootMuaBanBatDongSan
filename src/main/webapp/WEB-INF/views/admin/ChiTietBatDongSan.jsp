@@ -13,7 +13,6 @@
 								<div class="row justify-content-center">
 								
 	                                    <div class="card-body">
-	                                        <h5 class="card-title">Basic Bootstrap 4 Carousel</h5>
 	                                        <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
 	                                            <div class="carousel-inner">
 	                                                <div class="carousel-item active">
@@ -45,30 +44,63 @@
 						<!-- Services Details Start -->
 						<div class="services-details section-padding2">
 							<div class="container">
-								<div class="row">
-									<div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7"></div>
-									<div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7">
+								<div class="row" style="color: black;">
+									<div class="col-lg-12">
+										<div class=" mb-12 ">
 										<div class="s-details-caption">
-											<h2>Boys Case Study</h2>
-											<p class="details-pera1">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-												reprehenderit in voluptate velit esse cillum dolore eu
-												fugiat nulla pariatur.</p>
-											<p class="details-pera2">Excepteur sint occaecat
-												cupidatat non proident, sunt in culpa qui officia deserunt
-												mollit anim id est laborum. Sed ut perspiciatis unde omnis
-												iste natus error sit voluptatem accusantium doloremque
-												laudantium, totam rem aperiam, eaque ipsa quae ab illo
-												inventore veritatis et quasi architecto beatae vitae dicta
-												sunt explicabo.</p>
-											<p class="details-pera3">Nemo enim ipsam voluptatem quia
-												voluptas sit aspernatur aut odit aut fugit, sed quia
-												consequuntur magni dolores eos qui ratione voluptatem sequi
-												nesciunt. Neque porro quisquam</p>
-
+											<h4 style="color: blue;">${baiDangModel.title}</h4>
+											<p > <span style="color: gray;"> Địa chỉ: </span> ${baiDangModel.dia_chi_chi_tiet}</p>
+											<div class="row">
+												<div class="col-lg-4">
+													<span style="color: gray;"> Diện tích: </span> ${baiDangModel.dien_tich}
+												</div>
+												<div class="col-lg-4">
+													<span style="color: gray;"> Giá: </span> ${baiDangModel.money}
+												</div>
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.duong_vao_m !=''}">
+														<p><span style="color: gray;"> Đường vào (m): </span> ${baiDangModel.duong_vao_m}</p>
+													</c:if>
+												</div>
+											</div>
+											<div class="row">
+												
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.so_tang !=''}">
+														<p><span style="color: gray;"> Số Tầng: </span> ${baiDangModel.so_tang} tầng</p>
+													</c:if>
+												</div>
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.so_phong_ngu !=''}">
+														<p> <span style="color: gray;"> Phòng ngủ: </span> ${baiDangModel.so_tang} </p>
+													</c:if>
+												</div>
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.so_phong_ngu !=''}">
+														<p><span style="color: gray;"> WC: </span> ${baiDangModel.so_tang} </p>
+													</c:if>
+												</div>
+											</div>
+											<div class="row">
+												
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.huong_nha !=''}">
+														<p><span style="color: gray;"> Hướng: </span> ${baiDangModel.huong_nha}</p>
+													</c:if>
+												</div>
+												<div class="col-lg-4">
+													<c:if test="${baiDangModel.mat_tien !=''}">
+														<p><span style="color: gray;"> Mặt tiền: </span> ${baiDangModel.mat_tien} </p>
+													</c:if>
+												</div>
+												<div class="col-lg-4">
+														<p ><span style="color: gray;"> Liên hệ: </span> <span style="color: red;"> ${baiDangModel.thong_tin_lien_he} </span> </p>
+												</div>
+											</div>
+											<br/>
+											<p style="color: gray;"> Thông tin mô tả</p>
+											<p class="details-pera1"> ${baiDangModel.content}</p>
+											
 											<!-- maps -->
 											<div class="form-group row">
 												<div class="col-md-12">
@@ -439,7 +471,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 
 
 
