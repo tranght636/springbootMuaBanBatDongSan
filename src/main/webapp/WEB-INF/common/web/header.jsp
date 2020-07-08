@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="../taglib.jsp"%>
 <header>
 	<!-- Header Start -->
 	<div class="header-area">
@@ -15,10 +16,19 @@
 							</div>
 							<div class="header-info-right">
 								<ul class="header-social">
-									<li><a href="/sign-in"> Đăng nhập</a></li>
-									<li><a href="/sign-up"> Đăng ký</a></li>
-									<li><a href="/trang-ca-nhan">Trang cá nhân</a></li>
-									<li><a href="/admin/quan-ly-nguoi-dung">Trang admin</a></li>
+									<sec:authorize access="isAnonymous()">
+	                                    <li><a href="/login"> Đăng nhập</a></li>
+										<li><a href="/register"> Đăng ký</a></li>
+                                    </sec:authorize>
+                                    
+									<sec:authorize access="isAuthenticated()"> 
+										<li><a href="/trang-ca-nhan">${USER.username}</a></li>
+                                    	<li><a href="/trang-ca-nhan">Trang cá nhân</a></li>
+                                    </sec:authorize>
+                                    
+									<sec:authorize access="hasAnyAuthority('ADMIN')">
+										<li><a href="/admin/quan-ly-nguoi-dung">Trang admin</a></li>
+                                    </sec:authorize>
 								</ul>
 							</div>
 						</div>

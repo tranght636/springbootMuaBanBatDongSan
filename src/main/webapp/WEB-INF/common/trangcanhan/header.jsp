@@ -49,12 +49,17 @@
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        TrangHoang
+                                    <sec:authorize access="isAuthenticated()"> 
+                                    	${USER.username}
+                                    </sec:authorize>
+                                        
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                    <i class="pe-7s-back font-icon-wrapper"> </i>
+	                                    <form action="<c:url value='/logout'/>" method="post">
+	                                    	<button type="submit" class="pe-7s-back font-icon-wrapper"></button>
+	                                    </form>
                                     </div>
                                     
                                 </div>
