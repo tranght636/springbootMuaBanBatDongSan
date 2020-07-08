@@ -1,5 +1,6 @@
 package com.htt.batdongsan.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -40,7 +41,24 @@ public interface BaiDangMapper {
 
 	List<BaiDangModel> BDSBiXoa(Integer id);
 
+	Integer updateStatusBDS(HashMap<String, Object> map);
 
+	Integer updateActivedBDS(HashMap<String, Object> map);
+
+	List<BaiDangModel> BDSChoXacNhanAll();
+
+	List<BaiDangModel> BDSBiCamAll();
+
+	List<BaiDangModel> BDSChoGiaoDichAll();
+
+	List<BaiDangModel> BDSYeuThichAllDesc();
+
+	List<BaiDangModel> BDSYeuThichByUserId(Integer user_id);
+
+	List<BaiDangModel> BDSChoGiaoDichByUserId(Integer user_id);
+
+	Integer updateStatusBDSByUserId(HashMap<String, Object> map);
+	
 
 	
 }

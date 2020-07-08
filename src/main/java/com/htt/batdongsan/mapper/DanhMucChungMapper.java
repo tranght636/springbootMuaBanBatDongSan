@@ -5,9 +5,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.htt.batdongsan.model.DanhMucChungModel;
+import com.htt.batdongsan.service.DanhMucChungService;
 @Mapper
 public interface DanhMucChungMapper {
 
 	List<DanhMucChungModel> selectAll();
+
+	DanhMucChungService selectOne(Integer id);
 
 }

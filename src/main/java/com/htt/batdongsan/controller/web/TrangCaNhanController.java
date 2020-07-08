@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.model.UserModel;
@@ -80,28 +81,11 @@ public class TrangCaNhanController {
         return "web/TaoBatDongSan";
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GetMapping("/bat-dong-san-cho-giao-dich")
-    public String BDSChoGiaoDich() {
+    public String BDSChoGiaoDich(ModelMap modelMap) {
+    	Integer user_id = 1;
+    	Object BDSChoGiaoDich = baiDangService.BDSChoGiaoDichByUserId(user_id);
+		modelMap.addAttribute("BDSChoGiaoDich", BDSChoGiaoDich);
     	return "web/BatDongSanChoGiaoDich";
     }
     
@@ -139,12 +123,57 @@ public class TrangCaNhanController {
     }
     
     @GetMapping("/chi-tiet-bat-dong-san")
-    public String ChiTietBDS(){
+    public String ChiTietBDS(@RequestParam("id") Integer id, ModelMap modelMap){
+    	Object baiDangModel = baiDangService.selectOne(id);
+    	modelMap.addAttribute("baiDangModel", baiDangModel);
         return "admin/ChiTietBatDongSan";
     }
+    @GetMapping("/sua-bat-dong-san")
+    public String SuaBDS(@RequestParam("id") Integer id, ModelMap modelMap){
+    	// lấy danh sách TBDS_DanhMucChung
+    	Object danhMucChungModel = danhMucChungService.selectAll();
+    	modelMap.addAttribute("danhMucChungModel", danhMucChungModel);
+    	// lấy danh sách Danh mục
+    	Object danhMucModel = danhMucService.selectDanhMucByDanhMucChungId(4);
+    	modelMap.addAttribute("danhMucModel", danhMucModel);
+    	
+    	// lấy danh sách loại Bất động sản
+    	Object loaiBatDongSanModel = loaiBatDongSanService.selectAll();
+    	modelMap.addAttribute("loaiBatDongSanModel", loaiBatDongSanModel);
+    	// lấy danh sách tỉnh/ thành phố
+    	Object provinceModel = provinceService.selectAll();
+    	modelMap.addAttribute("provinceModel", provinceModel);
+    	// lấy danh sách Quận/ huyện
+    	Object districtModel = districtService.selectDistrictByProvinceId(30);
+    	modelMap.addAttribute("districtModel", districtModel);
+    	
+    	// lấy danh sách Phường/Xã
+    	Object wardModel = wardService.selectWardbyDistrictIdAndProvinceId(388, 30);
+    	modelMap.addAttribute("wardModel", wardModel);
+    	
+    	// lấy danh sách đường
+    	Object streetModel = streetService.selectStreetbyDistrictIdAndProvinceId(388, 30);
+    	modelMap.addAttribute("streetModel", streetModel);
+    	
+    	
+    	// lấy bất động sản cần sửa
+//    	BaiDangModel baiDangModel = baiDangService.selectOne(id);
+//    	modelMap.addAttribute("baiDangModel", baiDangModel);
+    	// lấy danh mục chung
+    	//Object danhMucChungByDanhMucRieng = danhMucChungService.selectOne(baiDangModel.getDanh_muc_id());
+    	//modelMap.addAttribute("danhMucChungByDanhMucRieng", danhMucChungByDanhMucRieng);
+    	
+        return "web/SuaBatDongSan";
+    }
+    
+    
+    
     
     @GetMapping("/bat-dong-san-yeu-thich")
-    public String BDSYeuThich(){
+    public String BDSYeuThich(ModelMap modelMap){
+    	Integer user_id = 1;
+    	Object BDSYeuThich = baiDangService.BDSYeuThichByUserId(user_id);
+		modelMap.addAttribute("BDSYeuThich", BDSYeuThich);
         return "web/BatDongSanYeuThich";
     }
     
