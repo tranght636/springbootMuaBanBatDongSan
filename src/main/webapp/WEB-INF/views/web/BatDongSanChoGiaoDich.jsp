@@ -13,7 +13,7 @@
 								<div class="single-profile-front row" >
 									
 									<div class="profile-img col-lg-2" >
-										<img src="/img/web/item1.jpg" alt="" style="border-radius: 10px 10px 10px 10px;max-width: 150px; " >
+										<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
 									</div>
 									<div class="col-lg-8">
 										<a  href="/trang-ca-nhan/chi-tiet-bat-dong-san?id=${bds.id}" >
@@ -28,6 +28,9 @@
 										<a href="/trang-ca-nhan/sua-bat-dong-san?id=${bds.id}" data-toggle="tooltip" title="Sửa bất động sản" class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon">
 										</a>
 										<i data-toggle="tooltip" title="Xóa bất động sản" id-baidang="${bds.id}" class="btn-BDSCGD-delete metismenu-icon pe-7s-trash font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
+										<c:if test="${bds.actived < 1}">
+											<br/><button class="btn btn-primary btn_BDSChoGiaoDich_DangKyDayTin" id-baidang="${bds.id}" style="font-size: 10px;" >Đăng ký đẩy tin</button>
+										</c:if>
 									</div>
 								</div>
 							</li>

@@ -188,13 +188,13 @@ public class BaiDangService{
 	}
 
 
-	public Integer updateStatusBDS(Integer user_id, Integer id, Integer status) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("id", id);
-		map.put("user_id", user_id);
-		map.put("status", status);
-		return baiDangMapper.updateStatusBDSByUserId(map);
-	}
+//	public Integer updateStatusBDS(Integer user_id, Integer id, Integer status) {
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		map.put("id", id);
+//		map.put("user_id", user_id);
+//		map.put("status", status);
+//		return baiDangMapper.updateStatusBDSByUserId(map);
+//	}
 	
 	public List<BaiDangModel> select(){
 		return baiDangMapper.select();
@@ -225,6 +225,15 @@ public class BaiDangService{
 		}
     	baiDangModel3.add(baiDangModelSmall);
 		return baiDangModel3;
+	}
+
+	public List<BaiDangModel> BDSDaMuaHoacDaThue(Integer user_id) {
+		return baiDangMapper.BDSDaMuaHoacDaThue(user_id);
+	}
+
+
+	public List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id) {
+		return baiDangMapper.BDSDaBanHoacDaChoThue(user_id);
 	}
 	
 	    

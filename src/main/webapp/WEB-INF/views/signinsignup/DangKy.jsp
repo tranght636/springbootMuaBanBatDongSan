@@ -39,13 +39,19 @@
 										id="repeat-passsword" placeholder="Repeat Password">
 								</div>
 							</div>
+							<div class="form-group row" id="confirm-incorrect" hidden="true">
+					         	<div class="col-sm-2"></div>
+					            <div class="col-sm-10">
+					                <span style="color: red;">Nhập lại không đúng</span>
+					            </div>
+					        </div>
 							<div class="form-group">
 								<input type="text" class="form-control form-control-user"
 									id="address" placeholder="Address" name="address">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control form-control-user"
-										id="phone" placeholder="Phone" name="phoneNumber">
+										id="phone_number" placeholder="Phone" name="phone_number">
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-12">
@@ -67,5 +73,5 @@
 			</div>
 		</div>
 	</div>
-
 </div>
+	<script src="/js/signinsignup/dangky.js"></script>

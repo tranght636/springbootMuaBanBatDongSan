@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.htt.batdongsan.mapper.UserRoleMapper">
+    <insert id="insert" parameterType="Hashmap">
+    	INSERT INTO  `user_role` (`user_id`, `role_id`) VALUES (#{user_id}, #{role_id})
+    	
+    </insert>
+    <resultMap id = "result" type = "UserRoleModel"/>
+</mapper>

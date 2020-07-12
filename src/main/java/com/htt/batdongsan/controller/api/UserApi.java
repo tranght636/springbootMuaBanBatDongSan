@@ -20,14 +20,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.htt.batdongsan.model.UserModel;
 import com.htt.batdongsan.service.UserService;
+import com.htt.batdongsan.utils.EncodedPasswordUtil;
 
 @RestController
 @RequestMapping("/api")
 public class UserApi {
 	@Autowired
 	UserService userService;
-	
-	
 	@GetMapping("/user")
 	public ResponseEntity<?> getUser(){
 		return ResponseEntity.ok(userService.getAllUser());
@@ -55,8 +54,6 @@ public class UserApi {
 		return ResponseEntity.ok(userService.updateStatusOne(id,1));
 	}
 	
-	
-	
 	@PutMapping("/update-user")
 	public ResponseEntity<?> updateUser(HttpServletRequest req, HttpServletResponse res  )throws ServletException, IOException {
 		try {
@@ -67,6 +64,7 @@ public class UserApi {
 	        sb.append(line);
 	    }
 	    UserModel userModel = new ObjectMapper().readValue(sb.toString(), UserModel.class);
+	    userModel.setPassword(EncodedPasswordUtil.encode(userModel.getPassword()));
 	    return ResponseEntity.ok(userService.updateUser(userModel));
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
@@ -74,17 +72,6 @@ public class UserApi {
 			e.printStackTrace();
 		}
 		return ResponseEntity.ok(-1);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	

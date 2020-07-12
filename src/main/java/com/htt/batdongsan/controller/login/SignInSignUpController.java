@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.htt.batdongsan.model.UserModel;
+import com.htt.batdongsan.service.UserRoleService;
 import com.htt.batdongsan.service.UserService;
 import com.htt.batdongsan.utils.AccountUtil;
+import com.htt.batdongsan.utils.EncodedPasswordUtil;
 import com.htt.batdongsan.utils.StringUtil;
 
 @Controller
@@ -24,6 +26,8 @@ public class SignInSignUpController {
 	
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserRoleService userRoleService;
 	
     @GetMapping("/login")
     public String login(@RequestParam(value = "message", required = false) String message, ModelMap modelMap){
@@ -59,8 +63,12 @@ public class SignInSignUpController {
     // post 
     @PostMapping("/sign-up")
     public String PostSignUp(@ModelAttribute UserModel userModel){
+    	userModel.setPassword(EncodedPasswordUtil.encode(userModel.getPassword()));
+    	userModel.setStatus(1);
     	Integer result = userService.insert(userModel);
     	if(result > 0) {
+    		Integer user_id= userService.selectOne(userModel.getEmail()).getId();
+    		userRoleService.insert(user_id, 1);
     		return "redirect:/login";
     	}
     	return "redirect:/login?message=Đăng ký thất bại";
