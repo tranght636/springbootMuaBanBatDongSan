@@ -25,9 +25,20 @@ public class BaiDangApi {
 		return ResponseEntity.ok(baiDangService.updateActivedBDS(id,2));
 	}
 	
+	@PutMapping("/dangkydaytin")
+	public ResponseEntity<?> DangKyDayBDS(@RequestParam("id") Integer id){
+		return ResponseEntity.ok(baiDangService.updateActivedBDS(id,1));
+	}
+	
 	@PutMapping("/khoi-phuc-bds")
 	public ResponseEntity<?> KhoiPhucBDS(@RequestParam("id") Integer id){
 		return ResponseEntity.ok(baiDangService.updateStatusBDS(id,1));
+	}
+	
+	
+	@PutMapping("/khoiphucbatdongsanbixoa")
+	public ResponseEntity<?> KhoiPhucBDSBX(@RequestParam("id") Integer id){
+		return ResponseEntity.ok(baiDangService.updateStatusBDS(id,0));
 	}
 	
 	@PutMapping("/cam-bds")
@@ -37,8 +48,11 @@ public class BaiDangApi {
 	
 	@PutMapping("/xoa-bds-by-user")
 	public ResponseEntity<?> XoaBDSByUser(@RequestParam("id") Integer id){
-		Integer user_id = 1;
-		return ResponseEntity.ok(baiDangService.updateStatusBDS(user_id,id,-1));
+		return ResponseEntity.ok(baiDangService.updateStatusBDS(id,-1));
+	}
+	@PutMapping("/xoa-bds-cho-xac-nhan")
+	public ResponseEntity<?> XoaBDSChoXacNhan(@RequestParam("id") Integer id){
+		return ResponseEntity.ok(baiDangService.updateStatusBDS(id,-1));
 	}
 	
 	

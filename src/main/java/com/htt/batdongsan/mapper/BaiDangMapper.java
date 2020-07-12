@@ -62,5 +62,9 @@ public interface BaiDangMapper {
 	List<BaiDangModel> select();
 
 	List<BaiDangModel> selectBaiDangTuongTu(HashMap<String, Object> map);
+
+	List<BaiDangModel> BDSDaMuaHoacDaThue(Integer user_id);
+
+	List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id);
 	
 }

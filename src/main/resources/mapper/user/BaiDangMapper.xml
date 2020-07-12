@@ -76,9 +76,9 @@
 		FROM bai_dang
 		INNER JOIN yeu_thich ON yeu_thich.bai_dang_id=bai_dang.id group by yeu_thich.bai_dang_id order by count(yeu_thich.user_id) desc;
     </select>
-    <!-- <select id="BDSYeuThich" resultMap="result" parameterType="Integer">
+    <select id="BDSYeuThich" resultMap="result" parameterType="Integer">
     	select *from bai_dang where id in (select bai_dang_id from yeu_thich where user_id = #{id})
-    </select> -->
+    </select>
     <select id="BDSYeuThichByUserId" resultMap="result" parameterType="Integer">
     	SELECT * FROM bai_dang
 		INNER JOIN yeu_thich ON yeu_thich.bai_dang_id=bai_dang.id 
@@ -90,6 +90,14 @@
     <select id="selectBaiDangTuongTu" resultMap="result" parameterType="HashMap">
     	select *from bai_dang where city_id=#{city_id} and  status = 1
     </select>
+    <select id="BDSDaMuaHoacDaThue" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where 
+		id in(select bai_dang_id from GiaoDich where user_id_mua=#{user_id})
+ 	</select>
+    <select id="BDSDaBanHoacDaChoThue" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where 
+		id in(select bai_dang_id from GiaoDich where user_id_ban=#{user_id})
+ 	</select>
       
     
     

@@ -77,8 +77,8 @@
 												<h6 class="col-lg-2">Day of Birth</h6>
 												<input type="date"
 													class=" col-sm-10 form-control form-control-user" id="dob"
-													name="dob" title="Date of birth" ${userModel.dob}
-													disabled="disabled">
+													name="dob" title="Date of birth" value="${userModel.dob}"
+													disabled="disabled" pattern="yyyy-MM-dd">
 											</div>
 											<c:choose>
 												<c:when test="${userModel.status == 1}">
@@ -112,16 +112,17 @@
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
-																<img src="/img/web/item2.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+																<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
 															</div>
 															<div class="col-lg-10">
+															<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}-
 																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
+																</a>
 															</div>
 														</div>
 													</li>
@@ -148,16 +149,17 @@
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
-																<img src="/img/web/item2.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
-															</div>
+																<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
+																</div>
 															<div class="col-lg-8">
+															<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}-
 																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
+																</a>
 															</div>
 															<div class="col-lg-2">
 																<div class="profile-caption"
@@ -192,16 +194,17 @@
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
-																<img src="/img/web/item2.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
-															</div>
+																<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
+																</div>
 															<div class="col-lg-8">
+															<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}-
 																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
+																</a>
 															</div>
 															<div class="col-lg-2">
 																<div class="profile-caption"
@@ -238,16 +241,17 @@
 															<li class="list-group-item-action list-group-item">
 																<div class="single-profile-front row">
 																	<div class="profile-img col-lg-2">
-																		<img src="/img/web/item2.jpg" alt=""
-																			style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
-																	</div>
+																		<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
+																		</div>
 																	<div class="col-lg-8">
+																	<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																		<div class="profile-caption"
 																			style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																			<h6 style="color: black;">${bds.title}</h6>
 																			<h6 style="color: blue;">${bds.money}-
 																				${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																		</div>
+																		</a>
 																	</div>
 																	<div class="profile-img col-lg-2"
 																		style="text-align: right; font-size: 30px;">
@@ -261,16 +265,17 @@
 															<li class="list-group-item-action list-group-item">
 																<div class="single-profile-front row">
 																	<div class="profile-img col-lg-2">
-																		<img src="/img/web/item2.jpg" alt=""
-																			style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
-																	</div>
+																		<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
+																		</div>
 																	<div class="col-lg-10">
+																	<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																		<div class="profile-caption"
 																			style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																			<h6 style="color: black;">${bds.title}</h6>
 																			<h6 style="color: blue;">${bds.money}-
 																				${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																		</div>
+																		</a>
 																	</div>
 																</div>
 															</li>
@@ -302,15 +307,16 @@
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
-																<img src="/img/web/item2.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+																<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
 															</div>
 															<div class="col-lg-8">
+															<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}- ${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
+																</a>
 															</div>
 															<div class="col-lg-2">
 																<div class="profile-caption"
@@ -345,16 +351,17 @@
 													<li class="list-group-item-action list-group-item">
 														<div class="single-profile-front row">
 															<div class="profile-img col-lg-2">
-																<img src="/img/web/item2.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px; max-width: 150px;">
+																<img  src="${mapUrl.get(bds.id)}" alt="" style="border-radius: 10px 10px 10px 10px;width: 150px; height: 100px;">
 															</div>
 															<div class="col-lg-10">
+															<a href="/admin/chi-tiet-bat-dong-san-admin?id=${bds.id}">
 																<div class="profile-caption"
 																	style="margin-left: 5px; margin-right: 5px; text-align: left;">
 																	<h6 style="color: black;">${bds.title}</h6>
 																	<h6 style="color: blue;">${bds.money}-
 																		${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
 																</div>
+																</a>
 															</div>
 														</div>
 													</li>

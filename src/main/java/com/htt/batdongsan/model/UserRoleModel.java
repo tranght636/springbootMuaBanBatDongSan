@@ -1,6 +1,6 @@
 package com.htt.batdongsan.model;
 
-public class UserRole {
+public class UserRoleModel {
 	private Integer user_id;
 	private Integer role_id;
 	

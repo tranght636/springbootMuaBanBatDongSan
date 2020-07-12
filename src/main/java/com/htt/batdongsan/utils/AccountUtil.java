@@ -38,8 +38,7 @@ public class AccountUtil {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof UserDetails) {
 			String email = ((UserDetails) principal).getUsername();
-			System.out.println(email);
-			UserModel userModel = userService.selectOne("tranght636@gmail.com");
+			UserModel userModel = userService.selectOne(email);
 			return userModel;
 		}
 		return null;

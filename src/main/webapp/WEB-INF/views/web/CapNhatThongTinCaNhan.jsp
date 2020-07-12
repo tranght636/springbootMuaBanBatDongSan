@@ -9,8 +9,8 @@
 					
 					
 					<div style="margin: 15px;">
-						<div hidden="true" id="capNhatThanhCong"> Cập nhật thông tin thành công</div>
-						<div hidden="true" id="capNhatThatBai"> Cập nhật thông tin thất bại</div>
+						<div hidden="true" id="capNhatThanhCong" style="color: red;"> Cập nhật thông tin thành công</div>
+						<div hidden="true" id="capNhatThatBai" style="color: red;"> Cập nhật thông tin thất bại</div>
 					        <input name="id" id="id" value="${userModel.id}" hidden="true" />
 					        
 					        <div class="form-group">
