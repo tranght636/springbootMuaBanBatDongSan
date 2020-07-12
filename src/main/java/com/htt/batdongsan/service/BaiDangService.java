@@ -196,6 +196,36 @@ public class BaiDangService{
 		return baiDangMapper.updateStatusBDSByUserId(map);
 	}
 	
+	public List<BaiDangModel> select(){
+		return baiDangMapper.select();
+	}
+
+
+	public List<Object> selectBaiDangTuongTu(Integer city_id) {
+		List<Object> baiDangModel3 = new ArrayList<Object>();
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("city_id", city_id);
+		List<BaiDangModel> baiDangModelDANB = baiDangMapper.selectBaiDangTuongTu(map);
+		List<BaiDangModel> baiDangModelSmall = new ArrayList<BaiDangModel>();
+		int i=0;
+    	for (BaiDangModel baidang : baiDangModelDANB) {
+    		if(i<4) {
+    			
+    			baiDangModelSmall.add(baidang);
+    			i++;
+    		}else {
+    			baiDangModel3.add(new ArrayList<BaiDangModel>(baiDangModelSmall));
+    			//baiDangModel3.add(baiDangModelSmall);
+    			i=0;
+    			
+    			baiDangModelSmall.clear();
+    		}
+    		
+		}
+    	baiDangModel3.add(baiDangModelSmall);
+		return baiDangModel3;
+	}
 	
 	    
 }

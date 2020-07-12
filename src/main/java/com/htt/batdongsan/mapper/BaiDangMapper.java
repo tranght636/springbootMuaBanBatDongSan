@@ -59,6 +59,8 @@ public interface BaiDangMapper {
 
 	Integer updateStatusBDSByUserId(HashMap<String, Object> map);
 	
+	List<BaiDangModel> select();
 
+	List<BaiDangModel> selectBaiDangTuongTu(HashMap<String, Object> map);
 	
 }

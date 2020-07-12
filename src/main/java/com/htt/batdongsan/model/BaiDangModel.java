@@ -29,6 +29,7 @@ public class BaiDangModel {
 	private Integer so_tang;
 	private Integer user_id;
 	private Integer so_luot_thich;
+	private String img_id;
 	
 	public Integer getId() {
 		return id;
@@ -185,6 +186,12 @@ public class BaiDangModel {
 	}
 	public void setSo_luot_thich(Integer so_luot_thich) {
 		this.so_luot_thich = so_luot_thich;
+	}
+	public String getImg_id() {
+		return img_id;
+	}
+	public void setImg_id(String img_id) {
+		this.img_id = img_id;
 	}
 	
 	

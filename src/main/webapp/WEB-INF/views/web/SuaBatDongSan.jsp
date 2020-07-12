@@ -5,7 +5,8 @@
 	<div class="col-lg-12">
 		<div class="main-card mb-12 card">
 			<div class="card-body">
-				<h5 class="card-title">Sửa bất động sản</h5>
+				<h5 class="card-title">Sửa bất động sản </h5>
+				
 				<div class="scroll-area-md" style="height: 550px;">
 					<div class="card-body">
 						<form id="bai-dang" class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
@@ -20,14 +21,13 @@
 									<div class="col-sm-4">
 										<select id="TBDS_DanhMucChung" class="btnSort "
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
-											<c:forEach var = "i" begin = "1" end = "5">
-											<%-- <c:forEach var="danhMucChung" items="${danhMucChungModel}"> --%>
+											<c:forEach var="danhMucChung" items="${danhMucChungModel}">
 												<c:choose>
-													<c:when test="${1==1}"><!-- danhMucChungByDanhMucRieng.id == danhMucChung.id -->
-														<option selected="selected" value="$.{danhMucChung.id}">$.{danhMucChung.name}</option>
+													<c:when test="${danhMucChungByDanhMucRieng.id==danhMucChung.id}"><!-- danhMucChungByDanhMucRieng.id == danhMucChung.id -->
+														<option selected="selected" value="${danhMucChung.id}">${danhMucChung.name}</option>
 													</c:when>
 													 <c:otherwise>
-													 	<option value="$.{danhMucChung.id}">$.{danhMucChung.name}</option>
+													 	<option value="${danhMucChung.id}">${danhMucChung.name}</option>
 													 </c:otherwise>
 												</c:choose>
 											</c:forEach>
@@ -37,8 +37,15 @@
 									<div class="col-sm-4">
 										<select name="danh_muc_id" id="TBDS_DanhMuc" class="btnSort "
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
-											<c:forEach var="danhMuc" items="$.{danhMucModel}">
-												<option value="$.{danhMuc.id}">$.{danhMuc.name}</option>
+											<c:forEach var="danhMuc" items="${danhMucModel}">
+												<c:choose>
+													<c:when test="${baiDangModel.danh_muc_id == danhMuc.id}"><!-- danhMucChungByDanhMucRieng.id == danhMucChung.id -->
+														<option selected="selected" value="${danhMuc.id}">${danhMuc.name}</option>
+													</c:when>
+													 <c:otherwise>
+													 	<option value="${danhMuc.id}">${danhMuc.name}</option>
+													 </c:otherwise>
+												</c:choose>
 											</c:forEach>
 										</select>
 									</div>
@@ -65,7 +72,8 @@
 										(VND):</label>
 									<div class="col-sm-10">
 										<input type="text" id="TBDS_money" name="money"
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
+											value="${baiDangModel.money}">
 
 									</div>
 								</div>
@@ -636,4 +644,4 @@
 		</div>
 	</div>
 </div>
-<script src="/js/trangcanhan/taobatdongsan.js"></script>
+<script src="/js/trangcanhan/suabatdongsan.js"></script>

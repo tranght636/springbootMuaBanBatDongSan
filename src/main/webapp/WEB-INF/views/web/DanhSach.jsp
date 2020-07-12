@@ -17,7 +17,7 @@
 							<!-- Front -->
 							<div class="single-profile-front" style="height: 320px;">
 								<div class="profile-img">
-									<img src="/img/web/item1.jpg" alt="" style="border-radius: 10px 10px 10px 10px;">
+									<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
 								</div>
 								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
 									 <h6 class="title" style="color: black;">

@@ -1,44 +1,124 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet" />
 <body style="overflow: visible;">
 	<main>
+		<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true"
+			style="color: red;"></i>
 		<div class="row">
-			<div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7"></div>
-			<div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7">
-				<div class="s-details-caption">
-					<h2 style="margin-top: 20px;">${baiDangModel.title}</h2>
-					<small>${baiDangModel.start_day}</small>
-					<p class="details-pera3">Giá: ${baiDangModel.money}</p>
-					<p class="details-pera3">Diện tích: ${baiDangModel.dien_tich}</p>
-					<p class="details-pera3">
-						<i class="fa fa-map-marker" ></i>
-					 ${baiDangModel.dia_chi_chi_tiet}</p>
-					
-					<p class="details-pera3">${baiDangModel.content}</p>
-				</div>
+			<div class="col-xl-1 col-lg-1"></div>
+			<div class="offset-xl-1 offset-lg-1 col-xl-8 col-lg-8">
 				<div class="h1-testimonial-active">
-					<!-- Single Testimonial -->
-					<div class="single-testimonial pt-65">
-						<div class="single-profile-front">
-							<div class="profile-img">
-								<img src="/img/web/TpHue.jpg" alt=""
-									style="width: 100%; height: 100%;">
+
+					<c:forEach var="url" items="${urlImg}">
+						<!-- Single Testimonial -->
+						<div class="single-testimonial pt-65">
+							<div class="single-profile-front">
+								<div class="profile-img">
+									<img src="${url}" alt="" style="width: 100%; height: 600px;">
+								</div>
+								<div class="profile-caption"></div>
 							</div>
-							<div class="profile-caption"></div>
 						</div>
-					</div>
-					<!-- Single Testimonial -->
-					<div class="single-testimonial pt-65">
-						<div class="single-profile-front">
-							<div class="profile-img">
-								<img src="/img/web/TpHCM.jpg" alt=""
-									style="width: 100%; height: 100%;">
+					</c:forEach>
+
+				</div>
+				<div class="s-details-caption">
+					<div class="row" style="color: black;">
+						<div class="col-lg-12">
+							<div class=" mb-12 ">
+								<div class="s-details-caption" >
+									<h4 style="color: blue;">${baiDangModel.title}</h4>
+									<small style="color: gray;">12/07/2020</small>
+									<p style="color: black;">
+										<span style="color: gray;"> Địa chỉ: </span>
+										${baiDangModel.dia_chi_chi_tiet}
+									</p>
+									<div class="row">
+										<div class="col-lg-4" style="color: black;">
+											<span style="color: gray;"> Diện tích: </span>
+											${baiDangModel.dien_tich}
+										</div>
+										<div class="col-lg-4" style="color: black;">
+											<span style="color: gray;"> Giá: </span>
+											${baiDangModel.money}
+										</div>
+										<div class="col-lg-4" >
+											<c:if test="${baiDangModel.duong_vao_m !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> Đường vào (m): </span>
+													${baiDangModel.duong_vao_m}
+												</p>
+											</c:if>
+										</div>
+									</div>
+									<div class="row">
+
+										<div class="col-lg-4">
+											<c:if test="${baiDangModel.so_tang !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> Số Tầng: </span>
+													${baiDangModel.so_tang} tầng
+												</p>
+											</c:if>
+										</div>
+										<div class="col-lg-4">
+											<c:if test="${baiDangModel.so_phong_ngu !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> Phòng ngủ: </span>
+													${baiDangModel.so_tang}
+												</p>
+											</c:if>
+										</div>
+										<div class="col-lg-4">
+											<c:if test="${baiDangModel.so_phong_ngu !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> WC: </span>
+													${baiDangModel.so_tang}
+												</p>
+											</c:if>
+										</div>
+									</div>
+									<div class="row">
+
+										<div class="col-lg-4">
+											<c:if test="${baiDangModel.huong_nha !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> Hướng: </span>
+													${baiDangModel.huong_nha}
+												</p>
+											</c:if>
+										</div>
+										<div class="col-lg-4">
+											<c:if test="${baiDangModel.mat_tien !=''}">
+												<p style="color: black;">
+													<span style="color: gray;"> Mặt tiền: </span>
+													${baiDangModel.mat_tien}
+												</p>
+											</c:if>
+										</div>
+										<div class="col-lg-4">
+											<p style="color: black;">
+												<span style="color: gray;"> Liên hệ: </span> <span
+													style="color: red;">
+													${baiDangModel.thong_tin_lien_he} </span>
+											</p>
+										</div>
+									</div>
+									<br />
+									<div class="row">
+									<p style="color: gray;">Thông tin mô tả</p>
+									<p  style="color: black;"> ${baiDangModel.content}</p>
+									</div>
+								</div>
 							</div>
-							<div class="profile-caption"></div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</main>
@@ -474,48 +554,88 @@
 						</table>
 					</div>
 				</div>
-				<script>
-					function initMap() {
-						var uluru = {
-							lat : -25.363,
-							lng : 131.044
-						};
-						var grayStyles = [ {
-							featureType : "all",
-							stylers : [ {
-								saturation : -90
-							}, {
-								lightness : 50
-							} ]
-						}, {
-							elementType : 'labels.text.fill',
-							stylers : [ {
-								color : '#ccdee9'
-							} ]
-						} ];
-						var map = new google.maps.Map(document
-								.getElementById('map'), {
-							center : {
-								lat : -31.197,
-								lng : 150.744
-							},
-							zoom : 9,
-							styles : grayStyles,
-							scrollwheel : false
-						});
-					}
-				</script>
-				<script
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-					
-				</script>
+
 
 			</div>
 
 
+			<div>
+				<div>
+
+					<h3 style="color: blue;">Tin rao tương tự</h3>
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12">
+							<div class="single-cases-img  size mb-30">
+								<div class="h1-testimonial-active">
+									<c:forEach var="a" items="${baiDangTuongTuModel}">
+
+										<div class="single-testimonial">
+											<div class="single-profile-front">
+												<div class="profile-img">
+													<div class="row">
+														<c:forEach var="baiDang" items="${a}">
+															<div class="col-xl-3 col-lg-3 col-md-6">
+																<a class="small"
+																	href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
+																	<div class="single-profile mb-30"
+																		style="background-color: white; border-radius: 10px 10px 10px 10px;">
+																		<!-- Front -->
+																		<div class="single-profile-front"
+																			style="height: 350px;">
+																			<div class="profile-img">
+																				<img style="height: 160px;"
+																					src="${mapUrl.get(baiDang.id)}" alt=""
+																					style="border-radius: 10px 10px 10px 10px;">
+																			</div>
+																			<div class="profile-caption"
+																				style="margin-left: 5px; margin-right: 5px;">
+																				<h6 class="title" style="color: black;">${baiDang.title}
+																				</h6>
+																				<p style="color: blue; font-size: 12px;">Giá:
+																					${baiDang.money}, Diện tích: ${baiDang.dien_tich}</p>
+																				<small style="color: black;">${baiDang.dia_chi_chi_tiet}</small>
+																			</div>
+																		</div>
+																	</div>
+																</a>
+															</div>
+														</c:forEach>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			<div class="row">
 				<div class="col-12">
-					<h2 class="contact-title">Get in Touch</h2>
+					<h2 class="contact-title">Bình luận đánh giá</h2>
 				</div>
 				<div class="col-lg-8">
 					<form class="form-contact contact_form"
@@ -562,10 +682,16 @@
 					</form>
 				</div>
 				<div class="col-lg-3 offset-lg-1">
+					
 					<div class="media contact-info">
-						<span class="contact-info__icon"><i class="ti-home"></i></span>
+					<span class="contact-info__icon">
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-left-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+						  <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+						</svg>
+					</span>
 						<div class="media-body">
-							<h3>Buttonwood, California.</h3>
+							<h3>Phản hồi Admin.</h3>
 							<p>Rosemead, CA 91770</p>
 						</div>
 					</div>
@@ -587,5 +713,51 @@
 			</div>
 		</div>
 	</section>
+	 <script type="text/javascript">
+		// <![CDATA[
+		$(function() {
+			$(".title").each(function(i) {
+				len = $(this).text().length;
+				if (len > 80) {
+					$(this).text($(this).text().substr(0, 60) + '...');
+				}
+			});
+		});
+	</script> 
+	<script>
+		function initMap() {
+			var uluru = {
+				lat : -25.363,
+				lng : 131.044
+			};
+			var grayStyles = [ {
+				featureType : "all",
+				stylers : [ {
+					saturation : -90
+				}, {
+					lightness : 50
+				} ]
+			}, {
+				elementType : 'labels.text.fill',
+				stylers : [ {
+					color : '#ccdee9'
+				} ]
+			} ];
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center : {
+					lat : -31.197,
+					lng : 150.744
+				},
+				zoom : 9,
+				styles : grayStyles,
+				scrollwheel : false
+			});
+		}
+	</script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
+		
+	</script>
+	<script src="/js/web/chitietbatdongsan.js"></script>
 
 </body>
