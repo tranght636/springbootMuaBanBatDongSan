@@ -1,5 +1,7 @@
 package com.htt.batdongsan.service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -60,6 +62,16 @@ public class UserService{
 		map.put("id", id);
 		map.put("status", status);
 		return userMapper.updateStatusOne(map);
+	}
+
+	public Integer updateUser(UserModel userModel) {
+		Date now = new Date();
+		Timestamp timestamp = new Timestamp(now.getTime());
+		userModel.setModified_date(timestamp);
+		if(userModel.getPassword().equals("")) {
+			return userMapper.updateUser2(userModel);
+		}
+		return userMapper.updateUser(userModel);
 	}
 
 	

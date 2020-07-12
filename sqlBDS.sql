@@ -47153,131 +47153,82 @@ create table comment
 	create_at TIMESTAMP
 );
 
-
+-- role
+INSERT INTO `dbbds`.`role` (`name`, `code`) VALUES ('USER', 'USER'),('ADMIN', 'ADMIN');
 
 
 -- danh_muc_chung
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('NhaDatBan');
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('NhaDatChoThue');
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('DuAn');
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('CanMua');
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('CanThue');
-INSERT INTO `dbbds`.`danh_muc_chung` (`title`) VALUES ('TinTuc');
+INSERT INTO `dbbds`.`danh_muc_chung` (`title`,`name`) VALUES 
+('NhaDatBan', 'Nhà đất bán'),
+('NhaDatChoThue','Nhà đất cho thuê'),
+('DuAn','Dự án'),
+('CanMua','Cần mua'),
+('CanThue','Cần thuê'),
+('TinTuc','Tin tức');
 
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Nhà đất bán' WHERE (`id` = '1');
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Nhà đất cho thuê' WHERE (`id` = '2');
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Dự án' WHERE (`id` = '3');
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Cần mua' WHERE (`id` = '4');
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Cần thuê' WHERE (`id` = '5');
-UPDATE `dbbds`.`danh_muc_chung` SET `name` = 'Tin tức' WHERE (`id` = '6');
 
 -- danh_muc
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanCanHoChungCu', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanNhaRieng', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanBietThuLienKe', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanNhaMatPho', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanDatNenDuAn', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanDat', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanTrangTraiKhuNghiDuong', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanKhoNhaXuong', '1');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BanLoaiBatDongSanKhac', '1');
+INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`,`name`) VALUES 
+('BanCanHoChungCu', '1','Bán căn hộ/ chung cư'),
+('BanNhaRieng', '1','Bán nhà riêng'),
+('BanBietThuLienKe', '1','Bán biệt thự liền kề'),
+('BanNhaMatPho', '1','Bán nhà mặt phố'),
+('BanDatNenDuAn', '1','Bán đất nên/ dự án'),
+('BanDat', '1','Bán đất'),
+('BanTrangTraiKhuNghiDuong', '1','Bán trang trại/ khu nghỉ dưỡng'),
+('BanKhoNhaXuong', '1','Bán kho/ nhà xưởng'),
+('BanLoaiBatDongSanKhac', '1','Bán loại bất động sản khác'),
 
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueCanHoChungCu', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueNhaRieng', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueNhaMatPho', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueNhaTroPhongTro', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueVanPhong', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueCuaHangKiOt', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueKhoNhaXuongDat', '2');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('ChoThueLoaiBatDongSanKhac', '2');
+('ChoThueCanHoChungCu', '2','Cho thuê căn hộ/ chung cư'),
+('ChoThueNhaRieng', '2','Cho thuê nhà riêng'),
+('ChoThueNhaMatPho', '2','Cho thuê nhà mặt phố'),
+('ChoThueNhaTroPhongTro', '2','Cho thuê nhà trọ/ phòng trọ'),
+('ChoThueVanPhong', '2','Cho thuê văn phòng'),
+('ChoThueCuaHangKiOt', '2','Cho thuê cửa hàng/ ki ôt'),
+('ChoThueKhoNhaXuongDat', '2','Cho thuê kho/ nhà xưởng/ đất'),
+('ChoThueLoaiBatDongSanKhac', '2','Cho thuê loại bất động sản khác'),
 
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanHoChungCu', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CaoOVanPhong', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('TrungTamThuongMai', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('KhuDoThiMoi', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('KhuPhucHop', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('NhaOXaHoi', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('KhuNghiDuongSinhThai', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('KhuCongNghiep', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('BietThuLienKe', '3');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('DuAnKhac', '3');
+('DuAnCanHoChungCu', '3','Dự án ăn hộ/ chung cư'),
+('DuAnCaoOVanPhong', '3','Dự án cao ốc/ văn phòng'),
+('DuAnTrungTamThuongMai', '3','Dự án trung tâm thương mại'),
+('DuAnKhuDoThiMoi', '3','Dự án khu đô thị mới'),
+('DuAnKhuPhucHop', '3','Dự án khu phức hợp'),
+('DuAnNhaOXaHoi', '3','Dự án nhà ở xã hội'),
+('DuAnKhuNghiDuongSinhThai', '3','Dự án khu nghỉ dưỡng sinh thái'),
+('DuAnKhuCongNghiep', '3','Dự án khu công nghiệp'),
+('DuAnBietThuLienKe', '3','Dự án biệt thự liền kề'),
+('DuAnKhac', '3','Dự án khác'),
 
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaCanHoChungCu', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaNhaRieng', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaBietThuLienKe', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaNhaMatPho', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaDatNenDuAn', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaDat', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaTrangTraiKhuNghiDuong', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaKhoNhaXuong', '4');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanMuaLoaiBatDongSanKhac', '4');
+('CanMuaCanHoChungCu', '4','Cần mua căn hộ chung cư'),
+('CanMuaNhaRieng', '4','Cần mua nhà riêng'),
+('CanMuaBietThuLienKe', '4','Cần mua biệt thự liền kề'),
+('CanMuaNhaMatPho', '4','Cần mua nhà mặt phố'),
+('CanMuaDatNenDuAn', '4','Cần mua đất nền dự án'),
+('CanMuaDat', '4','Cần mua đất'),
+('CanMuaTrangTraiKhuNghiDuong', '4','Cần mua trang trại khu nghỉ dưỡng'),
+('CanMuaKhoNhaXuong', '4','Cần mua kho nhà xưởng'),
+('CanMuaLoaiBatDongSanKhac', '4','Cần mua các loại bất động sản khác'),
 
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueCanHoChungCu', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueNhaRieng', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueNhaMatPho', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanNhaTroPhongTro', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueVanPhong', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueCuaHangKiOt', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueKhoNhaXuongDat', '5');
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('CanThueLoaiBatDongSanKhac', '5');
+('CanThueCanHoChungCu', '5','Cần thuê căn hộ chung cư'),
+('CanThueNhaRieng', '5','Cần thuê nhà riêng'),
+('CanThueNhaMatPho', '5','Cần thuê nhà mặt phố'),
+('CanThueNhaTroPhongTro', '5','Cần thuê nhà trọ phòng trọ'),
+('CanThueVanPhong', '5','Cần thuê văn phòng'),
+('CanThueCuaHangKiOt', '5','Cần thuê của hàng/ ki ốt'),
+('CanThueKhoNhaXuongDat', '5','Cần thuê kho/ nhà xưởng/ đất'),
+('CanThueLoaiBatDongSanKhac', '5','Cần thuê các loại bất động sản khác'),
 
-INSERT INTO `dbbds`.`danh_muc` (`title`, `dmc_id`) VALUES ('TinTuc', '6');
-
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán căn hộ/ chung cư' WHERE (`id` = '1');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán nhà riêng' WHERE (`id` = '2');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán biệt thự liền kề' WHERE (`id` = '3');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán nhà mặt phố' WHERE (`id` = '4');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán đất nên/ dự án' WHERE (`id` = '5');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán đất' WHERE (`id` = '6');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán trang trại/ khu nghỉ dưỡng' WHERE (`id` = '7');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán kho/ nhà xưởng' WHERE (`id` = '8');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Bán loại bất động sản khác' WHERE (`id` = '9');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê căn hộ/ chung cư' WHERE (`id` = '10');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê nhà riêng' WHERE (`id` = '11');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê nhà mặt phố' WHERE (`id` = '12');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê nhà trọ/ phòng trọ' WHERE (`id` = '13');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê văn phòng' WHERE (`id` = '14');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'CHo thuê cửa hàng/ ki ôt' WHERE (`id` = '15');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê kho/ nhà xưởng/ đất' WHERE (`id` = '16');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cho thuê loại bất động sản khác' WHERE (`id` = '17');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnCanHoChungCu', `name` = 'Dự án ăn hộ/ chung cư' WHERE (`id` = '18');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnCaoOVanPhong', `name` = 'Dự án cao ốc/ văn phòng' WHERE (`id` = '19');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnTrungTamThuongMai', `name` = 'Dự án trung tâm thương mại' WHERE (`id` = '20');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnKhuDoThiMoi', `name` = 'Dự án khu đô thị mới' WHERE (`id` = '21');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnKhuPhucHop', `name` = 'Dự án khu phức hợp' WHERE (`id` = '22');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnNhaOXaHoi', `name` = 'Dự án nhà ở xã hội' WHERE (`id` = '23');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnKhuNghiDuongSinhThai', `name` = 'Dự án khu nghỉ dưỡng sinh thái' WHERE (`id` = '24');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnKhuCongNghiep', `name` = 'Dự án khu công nghiệp' WHERE (`id` = '25');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'DuAnBietThuLienKe', `name` = 'Dự án biệt thự liền kề' WHERE (`id` = '26');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Dự án khác' WHERE (`id` = '27');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua căn hộ chung cư' WHERE (`id` = '28');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua nhà riêng' WHERE (`id` = '29');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua biệt thự liền kề' WHERE (`id` = '30');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua nhà mặt phố' WHERE (`id` = '31');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua đất nền dự án' WHERE (`id` = '32');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua đất' WHERE (`id` = '33');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua trang trại khu nghỉ dưỡng' WHERE (`id` = '34');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua kho nhà xưởng' WHERE (`id` = '35');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần mua các loại bất động sản khác' WHERE (`id` = '36');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê căn hộ chung cư' WHERE (`id` = '37');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê nhà riêng' WHERE (`id` = '38');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê nhà mặt phố' WHERE (`id` = '39');
-UPDATE `dbbds`.`danh_muc` SET `title` = 'CanThueNhaTroPhongTro', `name` = 'Cần thuê nhà trọ phòng trọ' WHERE (`id` = '40');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê văn phòng' WHERE (`id` = '41');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê của hàng/ ki ốt' WHERE (`id` = '42');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê kho/ nhà xưởng/ đất' WHERE (`id` = '43');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Cần thuê các loại bất động sản khác' WHERE (`id` = '44');
-UPDATE `dbbds`.`danh_muc` SET `name` = 'Tin tức' WHERE (`id` = '45');
-
-
+('TinTuc', '6','Tin tức')
+;
 -- loai_bat_dong_san
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('CanHo', 'Căn hộ');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('NhaO', 'Nhà ở');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('BietThu', 'Biệt thự');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('NhaPho', 'Nhà phố');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('DatDuAn', 'Đất dự án');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('Dat', 'Đất');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('NongTrai', 'Nông trại');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('NhaKho/CongXuong', 'Nhà kho/Công xưởng');
-INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES ('Khac', 'Khác');
+INSERT INTO `dbbds`.`loai_bat_dong_san` (`title`, `name`) VALUES 
+('CanHo', 'Căn hộ'),
+('NhaO', 'Nhà ở'),
+('BietThu', 'Biệt thự'),
+('NhaPho', 'Nhà phố'),
+('DatDuAn', 'Đất dự án'),
+('Dat', 'Đất'),
+('NongTrai', 'Nông trại'),
+('NhaKho/CongXuong', 'Nhà kho/Công xưởng'),
+('Khac', 'Khác');
 

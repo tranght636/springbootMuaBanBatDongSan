@@ -1,5 +1,7 @@
 package com.htt.batdongsan.controller.web;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import com.htt.batdongsan.service.ProvinceService;
 import com.htt.batdongsan.service.StreetService;
 import com.htt.batdongsan.service.UserService;
 import com.htt.batdongsan.service.WardService;
+import com.htt.batdongsan.utils.AccountUtil;
 
 @Controller(value = "TrangCaNhan")
 @RequestMapping("/trang-ca-nhan")
@@ -42,13 +45,27 @@ public class TrangCaNhanController {
 	StreetService streetService;
 	@Autowired
 	BaiDangService baiDangService;
+	@Autowired
+	AccountUtil accountUtil;
+	
+//	public UserModel getUser() {
+//		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		if (principal instanceof UserDetails) {
+//			String email = ((UserDetails) principal).getUsername();
+//			UserModel userModel = userService.selectOne(email);
+//			return userModel;
+//		}
+//		return null;
+//	}
+//	
 	
 	
     @GetMapping("/cap-nhat-thong-tin")
     public String CapNhatThongTin(ModelMap modelMap){
-    	//get id sesson
-    	UserModel userModel = userService.selectOne(1);
-    	modelMap.addAttribute("userModel", userModel);
+    	UserModel userModel = accountUtil.getUser();
+		//UserModel userModel =getUser();
+		modelMap.addAttribute("userModel",userModel );
+    	
         return "web/CapNhatThongTinCaNhan";
     }
     @GetMapping("/tao-bat-dong-san")
@@ -157,11 +174,11 @@ public class TrangCaNhanController {
     	
     	
     	// lấy bất động sản cần sửa
-//    	BaiDangModel baiDangModel = baiDangService.selectOne(id);
-//    	modelMap.addAttribute("baiDangModel", baiDangModel);
+    	BaiDangModel baiDangModel = baiDangService.selectOne(id);
+    	modelMap.addAttribute("baiDangModel", baiDangModel);
     	// lấy danh mục chung
-    	//Object danhMucChungByDanhMucRieng = danhMucChungService.selectOne(baiDangModel.getDanh_muc_id());
-    	//modelMap.addAttribute("danhMucChungByDanhMucRieng", danhMucChungByDanhMucRieng);
+    	Object danhMucChungByDanhMucRieng = danhMucChungService.selectOne(baiDangModel.getDanh_muc_id());
+    	modelMap.addAttribute("danhMucChungByDanhMucRieng", danhMucChungByDanhMucRieng);
     	
         return "web/SuaBatDongSan";
     }

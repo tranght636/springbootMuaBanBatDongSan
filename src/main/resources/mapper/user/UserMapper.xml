@@ -43,6 +43,14 @@
         where 1 = 1
         and id = #{id}
     </update>
+    <update id="updateUser" parameterType="UserModel" >
+       UPDATE user SET username = #{username}, `password` = #{password}, `phone_number` = #{phone_number}, `address` = #{address}, `modified_date` = #{modified_date}, `dob` = #{dob} WHERE (`id` = #{id});
+
+    </update>
+     <update id="updateUser2" parameterType="UserModel" >
+       UPDATE user SET username = #{username}, `phone_number` = #{phone_number}, `address` = #{address}, `modified_date` = #{modified_date}, `dob` = #{dob} WHERE (`id` = #{id});
+
+    </update>
     
     
     

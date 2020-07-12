@@ -128,10 +128,15 @@ $(document).ready(function() {
             		for(image of result) {
             			$("#list-image-tbds").append(`<img class="col-sm-2" src="${image}" alt=""
 						style="border-radius: 10px 10px 10px 10px;">`)
-						
 						images.push(image);
             		}
+            		var res = result.map(x => {
+            		    return x.split('/').pop();
+            		})
+            		res = res.join('-');
+            		
             		document.getElementById('multi-file-tbds').value = "";
+            		document.getElementById("InputIDImg").value=res;
             	}
             }
         });
@@ -141,7 +146,7 @@ $(document).ready(function() {
 	 * 1. Lưu hình ảnh bằng cách gọi api hinh_anh_video
 	 * 2. Cho phép form submit
 	 * */
-	$("#btn-add-bds").on("click", function(){
+	/*$("#btn-add-bds").on("click", function(){
 		if(images.length) {
 			let data = images.map(image => {
 				return {
@@ -166,5 +171,5 @@ $(document).ready(function() {
 		
 		
 		//$("#bai-dang").submit();
-	});
+	});*/
 });

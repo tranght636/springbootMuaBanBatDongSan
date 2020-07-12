@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
 
 <main>
 <!-- 
@@ -70,8 +70,7 @@
 																<!-- Front -->
 																<div class="single-profile-front" style="height: 350px;">
 																	<div class="profile-img">
-																		<img src="/img/web/item3.jpg" alt=""
-																			style="border-radius: 10px 10px 10px 10px;">
+																		<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
 																	</div>
 																	<div class="profile-caption" style="margin-left: 5px; margin-right: 5px;">
 																		<h6 class="title" style="color: black;">${baiDang.title}
@@ -100,7 +99,15 @@
 					thêm</a>
 			</div>
 			<h3 style="color: blue;">Dự án nổi bật</h3>
-
+				
+				
+				<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red; "></i>
+				<!-- <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red;"></i> -->
+				
+				
+				
+				
+				
 			<!-- Dự án nổi bật -->
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12">
@@ -121,8 +128,7 @@
 																<!-- Front -->
 																<div class="single-profile-front" style="height: 320px;">
 																	<div class="profile-img">
-																		<img src="/img/web/item2.jpg" alt=""
-																			style="border-radius: 10px 10px 10px 10px;">
+																		<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
 																	</div>
 																	<div class="profile-caption"
 																		style="margin-left: 5px; margin-right: 5px;">
@@ -161,8 +167,7 @@
 								<!-- Front -->
 								<div class="single-profile-front" style="height: 350px;">
 									<div class="profile-img">
-										<img src="/img/web/item3.jpg" alt=""
-											style="border-radius: 10px 10px 10px 10px;">
+										<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
 									</div>
 									<div class="profile-caption"
 										style="margin-left: 5px; margin-right: 5px;">
@@ -295,7 +300,9 @@
 				}
 			});
 		});
+		
+	
 	</script>
 
-
+<script src="/js/web/chitietbatdongsan.js"></script>
 </main>

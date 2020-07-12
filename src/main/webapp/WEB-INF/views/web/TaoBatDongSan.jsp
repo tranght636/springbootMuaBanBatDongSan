@@ -8,7 +8,9 @@
 				<h5 class="card-title">Tạo bất động sản mới</h5>
 				<div class="scroll-area-md" style="height: 550px;">
 					<div class="card-body">
-						<form id="bai-dang" class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
+						<form id="bai-dang" class="bai_dang"
+							action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>'
+							method="POST">
 							<div class="container">
 								<div class="form-group row">
 									<h2>Thông tin cơ bản:</h2>
@@ -141,13 +143,13 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="title"
-										class="col-sm-2 col-form-label"> Địa chỉ chi tiết:</label>
+									<label for="title" class="col-sm-2 col-form-label"> Địa
+										chỉ chi tiết:</label>
 									<div class="col-sm-10">
-										<input type="text" class="TBDS_dia_chi_chi_tiet" 
+										<input type="text" class="TBDS_dia_chi_chi_tiet"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
-											disabled="disabled">
-										<input type="text" class="TBDS_dia_chi_chi_tiet"  name="dia_chi_chi_tiet"
+											disabled="disabled"> <input type="text"
+											class="TBDS_dia_chi_chi_tiet" name="dia_chi_chi_tiet"
 											hidden="true">
 									</div>
 								</div>
@@ -222,30 +224,29 @@
 												<div class="single-profile-front">
 													<div class="profile-img">
 														<div class="row" id="list-image-tbds">
-															<img class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;">
-
+														
+														<!-- 
+														<div >
+														<div>
+														<button type="button" class="close" aria-label="Close" style="position: absolute;">
+														  <span aria-hidden="true" >&times;</span>
+														  
+														</button>
+														<img class="col-sm-2" src="/img/web/TpHue.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px;position: absolute;" >
+														</div>
+														</div>
+														
+														 -->
+														
 														</div>
 
 													</div>
 												</div>
 											</div>
-											<input name="file" id="multi-file-tbds" type="file" 
-												class="form-control-file" style="margin-top: 5px; " multiple required>
+											<input id="multi-file-tbds" type="file"
+												class="form-control-file" style="margin-top: 5px;" multiple>
+											<input name="img_id" id="InputIDImg" hidden="true">
 											<button id="btn-upload-img-tbds" type="button"
 												class="mb-2 mr-2 mt-2 btn btn-primary">Upload</button>
 											<small class="form-text text-muted"></small>
@@ -256,7 +257,8 @@
 									<label for="editorContentThongBao"
 										class="col-sm-2 col-form-label">Thông tin liên hệ:</label>
 									<div class="col-sm-10">
-										<input  name="thong_tin_lien_he" type="text" style="width: 100%;">
+										<input name="thong_tin_lien_he" type="text"
+											style="width: 100%;">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -616,7 +618,7 @@
 							<div class="form-group row">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-10" style="text-align: right;">
-									<button id="btn-add-bds" type="button"
+									<button id="btn-add-bds" type="submit"
 										class="mb-2 mr-2 btn btn-primary">Lưu</button>
 								</div>
 							</div>

@@ -18,7 +18,7 @@ public class DanhMucChungService {
 	 public List<DanhMucChungModel> selectAll(){
 	        return danhMucChungMapper.selectAll();
 	  }
-	public DanhMucChungService selectOne(Integer id) {
+	public DanhMucChungModel selectOne(Integer id) {
 		return danhMucChungMapper.selectOne(id);
 	}
 	    

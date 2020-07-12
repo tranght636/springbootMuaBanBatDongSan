@@ -16,5 +16,7 @@ public interface UserMapper {
 	public List<UserModel> selectListUser(Integer status);
 	Integer updateStatusOne(HashMap<String, Object> map);
 	UserModel selectUser(Integer id);
+	Integer updateUser(UserModel userModel);
+	Integer updateUser2(UserModel userModel);
 	
 }
