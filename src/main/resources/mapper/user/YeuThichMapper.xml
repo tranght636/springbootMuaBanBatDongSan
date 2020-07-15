@@ -5,5 +5,8 @@
    	<delete id="delete" parameterType="Integer" >
        DELETE FROM yeu_thich WHERE bai_dang_id = #{bai_dang_id} and user_id = #{user_id}
     </delete>
+    <select id="selectByIdUser" resultMap="result" parameterType="Integer">
+    	select * from yeu_thich where  user_id = #{user_id}
+    </select>
     <resultMap id = "result" type = "YeuThichModel"/>
 </mapper>

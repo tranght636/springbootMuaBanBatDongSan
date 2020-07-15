@@ -66,5 +66,9 @@ public interface BaiDangMapper {
 	List<BaiDangModel> BDSDaMuaHoacDaThue(Integer user_id);
 
 	List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id);
+
+	List<BaiDangModel> SelectAllBDSChoDayTin();
+
+	Integer update(BaiDangModel baiDangModel);
 	
 }

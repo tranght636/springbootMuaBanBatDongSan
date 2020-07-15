@@ -10,4 +10,10 @@ $(document).ready(function() {
 			$(this).addClass(classChuaYeuThich);
 		}
 	});
+	$('#btn-CTBDS-Thich').on('click', function() {
+		if ($(this).val().includes("Thích")){
+			$(this).val("Đã Thích");
+		}
+	});
+	
 });

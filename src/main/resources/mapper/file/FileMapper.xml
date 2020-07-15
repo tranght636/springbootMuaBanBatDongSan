@@ -19,6 +19,10 @@
 	    select * from files
 		where id = #{id}
 	</select>
+	
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM `dbbds`.`files` WHERE (`id` = #{id});
+	</delete>
     
     <resultMap id="result" type="FileModel"/>
 </mapper>

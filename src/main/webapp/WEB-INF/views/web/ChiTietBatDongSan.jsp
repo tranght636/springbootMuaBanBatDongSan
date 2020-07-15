@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-	rel="stylesheet" />
+
 <body style="overflow: visible;">
 	<main>
-		<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true"
-			style="color: red;"></i>
 		<div class="row">
 			<div class="col-xl-1 col-lg-1"></div>
 			<div class="offset-xl-1 offset-lg-1 col-xl-8 col-lg-8">
@@ -32,8 +28,15 @@
 							<div class=" mb-12 ">
 								<div class="s-details-caption" >
 									<h4 style="color: blue;">${baiDangModel.title}</h4>
+									
+									<c:forEach var="yeuthich" items="${listyeuthich}">
+										<c:if test="${yeuthich.bai_dang_id == baiDangModel.id}">
+											<button id="btn-CTBDS-Thich" type="button" class="btn btn-danger" style="float: right; " >Đã thích</button>
+										</c:if>
+									</c:forEach>
 									<small style="color: gray;">12/07/2020</small>
 									<p style="color: black;">
+										<i class="ti-location-pin"></i>
 										<span style="color: gray;"> Địa chỉ: </span>
 										${baiDangModel.dia_chi_chi_tiet}
 									</p>
@@ -102,6 +105,7 @@
 										</div>
 										<div class="col-lg-4">
 											<p style="color: black;">
+											<i class="ti-tablet"></i>
 												<span style="color: gray;"> Liên hệ: </span> <span
 													style="color: red;">
 													${baiDangModel.thong_tin_lien_he} </span>
@@ -759,5 +763,4 @@
 		
 	</script>
 	<script src="/js/web/chitietbatdongsan.js"></script>
-
 </body>

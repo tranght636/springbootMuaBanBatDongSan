@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href='<c:url value="/admin/quan-ly-danh-muc"/>'>
+                                <a href='<c:url value="/admin/daytin"/>'>
                                     <i class="metismenu-icon pe-7s-note2"></i> Đẩy bất động sản
                                 </a>
                             </li>

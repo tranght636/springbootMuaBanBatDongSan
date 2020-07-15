@@ -61,6 +61,13 @@ public class HomeController {
 
 		Object BDSBiXoa = baiDangService.BDSBiXoa(id);
 		modelMap.addAttribute("BDSBiXoa", BDSBiXoa);
+		
+		Object BDSDaMuaHoacDaThue = baiDangService.BDSDaMuaHoacDaThue(id);
+		modelMap.addAttribute("BDSDaMuaHoacDaThue", BDSDaMuaHoacDaThue);
+		
+		Object BDSDaBanHoacDaChoThue = baiDangService.BDSDaBanHoacDaChoThue(id);
+		modelMap.addAttribute("BDSDaBanHoacDaChoThue", BDSDaBanHoacDaChoThue);
+		
 
 		Map<Integer, String> mapUrl = new HashMap<Integer, String>();
     	for(BaiDangModel baiDang : baiDangService.select()) {
@@ -203,9 +210,24 @@ public class HomeController {
 		return "admin/ChiTietBatDongSanAdmin";
 	}
 
-	@GetMapping("/quan-ly-danh-muc")
-	public String QuanLyDanhMuc() {
-		return "admin/DanhMucTinTuc";
+	@GetMapping("/daytin")
+	public String QuanLyDanhMuc(HttpServletRequest request, ModelMap modelMap) {
+		Object BDSChoDayTin = baiDangService.SelectAllBDSChoDayTin();
+		modelMap.addAttribute("BDSChoDayTin", BDSChoDayTin);
+		Map<Integer, String> mapUrl = new HashMap<Integer, String>();
+    	for(BaiDangModel baiDang : baiDangService.select()) {
+    		String idImgs = baiDang.getImg_id();
+    		if(idImgs != null && !idImgs.equals("")) {
+    			String idImg = idImgs.split("-")[0];
+    			String path = request.getContextPath();
+    			path += "/api/file/" + idImg;
+    			mapUrl.put(baiDang.getId(), path);
+    		} else {
+    			mapUrl.put(baiDang.getId(), "");
+    		}
+    	}
+    	modelMap.addAttribute("mapUrl", mapUrl);
+		return "admin/DayBatDongSan";
 	}
 
 }

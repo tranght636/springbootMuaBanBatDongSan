@@ -5,12 +5,16 @@
 	<div class="col-lg-12">
 		<div class="main-card mb-12 card">
 			<div class="card-body">
-				<h5 class="card-title">Sửa bất động sản </h5>
-				
+				<h5 class="card-title">Sửa bất động sản</h5>
+
 				<div class="scroll-area-md" style="height: 550px;">
 					<div class="card-body">
-						<form id="bai-dang" class="bai_dang" action='<c:url value="/trang-ca-nhan/tao-bat-dong-san"/>' method="POST">
+						<form id="bai-dang" class="bai_dang"
+							action='<c:url value="/trang-ca-nhan/sua-bat-dong-san"/>'
+							method="POST">
 							<div class="container">
+								<input type="text"  name="id" 
+											value="${baiDangModel.id}" hidden>
 								<div class="form-group row">
 									<h2>Thông tin cơ bản:</h2>
 								</div>
@@ -18,18 +22,15 @@
 
 									<label class="col-sm-4 col-form-label">Danh mục bất
 										động sản:</label>
+
+
 									<div class="col-sm-4">
 										<select id="TBDS_DanhMucChung" class="btnSort "
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="danhMucChung" items="${danhMucChungModel}">
-												<c:choose>
-													<c:when test="${danhMucChungByDanhMucRieng.id==danhMucChung.id}"><!-- danhMucChungByDanhMucRieng.id == danhMucChung.id -->
-														<option selected="selected" value="${danhMucChung.id}">${danhMucChung.name}</option>
-													</c:when>
-													 <c:otherwise>
-													 	<option value="${danhMucChung.id}">${danhMucChung.name}</option>
-													 </c:otherwise>
-												</c:choose>
+												<option
+													<c:if test="${danhMucChungByDanhMucRieng.id==danhMucChung.id}">selected="selected"</c:if>
+													value="${danhMucChung.id}">${danhMucChung.name}</option>
 											</c:forEach>
 
 										</select>
@@ -38,14 +39,9 @@
 										<select name="danh_muc_id" id="TBDS_DanhMuc" class="btnSort "
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="danhMuc" items="${danhMucModel}">
-												<c:choose>
-													<c:when test="${baiDangModel.danh_muc_id == danhMuc.id}"><!-- danhMucChungByDanhMucRieng.id == danhMucChung.id -->
-														<option selected="selected" value="${danhMuc.id}">${danhMuc.name}</option>
-													</c:when>
-													 <c:otherwise>
-													 	<option value="${danhMuc.id}">${danhMuc.name}</option>
-													 </c:otherwise>
-												</c:choose>
+												<option
+													<c:if test="${baiDangModel.danh_muc_id==danhMuc.id}">selected="selected"</c:if>
+													value="${danhMuc.id}">${danhMuc.name}</option>
 											</c:forEach>
 										</select>
 									</div>
@@ -55,7 +51,7 @@
 										đề:</label>
 									<div class="col-sm-10">
 										<textarea name="title" id="TBDS_title" class="form-control"
-											rows="1" style="width: 100%; color: black;"></textarea>
+											rows="1" style="width: 100%; color: black;">${baiDangModel.title}</textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -64,7 +60,7 @@
 									<div class="col-sm-10">
 										<textarea name="mo_ta_tong_quat" id="TBDS_mo_ta_tong_quat"
 											class="form-control" rows="1"
-											style="width: 100%; color: black;"></textarea>
+											style="width: 100%; color: black;">${baiDangModel.mo_ta_tong_quat}</textarea>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -89,7 +85,9 @@
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="loaiBatDongSan"
 												items="${loaiBatDongSanModel}">
-												<option value="${loaiBatDongSan.id}">${loaiBatDongSan.name}</option>
+												<option
+													<c:if test="${baiDangModel.loai_bat_dong_san_id==loaiBatDongSan.id}">selected="selected"</c:if>
+													value="${loaiBatDongSan.id}">${loaiBatDongSan.name}</option>
 											</c:forEach>
 										</select>
 									</div>
@@ -99,7 +97,8 @@
 										tích (m2):</label>
 									<div class="col-sm-10">
 										<input type="text" id="TBDS_dien_tich" name="dien_tich"
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
+											value="${baiDangModel.dien_tich}">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -109,7 +108,9 @@
 										<select name="city_id" id="TBDS_city_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="province" items="${provinceModel}">
-												<option value="${province.id}">${province._name}</option>
+												<option
+													<c:if test="${baiDangModel.city_id==province.id}">selected="selected"</c:if>
+													value="${province.id}">${province._name}</option>
 											</c:forEach>
 										</select>
 									</div>
@@ -118,7 +119,9 @@
 										<select name="huyen_id" id="TBDS_huyen_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="district" items="${districtModel}">
-												<option value="${district.id}">${district._prefix}
+												<option
+													<c:if test="${baiDangModel.huyen_id==district.id}">selected="selected"</c:if>
+													value="${district.id}">${district._prefix}
 													${district._name}</option>
 											</c:forEach>
 										</select>
@@ -131,8 +134,9 @@
 										<select name="xa_id" id="TBDS_xa_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="ward" items="${wardModel}">
-												<option value="${ward.id}">${ward._prefix}
-													${ward._name}</option>
+												<option
+													<c:if test="${baiDangModel.xa_id==ward.id}">selected="selected"</c:if>
+													value="${ward.id}">${ward._prefix}${ward._name}</option>
 											</c:forEach>
 										</select>
 									</div>
@@ -142,7 +146,9 @@
 										<select name="duong_id" id="TBDS_duong_id" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="street" items="${streetModel}">
-												<option value="${street.id}">${street._prefix}
+												<option
+													<c:if test="${baiDangModel.duong_id==street.id}">selected="selected"</c:if>
+													value="${street.id}">${street._prefix}
 													${street._name}</option>
 											</c:forEach>
 										</select>
@@ -157,14 +163,14 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="title"
-										class="col-sm-2 col-form-label"> Địa chỉ chi tiết:</label>
+									<label for="title" class="col-sm-2 col-form-label"> Địa
+										chỉ chi tiết:</label>
 									<div class="col-sm-10">
-										<input type="text" class="TBDS_dia_chi_chi_tiet" 
+										<input type="text" class="TBDS_dia_chi_chi_tiet"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
-											disabled="disabled">
-										<input type="text" class="TBDS_dia_chi_chi_tiet"  name="dia_chi_chi_tiet"
-											hidden="true">
+											value="${baiDangModel.dia_chi_chi_tiet}"> <input
+											type="text" class="TBDS_dia_chi_chi_tiet"
+											name="dia_chi_chi_tiet" hidden="true">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -172,6 +178,7 @@
 										tiền:</label>
 									<div class="col-sm-4">
 										<input type="text" name="mat_tien"
+											value="${baiDangModel.mat_tien}"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label">
@@ -179,14 +186,30 @@
 									<div class="col-sm-4">
 										<select name="huong_nha" class="btnSort "
 											style="width: 100%;; border: 1px solid #ced4da; border-radius: .25rem;">
-											<option value="D">Đông</option>
-											<option value="T">Tây</option>
-											<option value="N">Nam</option>
-											<option value="B">Bắc</option>
-											<option value="TB">Tây Bắc</option>
-											<option value="DN">Đông Nam</option>
-											<option value="BD">Bắc Đông</option>
-											<option value="NT">Nam Tây</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='D'}">selected="selected"</c:if>
+												value="D">Đông</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='T'}">selected="selected"</c:if>
+												value="T">Tây</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='N'}">selected="selected"</c:if>
+												value="N">Nam</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='B'}">selected="selected"</c:if>
+												value="B">Bắc</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='TB'}">selected="selected"</c:if>
+												value="TB">Tây Bắc</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='DN'}">selected="selected"</c:if>
+												value="DN">Đông Nam</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='BD'}">selected="selected"</c:if>
+												value="BD">Bắc Đông</option>
+											<option
+												<c:if test="${baiDangModel.huong_nha=='NT'}">selected="selected"</c:if>
+												value="NT">Nam Tây</option>
 										</select>
 									</div>
 
@@ -196,6 +219,7 @@
 										Chiều rộng đường vào(m2):</label>
 									<div class="col-sm-4">
 										<input type="number" name="duong_vao_m"
+											value="${baiDangModel.duong_vao_m}"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
@@ -204,18 +228,21 @@
 										nhà vệ sinh:</label>
 									<div class="col-sm-2">
 										<input type="number" name="so_nha_ve_sinh"
+											value="${baiDangModel.so_nha_ve_sinh}"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										phòng ngủ:</label>
 									<div class="col-sm-2">
 										<input type="number" name="so_phong_ngu"
+											value="${baiDangModel.so_phong_ngu}"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 									<label for="title" class="col-sm-2 col-form-label"> Số
 										tầng:</label>
 									<div class="col-sm-2">
 										<input type="number" name="so_tang"
+											value="${baiDangModel.so_tang}"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 									</div>
 								</div>
@@ -226,6 +253,7 @@
 									<div class="col-sm-10">
 										<textarea id="textareacontent" name="content" cols="500"
 											rows="10" style="width: 100%;">
+											${baiDangModel.content}
 										</textarea>
 									</div>
 								</div>
@@ -238,30 +266,32 @@
 												<div class="single-profile-front">
 													<div class="profile-img">
 														<div class="row" id="list-image-tbds">
-															<img class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item3.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item2.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item4.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;"> <img
-																class="col-sm-2" src="/img/web/item1.jpg" alt=""
-																style="border-radius: 10px 10px 10px 10px; margin-bottom: 10px;">
+															<c:forEach var="url" items="${urlImg}">
+																<!-- Single Testimonial -->
+																	<img class="col-sm-2" src="${url}" alt="" style="border-radius: 10px 10px 10px 10px;margin-top: 5px;">
+															</c:forEach>
+															<!-- 
+														<div >
+														<div>
+														<button type="button" class="close" aria-label="Close" style="position: absolute;">
+														  <span aria-hidden="true" >&times;</span>
+														  
+														</button>
+														<img class="col-sm-2" src="/img/web/TpHue.jpg" alt=""
+																	style="border-radius: 10px 10px 10px 10px;position: absolute;" >
+														</div>
+														</div>
+														
+														 -->
 
 														</div>
 
 													</div>
 												</div>
 											</div>
-											<input name="file" id="multi-file-tbds" type="file" 
-												class="form-control-file" style="margin-top: 5px; " multiple required>
+											<input id="multi-file-tbds" type="file"
+												class="form-control-file" style="margin-top: 5px;" multiple>
+											<input name="img_id" id="InputIDImg" value="${idImgs}">
 											<button id="btn-upload-img-tbds" type="button"
 												class="mb-2 mr-2 mt-2 btn btn-primary">Upload</button>
 											<small class="form-text text-muted"></small>
@@ -272,7 +302,8 @@
 									<label for="editorContentThongBao"
 										class="col-sm-2 col-form-label">Thông tin liên hệ:</label>
 									<div class="col-sm-10">
-										<input  name="thong_tin_lien_he" type="text" style="width: 100%;">
+										<input name="thong_tin_lien_he" type="text"
+											style="width: 100%;" value="${baiDangModel.thong_tin_lien_he}">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -632,7 +663,7 @@
 							<div class="form-group row">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-10" style="text-align: right;">
-									<button id="btn-add-bds" type="button"
+									<button id="btn-update-bds" type="submit"
 										class="mb-2 mr-2 btn btn-primary">Lưu</button>
 								</div>
 							</div>
