@@ -99,6 +99,30 @@
 		id in(select bai_dang_id from GiaoDich where user_id_ban=#{user_id})
  	</select>
       
+    <select id="search" resultMap="result" parameterType="com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto">
+    	select * 
+    	from bai_dang
+    	where 1 = 1
+    	<if test="tuKhoa != null">
+    		<bind name="pattern" value="'%' + tuKhoa + '%'" />
+    		and title like #{pattern}
+    	</if>
+    	<if test="danhMucId != -1">
+    		and danh_muc_id = #{danhMucId}
+    	</if>
+    	<if test="tinhId != -1">
+    		and city_id = #{tinhId}
+    	</if>
+    	<if test="quanId != -1">
+    		and huyen_id = #{quanId}
+    	</if>
+    	<if test="phuongId != -1">
+    		and xa_id = #{phuongId}
+    	</if>
+    	<if test="duongId != -1">
+    		and duong_id = #{duongId}
+    	</if>
+ 	</select>
     
     
     

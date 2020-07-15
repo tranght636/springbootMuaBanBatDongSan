@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto;
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.model.DanhMucModel;
 import com.htt.batdongsan.model.ProvinceModel;
@@ -206,6 +208,30 @@ public class HomeController {
     		}
     	}
     	modelMap.addAttribute("mapUrl", mapUrl);
+        return "web/DanhSach";
+    }
+    
+    @GetMapping("/tim-kiem")
+    public String timKiem(HttpServletRequest request, @ModelAttribute ThongTinTimKiemBaiDangDto thongTin, ModelMap modelMap){
+    	List<BaiDangModel> baiDangs = baiDangService.search(thongTin);
+    	
+    	modelMap.addAttribute("baiDangModel", baiDangs);
+    	
+    	Map<Integer, String> mapUrl = new HashMap<Integer, String>();
+    	for(BaiDangModel baiDang : baiDangs) {
+    		String idImgs = baiDang.getImg_id();
+    		if(idImgs != null && !idImgs.equals("")) {
+    			String idImg = idImgs.split("-")[0];
+    			String path = request.getContextPath();
+    			path += "/api/file/" + idImg;
+    			mapUrl.put(baiDang.getId(), path);
+    		} else {
+    			mapUrl.put(baiDang.getId(), "");
+    		}
+    	}
+    	modelMap.addAttribute("mapUrl", mapUrl);
+    	
+    	modelMap.addAttribute("pagename", "Kết quả tìm kiếm");
         return "web/DanhSach";
     }
    

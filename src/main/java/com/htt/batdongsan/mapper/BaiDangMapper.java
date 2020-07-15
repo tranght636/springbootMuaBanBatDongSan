@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto;
 import com.htt.batdongsan.model.BaiDangModel;
 @Mapper
 public interface BaiDangMapper {
@@ -66,5 +67,7 @@ public interface BaiDangMapper {
 	List<BaiDangModel> BDSDaMuaHoacDaThue(Integer user_id);
 
 	List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id);
+
+	List<BaiDangModel> search(ThongTinTimKiemBaiDangDto thongTin);
 	
 }
