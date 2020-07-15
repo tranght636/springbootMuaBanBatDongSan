@@ -252,6 +252,7 @@ public class BaiDangService{
   
 	public List<BaiDangModel> search(ThongTinTimKiemBaiDangDto thongTin) {
 		return baiDangMapper.search(thongTin);
+	}
 
 	public List<BaiDangModel> SelectAllBDSChoDayTin() {
 		return baiDangMapper.SelectAllBDSChoDayTin();
