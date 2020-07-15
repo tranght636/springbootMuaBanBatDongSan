@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.htt.batdongsan.model.BaiDangModel;
+import com.htt.batdongsan.model.DanhMucChungModel;
+import com.htt.batdongsan.model.DanhMucModel;
 import com.htt.batdongsan.model.UserModel;
 import com.htt.batdongsan.service.BaiDangService;
 import com.htt.batdongsan.service.DanhMucChungService;
@@ -272,12 +274,19 @@ public class TrangCaNhanController {
 	}
 
 	@GetMapping("/sua-bat-dong-san")
-	public String SuaBDS(@RequestParam("id") Integer id, ModelMap modelMap) {
+	public String SuaBDS(HttpServletRequest request, @RequestParam("id") Integer id, ModelMap modelMap) {
+		// lấy bất động sản cần sửa
+				BaiDangModel baiDangModel = baiDangService.selectOne(id);
+				modelMap.addAttribute("baiDangModel", baiDangModel);
+		// lấy danh mục chung
+		DanhMucChungModel danhMucChungByDanhMucRieng = danhMucChungService.selectOne(baiDangModel.getDanh_muc_id());
+		modelMap.addAttribute("danhMucChungByDanhMucRieng", danhMucChungByDanhMucRieng);
+		
 		// lấy danh sách TBDS_DanhMucChung
 		Object danhMucChungModel = danhMucChungService.selectAll();
 		modelMap.addAttribute("danhMucChungModel", danhMucChungModel);
 		// lấy danh sách Danh mục
-		Object danhMucModel = danhMucService.selectDanhMucByDanhMucChungId(4);
+		List<DanhMucModel> danhMucModel = danhMucService.selectDanhMucByDanhMucChungId(danhMucChungByDanhMucRieng.getId());
 		modelMap.addAttribute("danhMucModel", danhMucModel);
 
 		// lấy danh sách loại Bất động sản
@@ -287,23 +296,31 @@ public class TrangCaNhanController {
 		Object provinceModel = provinceService.selectAll();
 		modelMap.addAttribute("provinceModel", provinceModel);
 		// lấy danh sách Quận/ huyện
-		Object districtModel = districtService.selectDistrictByProvinceId(30);
+		Object districtModel = districtService.selectDistrictByProvinceId(baiDangModel.getCity_id());
 		modelMap.addAttribute("districtModel", districtModel);
 
 		// lấy danh sách Phường/Xã
-		Object wardModel = wardService.selectWardbyDistrictIdAndProvinceId(388, 30);
+		Object wardModel = wardService.selectWardbyDistrictIdAndProvinceId(baiDangModel.getHuyen_id(), baiDangModel.getCity_id());
 		modelMap.addAttribute("wardModel", wardModel);
 
 		// lấy danh sách đường
-		Object streetModel = streetService.selectStreetbyDistrictIdAndProvinceId(388, 30);
+		Object streetModel = streetService.selectStreetbyDistrictIdAndProvinceId(baiDangModel.getHuyen_id(), baiDangModel.getCity_id());
 		modelMap.addAttribute("streetModel", streetModel);
 
-		// lấy bất động sản cần sửa
-		BaiDangModel baiDangModel = baiDangService.selectOne(id);
-		modelMap.addAttribute("baiDangModel", baiDangModel);
-		// lấy danh mục chung
-		Object danhMucChungByDanhMucRieng = danhMucChungService.selectOne(baiDangModel.getDanh_muc_id());
-		modelMap.addAttribute("danhMucChungByDanhMucRieng", danhMucChungByDanhMucRieng);
+		List<String> urlImg = new ArrayList<String>();
+    	String idImgs = baiDangModel.getImg_id();
+    	
+		if(idImgs != null && !idImgs.equals("")) {
+			String[] idImg = idImgs.split("-");
+			for(int i = 0; i < idImg.length; i++) {
+				String path = request.getContextPath();
+				path += "/api/file/" + idImg[i];
+				urlImg.add(path);
+			}
+		}
+		modelMap.addAttribute("idImgs", idImgs);
+		modelMap.addAttribute("urlImg", urlImg);
+		
 
 		return "web/SuaBatDongSan";
 	}
@@ -345,10 +362,20 @@ public class TrangCaNhanController {
 
 		Integer result = baiDangService.insert(baiDangModel);
 		if (result > 0) {
-			return "redirect:/trang-ca-nhan/tao-bat-dong-san";
+			return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=Tạo thành công! mời bạn tạo thêm bài đăng khác.";
 		}
 		return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=Tạo bài đăng thất bại";
 
 	}
+	@PostMapping("/sua-bat-dong-san")
+	public String PostSuaBDS(@ModelAttribute BaiDangModel baiDangModel) {
 
+		Integer result = baiDangService.update(baiDangModel);
+		if (result > 0) {
+			return "redirect:/trang-ca-nhan/chi-tiet-bat-dong-san?id="+baiDangModel.getId();
+		}
+		return "redirect:/trang-ca-nhan/sua-bat-dong-san?id="+baiDangModel.getId() +"&message=Tạo bài đăng thất bại";
+
+	}
+	
 }

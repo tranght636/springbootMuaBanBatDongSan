@@ -1,22 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet" />
+
 
 <main>
-<!-- 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
-<c:choose>
-	<c:when test="1">
-	<i class="fa fa-heart fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
- </c:when>
- <c:otherwise>
-    <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
- </c:otherwise>
-</c:choose>
-
- -->
-
 	<div class="slider-area ">
 		<!-- Mobile Menu -->
 		<div class="slider-active">
@@ -47,18 +37,19 @@
 	</div>
 	<!-- slider Area End-->
 	<!-- Team-profile Start -->
-	<div class="team-profile team-padding" style="padding-top: 50px; padding-bottom: 50px;">
+	<div class="team-profile team-padding"
+		style="padding-top: 50px; padding-bottom: 50px;">
 		<div class="container">
 			<h3 style="color: blue;">Tin rao nổi bật</h3>
-			
+
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12">
 					<div class="single-cases-img  size mb-30">
 						<div class="h1-testimonial-active">
 							<!-- Single Testimonial -->
 							<c:forEach var="a" items="${baiDangModel}">
-								
-								<div class="single-testimonial" >
+
+								<div class="single-testimonial">
 									<div class="single-profile-front">
 										<div class="profile-img">
 											<div class="row">
@@ -66,13 +57,17 @@
 													<div class="col-xl-3 col-lg-3 col-md-6">
 														<a class="small"
 															href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
-															<div class="single-profile mb-30" style="background-color: white; border-radius: 10px 10px 10px 10px;">
+															<div class="single-profile mb-30"
+																style="background-color: white; border-radius: 10px 10px 10px 10px;">
 																<!-- Front -->
 																<div class="single-profile-front" style="height: 350px;">
 																	<div class="profile-img">
-																		<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
+																		<img style="height: 160px;"
+																			src="${mapUrl.get(baiDang.id)}" alt=""
+																			style="border-radius: 10px 10px 10px 10px;">
 																	</div>
-																	<div class="profile-caption" style="margin-left: 5px; margin-right: 5px;">
+																	<div class="profile-caption"
+																		style="margin-left: 5px; margin-right: 5px;">
 																		<h6 class="title" style="color: black;">${baiDang.title}
 																		</h6>
 																		<p style="color: blue; font-size: 12px;">Giá:
@@ -92,22 +87,13 @@
 							<!--  -->
 						</div>
 					</div>
-			</div>
-			
+				</div>
+
 				<a href="<c:url value='/tin-rao-noi-bat'/>"
 					class="genric-btn success-border circle" style="margin-left: 50%;">Xem
 					thêm</a>
 			</div>
 			<h3 style="color: blue;">Dự án nổi bật</h3>
-				
-				
-				<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red; "></i>
-				<!-- <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red;"></i> -->
-				
-				
-				
-				
-				
 			<!-- Dự án nổi bật -->
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12">
@@ -115,7 +101,7 @@
 						<div class="h1-testimonial-active">
 							<!-- Single Testimonial -->
 							<c:forEach var="a" items="${baiDangModel3}">
-								
+
 								<div class="single-testimonial">
 									<div class="single-profile-front">
 										<div class="profile-img">
@@ -124,17 +110,18 @@
 													<div class="col-xl-3 col-lg-3 col-md-6">
 														<a class="small"
 															href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
-															<div class="single-profile mb-30" style="background-color: white; border-radius: 10px 10px 10px 10px;">
+															<div class="single-profile mb-30"
+																style="background-color: white; border-radius: 10px 10px 10px 10px;">
 																<!-- Front -->
 																<div class="single-profile-front" style="height: 320px;">
 																	<div class="profile-img">
-																		<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
+																		<img style="height: 160px;"
+																			src="${mapUrl.get(baiDang.id)}" alt=""
+																			style="border-radius: 10px 10px 10px 10px;">
 																	</div>
 																	<div class="profile-caption"
 																		style="margin-left: 5px; margin-right: 5px;">
-																		<h6>
-																		${baiDang.title}
-																		</h6>
+																		<h6>${baiDang.title}</h6>
 																		<p>Diện tích: ${baiDang.dien_tich}</p>
 																		<small>${baiDang.dia_chi_chi_tiet}</small>
 																	</div>
@@ -163,11 +150,13 @@
 					<div class="col-xl-3 col-lg-3 col-md-6">
 						<a class="small"
 							href="<c:url value='/chi-tiet?id=${baiDang.id}'/>">
-							<div class="single-profile mb-30" style="background-color: white; border-radius: 10px 10px 10px 10px;">
+							<div class="single-profile mb-30"
+								style="background-color: white; border-radius: 10px 10px 10px 10px;">
 								<!-- Front -->
 								<div class="single-profile-front" style="height: 350px;">
 									<div class="profile-img">
-										<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
+										<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}"
+											alt="" style="border-radius: 10px 10px 10px 10px;">
 									</div>
 									<div class="profile-caption"
 										style="margin-left: 5px; margin-right: 5px;">
@@ -186,7 +175,7 @@
 					class="genric-btn success-border circle" style="margin-left: 50%;">Xem
 					thêm</a>
 			</div>
-			
+
 			<h3 style="color: blue;">Tin rao theo địa điểm</h3>
 		</div>
 	</div>
@@ -212,13 +201,15 @@
 									<div class="owl-item cloned"
 										style="width: 317.333px; margin-right: 15px;">
 										<div class="single-cases-img">
-											 <img src="/img/web/TpHCM.jpg" alt="" style="height: 300px;">
-												<!-- img hover caption -->
-												<div class="single-cases-cap single-cases-cap2" style="width: auto; height: auto; background-color: rgba(255, 255, 255, 0.4); margin-button: 2px;">
-													<h4>
-														<a href="<c:url value='/bat-dong-san-tp?city_id=1'/>">Tp.Hồ Chí Minh</a>
-													</h4>
-												</div>
+											<img src="/img/web/TpHCM.jpg" alt="" style="height: 300px;">
+											<!-- img hover caption -->
+											<div class="single-cases-cap single-cases-cap2"
+												style="width: auto; height: auto; background-color: rgba(255, 255, 255, 0.4); margin-button: 2px;">
+												<h4>
+													<a href="<c:url value='/bat-dong-san-tp?city_id=1'/>">Tp.Hồ
+														Chí Minh</a>
+												</h4>
+											</div>
 										</div>
 									</div>
 									<div class="owl-item cloned"
@@ -229,7 +220,8 @@
 											<div class="single-cases-cap single-cases-cap2"
 												style="width: auto; height: auto; background-color: rgba(255, 255, 255, 0.4); margin-button: 2px;">
 												<h4>
-													<a href="<c:url value='/bat-dong-san-tp?city_id=3'/>">Tp.Đà Nẵng</a>
+													<a href="<c:url value='/bat-dong-san-tp?city_id=3'/>">Tp.Đà
+														Nẵng</a>
 												</h4>
 											</div>
 										</div>
@@ -243,7 +235,8 @@
 											<div class="single-cases-cap single-cases-cap2"
 												style="width: auto; height: auto; background-color: rgba(255, 255, 255, 0.4); margin-button: 2px;">
 												<h4>
-													<a href="<c:url value='/bat-dong-san-tp?city_id=2'/>">Hà Nội</a>
+													<a href="<c:url value='/bat-dong-san-tp?city_id=2'/>">Hà
+														Nội</a>
 												</h4>
 											</div>
 										</div>
@@ -256,7 +249,8 @@
 											<div class="single-cases-cap single-cases-cap2"
 												style="width: auto; height: auto; background-color: rgba(255, 255, 255, 0.4); margin-button: 2px;">
 												<h4>
-													<a href="<c:url value='/bat-dong-san-tp?city_id=14'/>">Lâm Đồng</a>
+													<a href="<c:url value='/bat-dong-san-tp?city_id=14'/>">Lâm
+														Đồng</a>
 												</h4>
 											</div>
 										</div>
@@ -269,7 +263,8 @@
 											<div class="single-cases-cap single-cases-cap2"
 												style="width: auto; height: 20%; background-color: rgba(255, 255, 255, 0.4); margin-top: 2px;">
 												<h4>
-													<a href="<c:url value='/bat-dong-san-tp?city_id=15'/>">Thừa Thiên Huế</a>
+													<a href="<c:url value='/bat-dong-san-tp?city_id=15'/>">Thừa
+														Thiên Huế</a>
 												</h4>
 											</div>
 										</div>
@@ -300,9 +295,7 @@
 				}
 			});
 		});
-		
-	
 	</script>
 
-<script src="/js/web/chitietbatdongsan.js"></script>
+	<script src="/js/web/chitietbatdongsan.js"></script>
 </main>

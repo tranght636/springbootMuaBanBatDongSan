@@ -4,8 +4,14 @@
 <mapper namespace="com.htt.batdongsan.mapper.BaiDangMapper">
    
      <insert id="insert" parameterType="BaiDangModel" >
-     INSERT INTO  bai_dang  (danh_muc_id , title ,  content ,  money ,  dien_tich ,  city_id ,  huyen_id ,  xa_id ,  duong_id ,  mat_tien ,  duong_vao_m ,  huong_nha ,  thong_tin_lien_he ,  start_day ,  end_day ,  status ,  actived ,  mo_ta_tong_quat ,  loai_bat_dong_san_id ,  dia_chi_chi_tiet ,  so_nha_ve_sinh ,  so_phong_ngu ,  so_tang ,img_id) 
+     <!-- INSERT INTO  bai_dang  (danh_muc_id , title ,  content ,  money ,  dien_tich ,  city_id ,  huyen_id ,  xa_id ,  duong_id ,  mat_tien ,  duong_vao_m ,  huong_nha ,  thong_tin_lien_he ,  start_day ,  end_day ,  status ,  actived ,  mo_ta_tong_quat ,  loai_bat_dong_san_id ,  dia_chi_chi_tiet ,  so_nha_ve_sinh ,  so_phong_ngu ,  so_tang ,img_id) 
 	VALUES (#{danh_muc_id}, #{title}, #{content},#{money},#{dien_tich},#{city_id}, #{huyen_id}, #{xa_id}, #{duong_id}, #{mat_tien}, #{duong_vao_m},#{huong_nha}, #{thong_tin_lien_he},  #{start_day}, #{end_day},#{status}, #{actived}, #{mo_ta_tong_quat},#{loai_bat_dong_san_id}, #{dia_chi_chi_tiet},  #{so_nha_ve_sinh}, #{so_phong_ngu}, #{so_tang},#{img_id})
+    --> 
+    INSERT INTO bai_dang (`danh_muc_id`, `title`, `content`, `city_id`, `huyen_id`, `xa_id`, `duong_id`, `mat_tien`, `duong_vao_m`, `huong_nha`, `thong_tin_lien_he`, `start_day`, `end_day`, `status`, `actived`, `mo_ta_tong_quat`, `loai_bat_dong_san_id`, `dia_chi_chi_tiet`, `so_nha_ve_sinh`, `so_phong_ngu`, `so_tang`, `money`, `dien_tich`, `user_id`, `img_id`, `created_date`, `modified_date`, `created_by`, `modified_by`, `gia_tu`, `gia_den`) 
+    VALUES (#{danh_muc_id}, #{title}, #{content},#{city_id}, #{huyen_id}, #{xa_id}, #{duong_id}, #{mat_tien}, #{duong_vao_m}, #{huong_nha}, #{thong_tin_lien_he}, #{start_day}, #{end_day}, #{status}, #{actived}, #{mo_ta_tong_quat}, #{loai_bat_dong_san_id}, #{dia_chi_chi_tiet}, #{so_nha_ve_sinh}, #{so_phong_ngu}, #{so_tang}, #{money}, #{dien_tich}, #{user_id}, #{img_id}, #{created_date}, #{modified_date}, #{created_by}, #{modified_by}, #{gia_tu}, #{gia_den});
+    
+    
+    
     </insert>
     
     <select id="selectTop4All" resultMap="result" >
@@ -56,6 +62,10 @@
     <select id="BDSDayTin" resultMap="result" parameterType="Integer">
     	select *from bai_dang where user_id = #{id} and status = 1 and actived > 0 order by actived
     </select>
+     <select id="SelectAllBDSChoDayTin" resultMap="result" parameterType="Integer">
+    	select *from bai_dang where 1=1 and status = 1 and actived = 1
+    </select>
+    
     <select id="BDSBiCam" resultMap="result" parameterType="Integer">
     	select *from bai_dang where user_id = #{id} and status = -2
     </select>
@@ -119,6 +129,10 @@
     <update id="updateStatusBDSByUserId" parameterType="HashMap"><!-- đẩy tin -->
     	 update bai_dang set status = #{actived}  where 1 = 1 and id = #{id} and user_id=#{user_id}
     </update>
+    <update id="update" parameterType="BaiDangModel"><!-- đẩy tin -->
+    	UPDATE `bai_dang` SET `danh_muc_id` = #{danh_muc_id}, `title` = #{title}, `content` = #{content}, `city_id` = #{city_id}, `huyen_id` = #{huyen_id}, `xa_id` = #{xa_id}, `duong_id` = #{duong_id}, `mat_tien` = #{mat_tien}, `duong_vao_m` = #{duong_vao_m}, `huong_nha` = #{huong_nha}, `thong_tin_lien_he` = thong_tin_lien_he, `mo_ta_tong_quat` = #{mo_ta_tong_quat}, `loai_bat_dong_san_id` = #{loai_bat_dong_san_id}, `dia_chi_chi_tiet` = #{dia_chi_chi_tiet}, `so_nha_ve_sinh` = #{so_nha_ve_sinh}, `so_phong_ngu` = #{so_phong_ngu}, `so_tang` = #{so_tang}, `money` = #{money}, `dien_tich` = #{dien_tich}, `img_id` = #{img_id} WHERE (`id` = #{id});
+    </update>
+    
     
     <!-- status = -1 đã xóa,,-2 bị cấm, 0 chờ duyệt, 1 chờ giao dịch, > 1 đang hoạt động:  2 đang giao dịch-->
     <!-- actived >=0, 1 chờ đẩy tin, 0 bình thường, 2 đang đẩy tin, hết thời gian đẩy trả về 0, càng lớn càng có độ ưu tiên cao -->

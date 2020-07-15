@@ -14,7 +14,7 @@ public class BaiDangModel {
 	private Integer xa_id;
 	private Integer duong_id;
 	private String mat_tien;
-	private Integer duong_vao_m;
+	private Float duong_vao_m;
 	private String huong_nha;
 	private String thong_tin_lien_he;
 	private Timestamp start_day;
@@ -29,7 +29,14 @@ public class BaiDangModel {
 	private Integer so_tang;
 	private Integer user_id;
 	private Integer so_luot_thich;
-	private String img_id;
+	private String img_id; 
+	private Timestamp created_date;
+	private Timestamp modified_date;
+	private Integer created_by;
+	private Integer modified_by;
+	private Long gia_tu;
+	private Long gia_den;
+	
 	
 	public Integer getId() {
 		return id;
@@ -97,10 +104,10 @@ public class BaiDangModel {
 	public void setMat_tien(String mat_tien) {
 		this.mat_tien = mat_tien;
 	}
-	public Integer getDuong_vao_m() {
+	public Float getDuong_vao_m() {
 		return duong_vao_m;
 	}
-	public void setDuong_vao_m(Integer duong_vao_m) {
+	public void setDuong_vao_m(Float duong_vao_m) {
 		this.duong_vao_m = duong_vao_m;
 	}
 	public String getHuong_nha() {
@@ -192,6 +199,42 @@ public class BaiDangModel {
 	}
 	public void setImg_id(String img_id) {
 		this.img_id = img_id;
+	}
+	public Timestamp getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(Timestamp created_date) {
+		this.created_date = created_date;
+	}
+	public Timestamp getModified_date() {
+		return modified_date;
+	}
+	public void setModified_date(Timestamp modified_date) {
+		this.modified_date = modified_date;
+	}
+	public Integer getCreated_by() {
+		return created_by;
+	}
+	public void setCreated_by(Integer created_by) {
+		this.created_by = created_by;
+	}
+	public Integer getModified_by() {
+		return modified_by;
+	}
+	public void setModified_by(Integer modified_by) {
+		this.modified_by = modified_by;
+	}
+	public Long getGia_tu() {
+		return gia_tu;
+	}
+	public void setGia_tu(Long gia_tu) {
+		this.gia_tu = gia_tu;
+	}
+	public Long getGia_den() {
+		return gia_den;
+	}
+	public void setGia_den(Long gia_den) {
+		this.gia_den = gia_den;
 	}
 	
 	

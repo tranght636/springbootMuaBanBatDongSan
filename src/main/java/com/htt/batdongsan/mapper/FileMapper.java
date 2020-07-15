@@ -8,4 +8,5 @@ import com.htt.batdongsan.model.FileModel;
 public interface FileMapper {
 	public void insert(FileModel fileModel);
 	public FileModel selectOne(Integer id);
+	public Integer delete(Integer id);
 }

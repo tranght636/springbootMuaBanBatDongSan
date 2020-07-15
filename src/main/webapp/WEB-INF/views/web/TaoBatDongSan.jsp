@@ -1,10 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
+<style>
+.wrapper {
+    position:relative;
+    width: 150px;
+    height: 150px;
+    margin-right: 2px;
+}
+.img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+}
+.cross-img {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+   
+}
+i.dngaz:link, i.dngaz:visited
+{
+color:blue;
+text-decoration:none;
+}
+ 
+i.dngaz:hover
+{
+color:red;
+font-weight:bold;
+}
+ 
+i.dngaz:active
+{
+}
+</style>
 <div class="row" style="width: 100%;">
 	<div class="col-lg-12">
 		<div class="main-card mb-12 card">
 			<div class="card-body">
+			<c:if test="${not empty message}">
+				<div class="alert alert-warning">
+						${message}
+				</div>
+			</c:if>
 				<h5 class="card-title">Tạo bất động sản mới</h5>
 				<div class="scroll-area-md" style="height: 550px;">
 					<div class="card-body">
@@ -21,7 +64,7 @@
 										động sản:</label>
 									<div class="col-sm-4">
 										<select id="TBDS_DanhMucChung" class="btnSort "
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
+											style=" width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
 											<c:forEach var="danhMucChung" items="${danhMucChungModel}">
 												<option value="${danhMucChung.id}">${danhMucChung.name}</option>
 											</c:forEach>
@@ -58,11 +101,32 @@
 									<label for="title" class="col-sm-2 col-form-label">Giá
 										(VND):</label>
 									<div class="col-sm-10">
-										<input type="text" id="TBDS_money" name="money"
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;">
-
+										<input name="gia_tu" id ="gia_tu" hidden="true"/>
+										<input type="number" id="TBDS_giatu"
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+										<select  id="TBDS_select_gia_tu" style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+											<option value="1000000000">Tỷ VNĐ</option>
+											<option value="1000000">Triệu VNĐ</option>
+											<option value="1">VNĐ</option>
+										</select>
+										-
+										<input name="gia_den" id ="gia_den" hidden="true"/>
+										<input type="number" id="TBDS_giaden" 
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+										<select  id="TBDS_select_gia_den" style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+											<option value="1000000000">Tỷ VNĐ</option>
+											<option value="1000000">Triệu VNĐ</option>
+											<option value="1">VNĐ</option>
+										</select>
 									</div>
 								</div>
+								<div class="form-group row">
+									<label for="title" class="col-sm-2 col-form-label">Chi tiết giá:</label>
+									<div class="col-sm-10">
+										<input type="text" id="TBDS_money" name="money"
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;" value="Thương lượng">
+									</div>
+									</div>
 								<div class="form-group row">
 									<h2>Thông tin chi tiết:</h2>
 								</div>
@@ -148,7 +212,7 @@
 									<div class="col-sm-10">
 										<input type="text" class="TBDS_dia_chi_chi_tiet"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
-											disabled="disabled"> <input type="text"
+											> <input type="text"
 											class="TBDS_dia_chi_chi_tiet" name="dia_chi_chi_tiet"
 											hidden="true">
 									</div>
@@ -172,7 +236,7 @@
 											<option value="TB">Tây Bắc</option>
 											<option value="DN">Đông Nam</option>
 											<option value="BD">Bắc Đông</option>
-											<option value="NT">Nam Tây</option>
+											<option value="NT">Tây Nam</option>
 										</select>
 									</div>
 
@@ -224,7 +288,7 @@
 												<div class="single-profile-front">
 													<div class="profile-img">
 														<div class="row" id="list-image-tbds">
-														
+															 
 														<!-- 
 														<div >
 														<div>
@@ -618,7 +682,7 @@
 							<div class="form-group row">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-10" style="text-align: right;">
-									<button id="btn-add-bds" type="submit"
+									<button id="btn-add-bds" type="button"
 										class="mb-2 mr-2 btn btn-primary">Lưu</button>
 								</div>
 							</div>
