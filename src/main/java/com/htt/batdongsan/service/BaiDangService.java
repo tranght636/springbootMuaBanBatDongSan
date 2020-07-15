@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto;
 import com.htt.batdongsan.mapper.BaiDangMapper;
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.utils.AccountUtil;
@@ -245,19 +246,20 @@ public class BaiDangService{
 		return baiDangMapper.BDSDaMuaHoacDaThue(user_id);
 	}
 
-
 	public List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id) {
 		return baiDangMapper.BDSDaBanHoacDaChoThue(user_id);
 	}
-
+  
+	public List<BaiDangModel> search(ThongTinTimKiemBaiDangDto thongTin) {
+		return baiDangMapper.search(thongTin);
 
 	public List<BaiDangModel> SelectAllBDSChoDayTin() {
 		return baiDangMapper.SelectAllBDSChoDayTin();
 	}
 
-
 	public Integer update(BaiDangModel baiDangModel) {
 		return baiDangMapper.update(baiDangModel);
+
 	}
 	
 	    
