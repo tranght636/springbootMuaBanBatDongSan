@@ -1,6 +1,8 @@
 package com.htt.batdongsan.service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,11 +12,14 @@ import org.springframework.stereotype.Service;
 import com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto;
 import com.htt.batdongsan.mapper.BaiDangMapper;
 import com.htt.batdongsan.model.BaiDangModel;
+import com.htt.batdongsan.utils.AccountUtil;
 
 @Service
 public class BaiDangService{
     @Autowired
     private BaiDangMapper baiDangMapper;
+    @Autowired
+    private AccountUtil accountUtil;
 
     public BaiDangService(BaiDangMapper baiDangMapper) {
         this.baiDangMapper = baiDangMapper;
@@ -24,6 +29,15 @@ public class BaiDangService{
 	public Integer insert(BaiDangModel baiDangModel) {
 		baiDangModel.setStatus(0);
 		baiDangModel.setActived(0);
+		Integer idUser=accountUtil.getUser().getId();
+		baiDangModel.setUser_id(idUser);
+		Date now = new Date();
+		Timestamp timestamp = new Timestamp(now.getTime());
+		baiDangModel.setCreated_date(timestamp);
+		baiDangModel.setModified_date(timestamp);
+		baiDangModel.setCreated_by(idUser);
+		baiDangModel.setModified_by(idUser);
+		
 		try {
 			return baiDangMapper.insert(baiDangModel);
 		} catch (Exception e) {
@@ -232,14 +246,20 @@ public class BaiDangService{
 		return baiDangMapper.BDSDaMuaHoacDaThue(user_id);
 	}
 
-
 	public List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id) {
 		return baiDangMapper.BDSDaBanHoacDaChoThue(user_id);
 	}
-
-
+  
 	public List<BaiDangModel> search(ThongTinTimKiemBaiDangDto thongTin) {
 		return baiDangMapper.search(thongTin);
+
+	public List<BaiDangModel> SelectAllBDSChoDayTin() {
+		return baiDangMapper.SelectAllBDSChoDayTin();
+	}
+
+	public Integer update(BaiDangModel baiDangModel) {
+		return baiDangMapper.update(baiDangModel);
+
 	}
 	
 	    

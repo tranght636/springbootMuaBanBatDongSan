@@ -1,21 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
     <%@include file="../../common/taglib.jsp"%>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
-
         <main>
-            <!-- 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
-<c:choose>
-	<c:when test="1">
-	<i class="fa fa-heart fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
- </c:when>
- <c:otherwise>
-    <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red; position: absolute; margin-top: -185px;"></i>
- </c:otherwise>
-</c:choose>
-
- -->
             <style>
                 #main-image>div>div {
                     overflow: visible;
@@ -26,8 +12,6 @@
                     overflow: auto !important;
                 }
             </style>
-
-
 
             <div id="main-image" class="slider-area">
                 <!-- Mobile Menu -->
@@ -395,3 +379,4 @@
             <script src="/js/web/chitietbatdongsan.js"></script>
             <script src="/js/web/TimKiem.js"></script>
         </main>
+

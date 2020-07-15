@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
     <%@include file="../../common/taglib.jsp"%>
 
         <body style="overflow: visible;">
@@ -91,6 +92,7 @@
                                                 <div class="col-lg-4">
                                                     <p style="color: black;">
                                                         <span style="color: gray;"> Liên hệ: </span> <span style="color: red;">
+
 													${baiDangModel.thong_tin_lien_he} </span>
                                                     </p>
                                                 </div>
@@ -397,9 +399,7 @@
                             </div>
                         </div>
 
-
                     </div>
-
 
                     <div>
                         <div>
@@ -447,26 +447,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div class="row">
                         <div class="col-12">
@@ -573,11 +553,6 @@
                                 </div>
                             </div>
 
-
-
-
-
-
                         </div>
                         <div class="col-lg-3 offset-lg-1">
 
@@ -661,3 +636,4 @@
             <script src="/js/web/chitietbatdongsan.js"></script>
 
         </body>
+

@@ -19,9 +19,12 @@ import com.htt.batdongsan.dto.ThongTinTimKiemBaiDangDto;
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.model.DanhMucModel;
 import com.htt.batdongsan.model.ProvinceModel;
+import com.htt.batdongsan.model.YeuThichModel;
 import com.htt.batdongsan.service.BaiDangService;
 import com.htt.batdongsan.service.DanhMucService;
 import com.htt.batdongsan.service.ProvinceService;
+import com.htt.batdongsan.service.YeuThichService;
+import com.htt.batdongsan.utils.AccountUtil;
 
 
 @Controller(value = "HomeControllerWeb")
@@ -32,6 +35,10 @@ public class HomeController {
 	DanhMucService danhMucService;
 	@Autowired
 	ProvinceService provinceService;
+	@Autowired
+	YeuThichService yeuThichService;
+	@Autowired
+	AccountUtil accountUtil;
 	
     @GetMapping("/")
     public String home(HttpServletRequest request, ModelMap modelMap){
@@ -155,6 +162,12 @@ public class HomeController {
     	}
     	
     	Object baiDangTuongTuModel = baiDangService.selectBaiDangTuongTu(baiDangModel.getCity_id());
+    	List<YeuThichModel> listyeuthich= new ArrayList<YeuThichModel>();
+    	if(accountUtil.getUser()!= null)
+    	{
+    		listyeuthich= yeuThichService.selectByIdUser(accountUtil.getUser().getId());
+    	}
+    	modelMap.addAttribute("listyeuthich", listyeuthich);
     	
     	
     	modelMap.addAttribute("mapUrl", mapUrl);

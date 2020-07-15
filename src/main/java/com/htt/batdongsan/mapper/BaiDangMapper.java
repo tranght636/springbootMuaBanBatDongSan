@@ -68,6 +68,12 @@ public interface BaiDangMapper {
 
 	List<BaiDangModel> BDSDaBanHoacDaChoThue(Integer user_id);
 
+
 	List<BaiDangModel> search(ThongTinTimKiemBaiDangDto thongTin);
+
+	List<BaiDangModel> SelectAllBDSChoDayTin();
+
+	Integer update(BaiDangModel baiDangModel);
+
 	
 }

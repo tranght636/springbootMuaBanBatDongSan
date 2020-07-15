@@ -47014,11 +47014,13 @@ create table role
 	id int NOT NULL PRIMARY KEY auto_increment,
 	name VARCHAR(255) NOT NULL,
 	code VARCHAR(255) NOT NULL,
-	createddate TIMESTAMP NULL,
-	modifieddate TIMESTAMP NULL,
-	createdby VARCHAR(255) NULL,
-	modifiedby VARCHAR(255) NULL
+	created_date TIMESTAMP NULL,
+    modified_date TIMESTAMP NULL,
+    created_by INT NULL,
+    modified_by INT NULL
 );
+
+
 create table user
 (
 	id  int  primary key auto_increment,
@@ -47086,7 +47088,7 @@ create table bai_dang
 	duong_id  int UNSIGNED,
     FOREIGN KEY (duong_id) REFERENCES street(id),
 	mat_tien VARCHAR(255),
-	duong_vao_m  int,
+	duong_vao_m  float,
 	huong_nha VARCHAR(255),
 	thong_tin_lien_he VARCHAR(255),
 	start_day TIMESTAMP,
@@ -47101,8 +47103,17 @@ create table bai_dang
     so_phong_ngu int,
     so_tang int,
     user_id int ,
-	FOREIGN KEY (user_id) REFERENCES user(id)
+	FOREIGN KEY (user_id) REFERENCES user(id),
+    created_date TIMESTAMP,
+	modified_date TIMESTAMP,
+	created_by  VARCHAR(255),
+	modified_by  VARCHAR(255),
+    gia_tu BIGINT NULL,
+    gia_den BIGINT NULL
 );
+
+
+
 -- alter table bai_dang add  user_id int 
 -- alter table bai_dang add  FOREIGN KEY (user_id) REFERENCES user(id),
 create table day_tin
@@ -47112,6 +47123,10 @@ create table day_tin
     muc_do_day_tin int,  -- bằng hằng số 
     start_time date, -- ngày bắt đầy đẩy tin
     end_time date, -- ngày đẩy + hằng số
+    created_date TIMESTAMP,
+	modified_date TIMESTAMP,
+	created_by  VARCHAR(255),
+	modified_by  VARCHAR(255),
 	FOREIGN KEY (bai_dang_id) REFERENCES bai_dang(id)
 );
 
@@ -47121,6 +47136,10 @@ create table files(
 	id int primary key auto_increment,
     name nvarchar(255),
     type nvarchar(255),
+     created_date TIMESTAMP,
+	modified_date TIMESTAMP,
+	created_by  VARCHAR(255),
+	modified_by  VARCHAR(255),
     data mediumblob
 );
 
@@ -47130,7 +47149,11 @@ create table hinh_anh_video
 	bai_viet_id int,
     FOREIGN KEY (bai_viet_id) REFERENCES bai_dang(id),
 	link text,
-	loai int
+	loai int,
+     created_date TIMESTAMP,
+	modified_date TIMESTAMP,
+	created_by  VARCHAR(255),
+	modified_by  VARCHAR(255)
 );
 create table yeu_thich
 (
@@ -47138,8 +47161,14 @@ create table yeu_thich
         FOREIGN KEY (user_id) REFERENCES user(id),
 		bai_dang_id int,
         FOREIGN KEY (bai_dang_id) REFERENCES bai_dang(id),
-        PRIMARY KEY (user_id, bai_dang_id)
+        PRIMARY KEY (user_id, bai_dang_id),
+         created_date TIMESTAMP,
+		modified_date TIMESTAMP,
+		created_by  VARCHAR(255),
+		modified_by  VARCHAR(255)
 );
+
+
 create table comment
 (
 	id int primary key auto_increment,
@@ -47150,7 +47179,11 @@ create table comment
 	content text,
 	tra_loi_comment_id int,
     FOREIGN KEY (tra_loi_comment_id) REFERENCES comment(id),
-	create_at TIMESTAMP
+	create_at TIMESTAMP,
+	created_date TIMESTAMP,
+	modified_date TIMESTAMP,
+	created_by  VARCHAR(255),
+	modified_by  VARCHAR(255)
 );
 
 -- role

@@ -24,4 +24,8 @@ public class FileService {
 	public FileModel selectOne(Integer id) {
 		return fileMapper.selectOne(id);
 	}
+
+	public Integer delete(Integer id) {
+		return fileMapper.delete(id);
+	}
 }
