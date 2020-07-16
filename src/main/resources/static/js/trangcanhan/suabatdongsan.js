@@ -17,7 +17,102 @@ function setDiaChiChiTiet() {
 	diaChiChiTiets[0].value =dcct;
 	diaChiChiTiets[1].value =dcct;
 }
+function setGia() {
+	if(!$('#TBDS_giatu').val()){
+		document.getElementById("gia_tu").value= "0";
+		if(!$('#TBDS_giaden').val()){
+			document.getElementById("gia_den").value= "0";
+			document.getElementById("TBDS_money").value= "Thương lượng";
+		}else{
+			document.getElementById("gia_den").value= document.getElementById("TBDS_giaden").value  * document.getElementById("TBDS_select_gia_den").value;
+			var i = parseInt(document.getElementById("TBDS_select_gia_den").value);
+			switch(i) {
+			  case 1:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giaden").value + "VNĐ";
+			    break;
+			  case 1000000:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giaden").value + "triệu VNĐ";
+			    break;
+			  case 1000000000:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giaden").value + "tỷ VNĐ";
+			  default:
+				  break;
+			}
+			
+		}
+	}else{
+		document.getElementById("gia_tu").value= document.getElementById("TBDS_giatu").value 
+													* document.getElementById("TBDS_select_gia_tu").value;
+		if(!$('#TBDS_giaden').val()){
+			document.getElementById("gia_den").value= "0";
+			var i = parseInt(document.getElementById("TBDS_select_gia_tu").value);
+			switch(i) {
+			  case 1:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "VNĐ";
+			    break;
+			  case 1000000:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "triệu VNĐ";
+			    break;
+			  case 1000000000:
+				  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "tỷ VNĐ";
+			  default:
+				  break;
+			}
+		}
+			else{
+				document.getElementById("gia_den").value= document.getElementById("TBDS_giaden").value 
+														* document.getElementById("TBDS_select_gia_den").value;
+				document.getElementById("gia_tu").value= document.getElementById("TBDS_giatu").value 
+														* document.getElementById("TBDS_select_gia_tu").value;
+				var i = parseInt(document.getElementById("TBDS_select_gia_tu").value);
+				switch(i) {
+				  case 1:
+					  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "VNĐ";
+				    break;
+				  case 1000000:
+					  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "triệu VNĐ";
+				    break;
+				  case 1000000000:
+					  document.getElementById("TBDS_money").value= document.getElementById("TBDS_giatu").value + "tỷ VNĐ";
+				  default:
+					  break;
+				}
+				var j = parseInt(document.getElementById("TBDS_select_gia_den").value);
+				switch(j) {
+				  case 1:
+					  document.getElementById("TBDS_money").value+="-"+ document.getElementById("TBDS_giaden").value + "VNĐ";
+				    break;
+				  case 1000000:
+					  document.getElementById("TBDS_money").value+="-"+ document.getElementById("TBDS_giaden").value + "triệu VNĐ";
+				    break;
+				  case 1000000000:
+					  document.getElementById("TBDS_money").value+="-"+ document.getElementById("TBDS_giaden").value + "tỷ VNĐ";
+				  default:
+					  break;
+				}
+				
+				
+			}
+	}
+}
 $(document).ready(function() {
+	$("#TBDS_giatu").change(function () {
+		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
+	});
+	$("#TBDS_select_gia_tu").change(function () {
+		setGia();
+		$("#TBDS_money2").val($("#TBDS_money").val());
+	});
+	$("#TBDS_giaden").change(function () {
+		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
+	});
+	$("#TBDS_select_gia_den").change(function () {
+		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
+	});
+
 	$("#TBDS_DanhMucChung").change(function () {
 	    $('#TBDS_DanhMuc').empty();
 	    var dmc_id = $(this).val();
@@ -126,8 +221,11 @@ $(document).ready(function() {
             success: function(result) {
             	if(result.length) {
             		for(image of result) {
-            			$("#list-image-tbds").append(`<img class="col-sm-2" src="${image}" alt=""
-						style="border-radius: 10px 10px 10px 10px; margin-top: 5px;">`)
+            			$("#list-image-tbds").append(`<div class="wrapper" style="margin: 5px;">
+						      <img class="img" src="${image}" />
+						      <i idImg="${image.split('/').pop()}" 
+						      class=" cross-img dngaz btnDeleteImg" style="font-size: 20px; color: red;">x</i>
+						</div>`)
 						images.push(image);
             		}
             		var res = result.map(x => {
@@ -141,6 +239,36 @@ $(document).ready(function() {
             }
         });
 	});
+	$('#list-image-tbds').on('click', '.btnDeleteImg', function() {
+		var id = $(this).attr("idImg");
+        var This = $(this);
+        $.ajax({
+            url: `/api/xoa-img?id=${id}`,
+            type: 'PUT',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+            	if (result >0) {
+                    
+                    var listImg = document.getElementById('InputIDImg').value;
+                    var array= listImg.split('-');
+                    for( var i = 0; i < array.length; i++){ 
+                    	   if ( array[i] === id) {
+                    		   array.splice(i, 1); 
+                    		   This.closest("div").remove();
+                    	   }
+                    	}
+                    //var new_arr=array.filter(item => item !== id);
+                    listImg=array.join('-');
+                    document.getElementById('InputIDImg').value=listImg;
+                } else {
+                    alert("bug");
+                }
+            }
+        });
+	});
+	
+	
 	
 	/*
 	 * 1. Lưu hình ảnh bằng cách gọi api hinh_anh_video

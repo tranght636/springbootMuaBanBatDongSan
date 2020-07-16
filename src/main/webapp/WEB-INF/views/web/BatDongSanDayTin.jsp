@@ -32,8 +32,8 @@
 											<i class="metismenu-icon pe-7s-mail font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"data-toggle="tooltip" title="Tự động nhắc nhỡ admin" ></i>
 											</c:if>
 												
-											<i
-												class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
+											<a href="/trang-ca-nhan/sua-bat-dong-san?id=${bds.id}" data-toggle="tooltip" title="Sửa bất động sản" class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon">
+											</a>
 											<i
 												class="metismenu-icon pe-7s-trash font-icon-wrapper btn-outline-danger btn-icon-only btn-icon btn-BDSDT-Xoa" id-baidang="${bds.id}"></i>
 											<c:choose>
@@ -42,10 +42,6 @@
 													<small style="font-size: 10px;">Đang chờ admin đẩy
 														tin</small>
 												</c:when>
-												<c:otherwise>
-													<br />
-													<small style="font-size: 10px;">Còn 1 ngày</small>
-												</c:otherwise>
 											</c:choose>
 										</div>
 									</div>

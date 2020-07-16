@@ -59,22 +59,23 @@
                                     <i class="metismenu-icon pe-7s-note2"></i> Tạo BDS
                                 </a>
                             </li>
-                            <li>
-                                <a href='<c:url value="/trang-ca-nhan/bat-dong-san-cho-giao-dich"/>'>
-                                    <i class="metismenu-icon pe-7s-news-paper"></i> BDS chờ giao dịch
-                                </a>
-                            </li>
-                            <li>
+                             <li>
                                 <a  href='<c:url value="/trang-ca-nhan/bat-dong-san-cho-xac-nhan"/>'>
                                     <i class="metismenu-icon pe-7s-hourglass"></i> BDS chờ xác nhận
                                 </a>
                             </li>
                             <li>
+                                <a href='<c:url value="/trang-ca-nhan/bat-dong-san-cho-giao-dich"/>'>
+                                    <i class="metismenu-icon pe-7s-news-paper"></i> BDS chờ giao dịch
+                                </a>
+                            </li>
+                           
+                            <li>
                                 <a  href='<c:url value="/trang-ca-nhan/bat-dong-san-day-tin"/>'>
                                     <i class="metismenu-icon pe-7s-rocket"></i> BDS đẩy tin
                                 </a>
                             </li>
-                            <li>
+                           <%--  <li>
                                 <a href='<c:url value="/trang-ca-nhan/bat-dong-san-da-mua-hoac-da-thue"/>'>
                                     <i class="metismenu-icon pe-7s-display2"></i> BDS đã mua/đã thuê
                                 </a>
@@ -83,17 +84,18 @@
                                 <a href='<c:url value="/trang-ca-nhan/bat-dong-san-da-ban-hoac-da-cho-thue"/>'>
                                     <i class="metismenu-icon pe-7s-check"></i> BDS đã bán/đã cho thuê
                                 </a>
+                            </li> --%>
+                            <li>
+                                <a href='<c:url value="/trang-ca-nhan/bat-dong-san-da-xoa"/>'>
+                                    <i class="metismenu-icon pe-7s-trash"></i> BDS đã xóa
+                                </a>
                             </li>
                             <li>
                                 <a href='<c:url value="/trang-ca-nhan/bat-dong-san-bi-cam"/>'>
                                     <i class="metismenu-icon pe-7s-attention"></i> BDS bị cấm bởi Admin
                                 </a>
                             </li>
-                             <li>
-                                <a href='<c:url value="/trang-ca-nhan/bat-dong-san-da-xoa"/>'>
-                                    <i class="metismenu-icon pe-7s-trash"></i> BDS đã xóa
-                                </a>
-                            </li>
+                             
                             
                         </ul>
                     </div>
