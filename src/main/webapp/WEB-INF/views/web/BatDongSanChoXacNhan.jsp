@@ -23,7 +23,8 @@
 										</a>
 									</div>
 									<div class="profile-img col-lg-2" style="text-align: right; font-size: 30px;" >
-										<i class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
+										<a href="/trang-ca-nhan/sua-bat-dong-san?id=${bds.id}" data-toggle="tooltip" title="Sửa bất động sản" class="metismenu-icon pe-7s-pen font-icon-wrapper btn-outline-danger btn-icon-only btn-icon">
+										</a>
 										<i class="metismenu-icon pe-7s-trash font-icon-wrapper btn-outline-danger btn-icon-only btn-icon btn-BDSCXN-delete" id-baidang="${bds.id}"></i>
 									</div>
 								</div>

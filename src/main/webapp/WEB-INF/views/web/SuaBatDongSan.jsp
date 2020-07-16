@@ -1,6 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
+<style>
+.wrapper {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	margin-right: 2px;
+}
+
+.img {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.cross-img {
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+i.dngaz:link, i.dngaz:visited {
+	color: blue;
+	text-decoration: none;
+}
+
+i.dngaz:hover {
+	color: red;
+	font-weight: bold;
+}
+
+i.dngaz:active {
+	
+}
+</style>
 <div class="row" style="width: 100%;">
 	<div class="col-lg-12">
 		<div class="main-card mb-12 card">
@@ -13,8 +51,7 @@
 							action='<c:url value="/trang-ca-nhan/sua-bat-dong-san"/>'
 							method="POST">
 							<div class="container">
-								<input type="text"  name="id" 
-											value="${baiDangModel.id}" hidden>
+								<input type="text" name="id" value="${baiDangModel.id}" hidden>
 								<div class="form-group row">
 									<h2>Thông tin cơ bản:</h2>
 								</div>
@@ -67,12 +104,43 @@
 									<label for="title" class="col-sm-2 col-form-label">Giá
 										(VND):</label>
 									<div class="col-sm-10">
-										<input type="text" id="TBDS_money" name="money"
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
-											value="${baiDangModel.money}">
-
+										<input name="gia_tu" id="gia_tu" hidden="true"
+											value="${baiDangModel.gia_tu}" /> 
+										<input type="number"
+											id="TBDS_giatu"
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+										<select id="TBDS_select_gia_tu"
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+											<option value="1000000000">Tỷ VNĐ</option>
+											<option value="1000000">Triệu VNĐ</option>
+											<option value="1">VNĐ</option>
+										</select> - 
+										<input name="gia_den" id="gia_den" hidden="true"
+											value="${baiDangModel.gia_den}" /> 
+										<input type="number"
+											id="TBDS_giaden"
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+										<select id="TBDS_select_gia_den"
+											style="width: 100px; border: 1px solid #ced4da; border-radius: .25rem;">
+											<option value="1000000000">Tỷ VNĐ</option>
+											<option value="1000000">Triệu VNĐ</option>
+											<option value="1">VNĐ</option>
+										</select>
 									</div>
 								</div>
+								<div class="form-group row">
+									<label for="title" class="col-sm-2 col-form-label">Chi
+										tiết giá:</label>
+									<div class="col-sm-10">
+										<input type="text" id="TBDS_money"
+											value="${baiDangModel.money}"
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"  disabled="disabled">
+										<input type="text" id="TBDS_money2" name="money"
+										style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;" value="${baiDangModel.money}" hidden="true">
+								
+									</div>
+								</div>
+
 								<div class="form-group row">
 									<h2>Thông tin chi tiết:</h2>
 								</div>
@@ -168,9 +236,9 @@
 									<div class="col-sm-10">
 										<input type="text" class="TBDS_dia_chi_chi_tiet"
 											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;"
-											value="${baiDangModel.dia_chi_chi_tiet}"> <input
-											type="text" class="TBDS_dia_chi_chi_tiet"
-											name="dia_chi_chi_tiet" hidden="true">
+											value="${baiDangModel.dia_chi_chi_tiet}"> 
+											<input type="text" class="TBDS_dia_chi_chi_tiet"
+											name="dia_chi_chi_tiet" value="${baiDangModel.dia_chi_chi_tiet}" hidden="true">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -209,7 +277,7 @@
 												value="BD">Bắc Đông</option>
 											<option
 												<c:if test="${baiDangModel.huong_nha=='NT'}">selected="selected"</c:if>
-												value="NT">Nam Tây</option>
+												value="NT">Tây Nam</option>
 										</select>
 									</div>
 
@@ -265,24 +333,16 @@
 											<div>
 												<div class="single-profile-front">
 													<div class="profile-img">
-														<div class="row" id="list-image-tbds">
+														<div class="row" id="list-image-tbds" >
 															<c:forEach var="url" items="${urlImg}">
-																<!-- Single Testimonial -->
-																	<img class="col-sm-2" src="${url}" alt="" style="border-radius: 10px 10px 10px 10px;margin-top: 5px;">
+																<div class="wrapper" style="margin: 5px;">
+																	<img class="img" src="${url}"  /> 
+																	<i idImg='${url.substring(url.lastIndexOf("/")+1)}'
+																		class=" cross-img dngaz btnDeleteImg"
+																		style="font-size: 20px; color: red;">x</i>
+																</div>
 															</c:forEach>
-															<!-- 
-														<div >
-														<div>
-														<button type="button" class="close" aria-label="Close" style="position: absolute;">
-														  <span aria-hidden="true" >&times;</span>
-														  
-														</button>
-														<img class="col-sm-2" src="/img/web/TpHue.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px;position: absolute;" >
-														</div>
-														</div>
-														
-														 -->
+
 
 														</div>
 
@@ -291,7 +351,7 @@
 											</div>
 											<input id="multi-file-tbds" type="file"
 												class="form-control-file" style="margin-top: 5px;" multiple>
-											<input name="img_id" id="InputIDImg" value="${idImgs}">
+											<input name="img_id" id="InputIDImg" value="${idImgs}" hidden ="true">
 											<button id="btn-upload-img-tbds" type="button"
 												class="mb-2 mr-2 mt-2 btn btn-primary">Upload</button>
 											<small class="form-text text-muted"></small>
@@ -303,7 +363,8 @@
 										class="col-sm-2 col-form-label">Thông tin liên hệ:</label>
 									<div class="col-sm-10">
 										<input name="thong_tin_lien_he" type="text"
-											style="width: 100%;" value="${baiDangModel.thong_tin_lien_he}">
+											style="width: 100%;"
+											value="${baiDangModel.thong_tin_lien_he}">
 									</div>
 								</div>
 								<div class="form-group row">

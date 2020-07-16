@@ -76,6 +76,11 @@
                                 </a>
                             </li>
                              <li>
+                                <a href='<c:url value="/admin/daytin"/>'>
+                                    <i class="metismenu-icon pe-7s-note2"></i> Đẩy bất động sản
+                                </a>
+                            </li>
+                             <li>
                                 <a href='<c:url value="/admin/bat-dong-san-bi-cam"/>'>
                                     <i class="metismenu-icon pe-7s-note2"></i> BDS bị cấm
                                 </a>
@@ -85,11 +90,7 @@
                                     <i class="metismenu-icon pe-7s-note2"></i> Báo cáo thống kê
                                 </a>
                             </li>
-                            <li>
-                                <a href='<c:url value="/admin/daytin"/>'>
-                                    <i class="metismenu-icon pe-7s-note2"></i> Đẩy bất động sản
-                                </a>
-                            </li>
+                           
                             
                             
                         </ul>

@@ -123,8 +123,11 @@ i.dngaz:active
 								<div class="form-group row">
 									<label for="title" class="col-sm-2 col-form-label">Chi tiết giá:</label>
 									<div class="col-sm-10">
-										<input type="text" id="TBDS_money" name="money"
-											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;" value="Thương lượng">
+										<input type="text" id="TBDS_money"
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;" value="Thương lượng" disabled="disabled">
+										<input type="text" id="TBDS_money2" name="money"
+											style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem;" value="Thương lượng" hidden="true">
+									
 									</div>
 									</div>
 								<div class="form-group row">
@@ -289,20 +292,6 @@ i.dngaz:active
 													<div class="profile-img">
 														<div class="row" id="list-image-tbds">
 															 
-														<!-- 
-														<div >
-														<div>
-														<button type="button" class="close" aria-label="Close" style="position: absolute;">
-														  <span aria-hidden="true" >&times;</span>
-														  
-														</button>
-														<img class="col-sm-2" src="/img/web/TpHue.jpg" alt=""
-																	style="border-radius: 10px 10px 10px 10px;position: absolute;" >
-														</div>
-														</div>
-														
-														 -->
-														
 														</div>
 
 													</div>

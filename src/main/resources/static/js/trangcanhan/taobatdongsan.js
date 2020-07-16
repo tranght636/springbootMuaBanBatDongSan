@@ -105,16 +105,21 @@ function setGia() {
 $(document).ready(function() {
 	$("#TBDS_giatu").change(function () {
 		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
 	});
 	$("#TBDS_select_gia_tu").change(function () {
-		setGia(); 
+		setGia();
+		$("#TBDS_money2").val($("#TBDS_money").val());
 	});
 	$("#TBDS_giaden").change(function () {
 		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
 	});
 	$("#TBDS_select_gia_den").change(function () {
 		setGia(); 
+		$("#TBDS_money2").val($("#TBDS_money").val());
 	});
+	
 	
 	$("#TBDS_DanhMucChung").change(function () {
 	    $('#TBDS_DanhMuc').empty();
@@ -225,7 +230,7 @@ $(document).ready(function() {
             	if(result.length) {
             		for(image of result) {
             			$("#list-image-tbds").append(`
-            			<div class="wrapper">
+            			<div class="wrapper" style="margin: 5px;">
 						      <img class="img" src="${image}" />
 						      <i idImg="${image.split('/').pop()}" 
 						      class=" cross-img dngaz btnDeleteImg" style="font-size: 20px; color: red;">x</i>

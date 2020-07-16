@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -63,9 +64,18 @@ public class TrangCaNhanController {
 
 		return "web/CapNhatThongTinCaNhan";
 	}
+	
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
 
 	@GetMapping("/tao-bat-dong-san")
-	public String TaoBDS(ModelMap modelMap) {
+	public String TaoBDS(ModelMap modelMap, @RequestParam(value="message", required = false) String message) {
+		if(message!=null) {
+			if( message.equals("TBDSThanhCong")) {
+				modelMap.addAttribute("message", "Tạo bất động sản thành công! Mời bạn tạo thêm bất động sản mới");
+			}else if(message.equals("TBDSThatBai") ){
+			modelMap.addAttribute("message", "Tạo bất động sản thất bại!!");
+			}
+		}
 		// lấy danh sách TBDS_DanhMucChung
 		Object danhMucChungModel = danhMucChungService.selectAll();
 		modelMap.addAttribute("danhMucChungModel", danhMucChungModel);
@@ -90,6 +100,7 @@ public class TrangCaNhanController {
 		// lấy danh sách đường
 		Object streetModel = streetService.selectStreetbyDistrictIdAndProvinceId(388, 30);
 		modelMap.addAttribute("streetModel", streetModel);
+		
 
 		return "web/TaoBatDongSan";
 	}
@@ -274,7 +285,12 @@ public class TrangCaNhanController {
 	}
 
 	@GetMapping("/sua-bat-dong-san")
-	public String SuaBDS(HttpServletRequest request, @RequestParam("id") Integer id, ModelMap modelMap) {
+	public String SuaBDS(HttpServletRequest request, @RequestParam("id") Integer id, ModelMap modelMap,
+			@RequestParam(value="message", required = false) String message) {
+		if(message!=null && message.equals("SBDSThatBai")) {
+			modelMap.addAttribute("message", "Sửa bất động sản thấy bại!");
+				
+		}
 		// lấy bất động sản cần sửa
 				BaiDangModel baiDangModel = baiDangService.selectOne(id);
 				modelMap.addAttribute("baiDangModel", baiDangModel);
@@ -362,9 +378,9 @@ public class TrangCaNhanController {
 
 		Integer result = baiDangService.insert(baiDangModel);
 		if (result > 0) {
-			return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=Tạo thành công! mời bạn tạo thêm bài đăng khác.";
+			return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=TBDSThanhCong";
 		}
-		return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=Tạo bài đăng thất bại";
+		return "redirect:/trang-ca-nhan/tao-bat-dong-san?message=TBDSThatBai";
 
 	}
 	@PostMapping("/sua-bat-dong-san")
@@ -374,7 +390,7 @@ public class TrangCaNhanController {
 		if (result > 0) {
 			return "redirect:/trang-ca-nhan/chi-tiet-bat-dong-san?id="+baiDangModel.getId();
 		}
-		return "redirect:/trang-ca-nhan/sua-bat-dong-san?id="+baiDangModel.getId() +"&message=Tạo bài đăng thất bại";
+		return "redirect:/trang-ca-nhan/sua-bat-dong-san?id="+baiDangModel.getId() +"&message=SBDSThatBai";
 
 	}
 	
