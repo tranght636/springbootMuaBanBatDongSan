@@ -17,7 +17,7 @@
 												style="border-radius: 10px 10px 10px 10px; width: 150px; height: 100px;">
 										</div>
 										<div class="col-lg-8">
-											<a href="/trang-ca-nhan/chi-tiet-bat-dong-san?id=${bds.id}">
+											<a href="/chi-tiet?id=${bds.id}">
 												<div class="profile-caption"
 													style="margin-left: 5px; margin-right: 5px; text-align: left;">
 													<h6 style="color: black;">${bds.title}</h6>

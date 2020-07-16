@@ -43,7 +43,6 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         }
         UserModel userModel = userService.selectOne(email);
         session.setAttribute("USER", userModel);
-        
         //response.sendRedirect("/login-success");
         
         List<String> roleNames = AccountUtil.getRoleNames();

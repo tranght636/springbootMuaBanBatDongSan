@@ -75,5 +75,4 @@ public interface BaiDangMapper {
 
 	Integer update(BaiDangModel baiDangModel);
 
-	
 }

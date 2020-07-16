@@ -16,6 +16,7 @@ import com.htt.batdongsan.service.UserService;
 
 @Component
 public class AccountUtil {
+	public static UserModel user;
 	
 	@Autowired
 	UserService userService;

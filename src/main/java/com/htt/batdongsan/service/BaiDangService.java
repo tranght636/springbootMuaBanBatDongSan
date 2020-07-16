@@ -262,6 +262,5 @@ public class BaiDangService{
 		return baiDangMapper.update(baiDangModel);
 
 	}
-	
-	    
+
 }

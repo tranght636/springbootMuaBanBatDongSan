@@ -98,23 +98,42 @@
 
                                                         <div class="col-lg-2 col-md-2">
                                                             <div class="select-itms">
-                                                                <select name="select" id="giaThapNhat" style="display: none;">
-                                                            <option value="">Giá thấp nhất</option>
-                                                            <option value="">Services-1</option>
-                                                            <option value="">Services-2</option>
-                                                            <option value="">Services-3</option>
-                                                        </select>
+                                                                <select name="giaThapNhat" id="giaThapNhat" style="display: none;">
+		                                                            <option value="-1">Giá thấp nhất</option>
+		                                                            <option value="1000000">1 Triệu</option>
+		                                                            <option value="3000000">3 Triệu</option>
+		                                                            <option value="5000000">5 Triệu</option>
+		                                                            <option value="10000000">10 Triệu</option>
+		                                                            <option value="30000000">30 Triệu</option>
+		                                                            <option value="50000000">50 Triệu</option>
+		                                                            <option value="100000000">100 Triệu</option>
+		                                                            <option value="300000000">300 Triệu</option>
+		                                                            <option value="500000000">500 Triệu</option>
+		                                                            <option value="1000000000">1 Tỷ</option>
+		                                                            <option value="10000000000">10 Tỷ</option>
+		                                                            <option value="50000000000">50 Tỷ</option>
+		                                                        </select>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-lg-2 col-md-2">
                                                             <div class="select-itms">
-                                                                <select name="select" id="giaCaoNhat" style="display: none;">
-                                                                <option value="">Giá cao nhất</option>
-                                                                <option value="">Services-1</option>
-                                                                <option value="">Services-2</option>
-                                                                <option value="">Services-3</option>
-                                                            </select>
+                                                                <select name="giaCaoNhat" id="giaCaoNhat" style="display: none;">
+	                                                                <option value="-1">Giá cao nhất</option>
+	                                                                <option value="1000000">1 Triệu</option>
+		                                                            <option value="3000000">3 Triệu</option>
+		                                                            <option value="5000000">5 Triệu</option>
+		                                                            <option value="10000000">10 Triệu</option>
+		                                                            <option value="30000000">30 Triệu</option>
+		                                                            <option value="50000000">50 Triệu</option>
+		                                                            <option value="100000000">100 Triệu</option>
+		                                                            <option value="300000000">300 Triệu</option>
+		                                                            <option value="500000000">500 Triệu</option>
+		                                                            <option value="1000000000">1 Tỷ</option>
+		                                                            <option value="10000000000">10 Tỷ</option>
+		                                                            <option value="50000000000">50 Tỷ</option>
+		                                                            <option value="-1">Không giới hạn</option>
+	                                                            </select>
                                                             </div>
                                                         </div>
 
@@ -191,13 +210,6 @@
 					thêm</a>
                     </div>
                     <h3 style="color: blue;">Dự án nổi bật</h3>
-
-
-                    <i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red; "></i>
-                    <!-- <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red;"></i> -->
-
-
-
 
 
                     <!-- Dự án nổi bật -->
@@ -379,4 +391,3 @@
             <script src="/js/web/chitietbatdongsan.js"></script>
             <script src="/js/web/TimKiem.js"></script>
         </main>
-

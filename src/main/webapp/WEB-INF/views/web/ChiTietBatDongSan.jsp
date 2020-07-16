@@ -5,7 +5,8 @@
 
         <body style="overflow: visible;">
             <main>
-                <i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red;"></i>
+                <input id="user-id" value="${USER.id}" hidden/>
+                <input id="bai-dang-id" value="${baiDangModel.id}" hidden/>
                 <div class="row">
                     <div class="col-xl-1 col-lg-1"></div>
                     <div class="offset-xl-1 offset-lg-1 col-xl-8 col-lg-8">
@@ -30,7 +31,18 @@
                                     <div class=" mb-12 ">
                                         <div class="s-details-caption">
                                             <h4 style="color: blue;">${baiDangModel.title}</h4>
-                                            <small style="color: gray;">12/07/2020</small>
+                                            <div style="display: flex; justify-content: space-between;">
+                                                <small style="color: gray;">${baiDangModel.created_date}</small>
+                                                <c:choose>
+
+                                                    <c:when test="${isYeuThich == 1}">
+                                                        <i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red;"></i>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <i class="btn-yeu-thich fa fa-heart-o fa-2x " aria-hidden="true" style="color: red;"></i>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
                                             <p style="color: black;">
                                                 <span style="color: gray;"> Địa chỉ: </span> ${baiDangModel.dia_chi_chi_tiet}
                                             </p>
@@ -450,13 +462,47 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="contact-title">Bình luận đánh giá</h2>
+                            <h2 class="contact-title">Bình luận</h2>
                         </div>
                         <div class="col-lg-8">
 
                             <div class="row">
                                 <div class="col-lg-12 col-12 rounded">
                                     <ul class="p-0">
+                                        <!-- <li>
+                                            <div class="row comment-box p-1 pt-3 pr-4">
+                                                <div class="col-lg-2 col-3 user-img text-center">
+                                                    <img src="http://localhost:8081/api/file/1" class="main-cmt-img">
+                                                </div>
+                                                <div class="col-lg-10 col-9 user-comment bg-light rounded pb-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 col-6 pr-0">
+                                                            <p class="w-100 p-2 m-0"><b style="color: blue;">Vũ Thanh</b> Lorem ipsum dolor sit amet.</p>
+                                                        </div>
+                                                        <div class="col-lg-4 col-6">
+                                                            <p class="w-100 p-2 m-0"><span class="float-right"><i class="fa fa-clock-o mr-1" aria-hidden="true"></i>01 : 00</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row comment-box p-1 pt-3 pr-4">
+                                                <div class="col-lg-2 col-3 user-img text-center">
+                                                    <img src="http://localhost:8081/api/file/1" class="main-cmt-img">
+                                                </div>
+                                                <div class="col-lg-10 col-9 user-comment bg-light rounded pb-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 col-6 pr-0">
+                                                            <p class="w-100 p-2 m-0">Lorem ipsum dolor sit amet.</p>
+                                                        </div>
+                                                        <div class="col-lg-4 col-6">
+                                                            <p class="w-100 p-2 m-0"><span class="float-right"><i class="fa fa-clock-o mr-1" aria-hidden="true"></i>01 : 00</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                         <li>
                                             <div class="row comment-box p-1 pt-3 pr-4">
                                                 <div class="col-lg-2 col-3 user-img text-center">
@@ -539,14 +585,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
+                                        <div id="comments"></div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-lg-10 col-10">
-                                                <input type="text" class="form-control" placeholder="write comments ...">
+                                            <div class="col-lg-2 col-3 user-img text-center">
+                                                <img src="/img/a (1)/user.png" class="main-cmt-img">
                                             </div>
-                                            <div class="col-lg-2 col-2 send-icon">
-                                                <a href="http://nicesnippets.com/" target="_blank"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                                            <div class="col-lg-8 col-7">
+                                                <input id="txt-comment" name="message" type="text" class="form-control" placeholder="write comments ...">
+                                            </div>
+                                            <div class="col-lg-2 col-2 mr-0 send-icon">
+                                                <i id="btn-send-message" class="fa fa-paper-plane" aria-hidden="true"></i>
                                             </div>
                                         </div>
                                     </ul>
@@ -584,6 +634,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="mes"></div>
 
 
 
@@ -631,9 +683,9 @@
                     });
                 }
             </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap"></script>
+            <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+            <script src="/webjars/stomp-websocket/stomp.min.js"></script>
             <script src="/js/web/chitietbatdongsan.js"></script>
 
         </body>
-
