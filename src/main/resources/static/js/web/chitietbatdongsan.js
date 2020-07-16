@@ -12,7 +12,7 @@ function connect() {
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/comment', function(content) {
-            if (content === "ok") {
+            if (content.body === "ok") {
                 loadComment();
             }
         });
@@ -30,7 +30,7 @@ function renderHtmlComment(comment) {
     return `<li>
 		<div class="row comment-box p-1 pt-3 pr-4">
 			<div class="col-lg-2 col-3 user-img text-center">
-				<img src="/img/a (1)/user.png" class="main-cmt-img">
+				<img src="/img/web/user.png" class="main-cmt-img">
 			</div>
 			<div class="col-lg-10 col-9 user-comment bg-light rounded pb-1">
 				<div class="row">

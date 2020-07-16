@@ -590,7 +590,7 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-lg-2 col-3 user-img text-center">
-                                                <img src="/img/a (1)/user.png" class="main-cmt-img">
+                                                <img src="/img/web/user.png" class="main-cmt-img">
                                             </div>
                                             <div class="col-lg-8 col-7">
                                                 <input id="txt-comment" name="message" type="text" class="form-control" placeholder="write comments ...">
