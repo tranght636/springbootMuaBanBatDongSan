@@ -12,5 +12,6 @@ public interface YeuThichMapper {
 
 	List<YeuThichModel> selectByIdUser(Integer user_id);
 
+	Integer insert(Integer bai_dang_id, Integer user_id);
 
 }

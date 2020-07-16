@@ -54,7 +54,4 @@ public class BaiDangApi {
 	public ResponseEntity<?> XoaBDSChoXacNhan(@RequestParam("id") Integer id){
 		return ResponseEntity.ok(baiDangService.updateStatusBDS(id,-1));
 	}
-	
-	
-	
 }

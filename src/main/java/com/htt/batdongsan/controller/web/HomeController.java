@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,8 @@ public class HomeController {
 	YeuThichService yeuThichService;
 	@Autowired
 	AccountUtil accountUtil;
+	@Autowired
+	HttpSession session;
 	
     @GetMapping("/")
     public String home(HttpServletRequest request, ModelMap modelMap){
@@ -167,7 +170,14 @@ public class HomeController {
     	{
     		listyeuthich= yeuThichService.selectByIdUser(accountUtil.getUser().getId());
     	}
-    	modelMap.addAttribute("listyeuthich", listyeuthich);
+    	Integer isYeuThich = 0;
+    	for(YeuThichModel yt : listyeuthich) {
+    		if(Integer.parseInt(yt.getBai_dang_id()) == baiDangModel.getId()) {
+    			isYeuThich = 1;
+    			break;
+    		}
+    	}
+    	modelMap.addAttribute("isYeuThich", isYeuThich);
     	
     	
     	modelMap.addAttribute("mapUrl", mapUrl);
@@ -268,11 +278,7 @@ public class HomeController {
     public String DanhSach(){
         return "web/DanhSach";
     }
-    @GetMapping("/trang-ca-nhan")
-    public String ThongTinCaNhan(){
-        return "web/CapNhatThongTinCaNhan";
-    }
-    
+
     @PostMapping("/")
     public String home1(){
         return "web/TrangChu";

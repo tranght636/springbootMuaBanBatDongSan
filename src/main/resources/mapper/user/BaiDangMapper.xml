@@ -132,16 +132,17 @@
     	<if test="duongId != -1">
     		and duong_id = #{duongId}
     	</if>
+    	
+    	<if test="giaThapNhat != -1">
+    		and (gia_tu is null 
+    		or gia_tu >= #{giaThapNhat})
+    	</if>
+    	<if test="giaCaoNhat != -1">
+    		and #{giaCaoNhat} >= ifnull(gia_den, ifnull(gia_tu,0))
+    	</if>
  	</select>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 	
+ 	
     
     
     <update id="updateStatusBDS" parameterType="HashMap">

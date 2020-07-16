@@ -22,8 +22,8 @@
                                     </sec:authorize>
                                     
 									<sec:authorize access="isAuthenticated()"> 
-										<li><a href="/trang-ca-nhan">${USER.username}</a></li>
-                                    	<li><a href="/trang-ca-nhan">Trang cá nhân</a></li>
+										<li><a href="/trang-ca-nhan/cap-nhat-thong-tin">${USER.username}</a></li>
+                                    	<li><a href="/trang-ca-nhan/cap-nhat-thong-tin">Trang cá nhân</a></li>
                                     </sec:authorize>
                                     
 									<sec:authorize access="hasAnyAuthority('ADMIN')">
