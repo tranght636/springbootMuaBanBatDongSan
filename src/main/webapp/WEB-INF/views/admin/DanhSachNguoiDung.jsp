@@ -51,7 +51,10 @@
                                                         <div class="profile-caption" style="margin-left: 5px; margin-right: 5px; text-align: left;">
                                                             <div style="text-align: right;">
                                                                 <div class="badge badge-success btn">Hoạt động</div>
-                                                                <div class="badge badge-danger btn DSND-btn-xoa" id-user="${user.id}">Xóa</div>
+                                                                <sec:authorize access="hasAnyAuthority('ADMIN')">
+                                                                    <div class="badge badge-danger btn DSND-btn-xoa" id-user="${user.id}">Xóa</div>
+                                                                </sec:authorize>
+
                                                             </div>
                                                         </div>
                                                     </div>
