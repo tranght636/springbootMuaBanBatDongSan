@@ -49,7 +49,11 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		if(roleNames.contains(ADMIN_ROLE)) {
 			response.sendRedirect("/admin/quan-ly-nguoi-dung");
 			return;
-		}
+        }
+        if(roleNames.contains("CTV")){
+            response.sendRedirect("/");
+			return;
+        }
 		if(roleNames.contains(USER_ROLE)) {
 			response.sendRedirect("/trang-ca-nhan/cap-nhat-thong-tin");
 			return;
