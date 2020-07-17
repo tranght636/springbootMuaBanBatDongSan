@@ -8,4 +8,6 @@ import com.htt.batdongsan.model.RoleModel;
 @Mapper
 public interface RoleMapper {
 	public List<RoleModel> selectList(Integer userId);
+
+	public List<RoleModel> selectAll();
 }

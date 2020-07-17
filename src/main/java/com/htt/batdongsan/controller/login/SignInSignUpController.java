@@ -72,5 +72,24 @@ public class SignInSignUpController {
     		return "redirect:/login";
     	}
     	return "redirect:/login?message=Đăng ký thất bại";
+	}
+	
+	// post 
+    @PostMapping("/create-user")
+    public String createUser(@ModelAttribute UserModel userModel){
+		userModel.setPassword(EncodedPasswordUtil.encode(userModel.getPassword()));
+		userModel.setStatus(1);
+		Integer result = userService.insert(userModel);
+    	if(result > 0) {
+			Integer user_id= userService.selectOne(userModel.getEmail()).getId();
+			Integer roleId = userModel.getRoleId();
+			System.out.println(roleId);
+			if(roleId == 3) {
+				userRoleService.insert(user_id, 3);
+			}
+    		return "redirect:/admin/quan-ly-nguoi-dung";
+    	}
+		// return "redirect:/login?message=Đăng ký thất bại";
+		return "redirect:/admin/quan-ly-nguoi-dung";
     }
 }

@@ -21,4 +21,9 @@ public class RoleService {
 	public List<RoleModel> selectList(Integer userId){
 		return roleMapper.selectList(userId);
 	}
+
+	public List<RoleModel> selectAll(){
+		return roleMapper.selectAll();
+	}
+
 }
