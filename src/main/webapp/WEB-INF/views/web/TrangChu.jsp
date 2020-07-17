@@ -388,6 +388,5 @@
                 });
             </script>
 
-            <script src="/js/web/chitietbatdongsan.js"></script>
             <script src="/js/web/TimKiem.js"></script>
         </main>
