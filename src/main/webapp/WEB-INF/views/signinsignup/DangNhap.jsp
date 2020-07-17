@@ -22,7 +22,9 @@
 				<div class="card-body p-0">
 					<!-- Nested Row within Card Body -->
 					<div class="row">
-						<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+						<div class="col-lg-6 d-none d-lg-block" style=" !important">
+						<img alt="" src="/api/file/14" style="width: 100%; height: 100%;">
+						</div>
 						<div class="col-lg-6">
 							<div class="p-5">
 								<c:if test="${not empty message}">
@@ -67,7 +69,7 @@
 										Password?</a>
 								</div>
 								<div class="text-center">
-									<a class="small" href="<c:url value='/sign-up'/>">Create an Account!</a>
+									<a class="small" href="<c:url value='/register'/>">Create an Account!</a>
 								</div>
 							</div>
 						</div>
