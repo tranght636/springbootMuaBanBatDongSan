@@ -29,7 +29,10 @@
 										</a>
 										<i data-toggle="tooltip" title="Xóa bất động sản" id-baidang="${bds.id}" class="btn-BDSCGD-delete metismenu-icon pe-7s-trash font-icon-wrapper btn-outline-danger btn-icon-only btn-icon"></i>
 										<c:if test="${bds.actived < 1}">
-											<br/><button class="btn btn-primary btn_BDSChoGiaoDich_DangKyDayTin" id-baidang="${bds.id}" style="font-size: 10px;" >Đăng ký đẩy tin</button>
+											<br/>
+											
+											<a href="/trang-ca-nhan/dang-ky-day-tin?id=${bds.id}" style="font-size: 10px;"> đăng ký đẩy tin</a>
+											<%-- <button class="btn btn-primary btn_BDSChoGiaoDich_DangKyDayTin" id-baidang="${bds.id}" style="font-size: 10px;" >Đăng ký đẩy tin</button> --%>
 										</c:if>
 									</div>
 								</div>

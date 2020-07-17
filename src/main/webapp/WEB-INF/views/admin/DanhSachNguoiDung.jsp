@@ -56,6 +56,7 @@
                                                                 <sec:authorize access="hasAnyAuthority('ADMIN')">
                                                                     <div class="badge badge-danger btn DSND-btn-xoa" id-user="${user.id}">Xóa</div>
                                                                 </sec:authorize>
+
                                                             </div>
                                                         </div>
                                                     </div>

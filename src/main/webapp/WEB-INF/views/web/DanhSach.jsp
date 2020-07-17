@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red; "></i>
-				<!-- <i class="fa fa-heart-o fa-2x " aria-hidden="true" style="color: red;"></i> -->
-				<i class="fa fa-heart-o"></i>
 				
 <main>
 	<!-- Team-profile Start -->
@@ -24,7 +19,6 @@
 							<div class="single-profile-front" style="height: 320px;">
 								<div class="profile-img">
 									<img style="height: 160px;" src="${mapUrl.get(baiDang.id)}" alt="" style="border-radius: 10px 10px 10px 10px;">
-									<i class="btn-yeu-thich fa fa-heart fa-2x " aria-hidden="true" style="color: red; float: right;"></i>
 								</div>
 								<div class="profile-caption" style="margin-left: 5px;margin-right: 5px;">
 									 <h6 class="title" style="color: black;">

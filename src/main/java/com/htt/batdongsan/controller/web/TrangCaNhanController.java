@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.model.DanhMucChungModel;
 import com.htt.batdongsan.model.DanhMucModel;
+import com.htt.batdongsan.model.ThongTinDayTinModel;
 import com.htt.batdongsan.model.UserModel;
 import com.htt.batdongsan.service.BaiDangService;
 import com.htt.batdongsan.service.DanhMucChungService;
@@ -28,6 +29,7 @@ import com.htt.batdongsan.service.DistrictService;
 import com.htt.batdongsan.service.LoaiBatDongSanService;
 import com.htt.batdongsan.service.ProvinceService;
 import com.htt.batdongsan.service.StreetService;
+import com.htt.batdongsan.service.ThongTinDayTinService;
 import com.htt.batdongsan.service.UserService;
 import com.htt.batdongsan.service.WardService;
 import com.htt.batdongsan.utils.AccountUtil;
@@ -56,6 +58,8 @@ public class TrangCaNhanController {
 	BaiDangService baiDangService;
 	@Autowired
 	AccountUtil accountUtil;
+	@Autowired
+	ThongTinDayTinService thongTinDayTinService;
 
 	@GetMapping("/cap-nhat-thong-tin")
 	public String CapNhatThongTin(ModelMap modelMap) {
@@ -363,6 +367,27 @@ public class TrangCaNhanController {
 		return "web/BatDongSanYeuThich";
 	}
 
+	@GetMapping("/dang-ky-day-tin")
+	public String DangKyDayTin(HttpServletRequest request,@RequestParam("id") Integer id, ModelMap modelMap) {
+		modelMap.addAttribute("id", id);
+		return "web/DangKyDayTin";
+	}
+	@PostMapping("/dang-ky-day-tin")
+	public String DangKyDayTinPost(@ModelAttribute ThongTinDayTinModel thongTinDayTinModel) {
+		UserModel userModel = accountUtil.getUser();
+		Integer user_id = userModel.getId();
+		thongTinDayTinModel.setStatus(1);
+		thongTinDayTinModel.setCreated_by(user_id);
+		
+		
+		Integer result = thongTinDayTinService.insert(thongTinDayTinModel);
+		if (result > 0) {
+			baiDangService.updateActivedBDS(thongTinDayTinModel.getBai_dang_id(),1);
+			return "redirect:/trang-ca-nhan/bat-dong-san-cho-giao-dich";
+		}
+		return "redirect:/trang-ca-nhan/bat-dong-san-cho-giao-dich";
+	}
+	
 	@PostMapping("/cap-nhat-thong-tin")
 	public String updateUserInfo(@ModelAttribute UserModel userModel) {
 		Integer result = userService.update(userModel);
