@@ -12,7 +12,9 @@
                     <ul class="nav nav-justified">
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link show active">Người dùng còn hoạt động</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link show ">Người dùng đã bị xóa</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link show ">Tạo tài khoản</a></li>
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link show ">Tạo tài khoản</a></li>
+                        </sec:authorize>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -117,68 +119,71 @@
 
                         </div>
 
+
                         <!-- Tab Tạo tài khoản -->
-                        <div class="tab-pane show" id="tab-eg7-2" role="tabpanel">
-                            <!--  -->
-                            <div class="scroll-area-md" style="height: 550px;">
-                                <div class="card-body">
-                                    <form class="user" action='<c:url value="/create-user"/>' method="POST">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username" placeholder="Full Name" name="username">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="span-email-exist" style="margin-left: 15px;" hidden="true">
-                                                <span style="color: red;">Email đã tồn tại</span>
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <div class="tab-pane show" id="tab-eg7-2" role="tabpanel">
+                                <!--  -->
+                                <div class="scroll-area-md" style="height: 550px;">
+                                    <div class="card-body">
+                                        <form class="user" action='<c:url value="/create-user"/>' method="POST">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="username" placeholder="Full Name" name="username">
                                             </div>
-                                            <input type="email" class="form-control form-control-user input-register-email" placeholder="Email Address" name="email">
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
+                                            <div class="form-group">
+                                                <div class="span-email-exist" style="margin-left: 15px;" hidden="true">
+                                                    <span style="color: red;">Email đã tồn tại</span>
+                                                </div>
+                                                <input type="email" class="form-control form-control-user input-register-email" placeholder="Email Address" name="email">
                                             </div>
-                                            <div class="col-sm-6">
-                                                <input type="password" class="form-control form-control-user" id="repeat-passsword" placeholder="Repeat Password">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control form-control-user" id="repeat-passsword" placeholder="Repeat Password">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row" id="confirm-incorrect" hidden="true">
-                                            <div class="col-sm-2"></div>
-                                            <div class="col-sm-10">
-                                                <span style="color: red;">Nhập lại không đúng</span>
+                                            <div class="form-group row" id="confirm-incorrect" hidden="true">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-10">
+                                                    <span style="color: red;">Nhập lại không đúng</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="address" placeholder="Address" name="address">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="phone_number" placeholder="Phone" name="phone_number">
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <input type="date" class="form-control form-control-user" id="dob" name="dob" title="Date of birth">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="address" placeholder="Address" name="address">
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="roleId">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="phone_number" placeholder="Phone" name="phone_number">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <input type="date" class="form-control form-control-user" id="dob" name="dob" title="Date of birth">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <select class="form-control" name="roleId">
                                                     <option value="-1">Chọn quyền</option>
                                                     <c:forEach var="role" items="${roles}">
                                                         <option value="${role.id}">${role.name}</option>
                                                     </c:forEach>
 												</select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12" style="text-align: right;">
-                                                <button type="submit" class="btn btn-outline-danger">Thêm tài khoản</button>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12" style="text-align: right;">
+                                                    <button type="submit" class="btn btn-outline-danger">Thêm tài khoản</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
+
+
+                                <!--  -->
                             </div>
-
-
-                            <!--  -->
-                        </div>
+                        </sec:authorize>
                     </div>
                 </div>
             </div>
