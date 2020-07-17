@@ -74,5 +74,13 @@ public class UserService{
 		return userMapper.updateUser(userModel);
 	}
 
+	public void saveToken(String email, String token) {
+		userMapper.saveToken(email, token);
+	}
+
+	public void changePassword(String email, String password) {
+		userMapper.changePassword(email, password);
+	}
+
 	
 }

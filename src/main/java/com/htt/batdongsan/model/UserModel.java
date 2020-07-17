@@ -20,6 +20,8 @@ public class UserModel {
 	private Integer created_by;
 	private Integer modified_by;
 	private Timestamp deactived_at;
+
+	private String token_reset_password;
 	
 	
 	public String getEmail() {
@@ -114,5 +116,13 @@ public class UserModel {
 
 	public UserModel() {
 		super();
+	}
+
+	public String getToken_reset_password() {
+		return token_reset_password;
+	}
+
+	public void setToken_reset_password(String token_reset_password) {
+		this.token_reset_password = token_reset_password;
 	}
 }
