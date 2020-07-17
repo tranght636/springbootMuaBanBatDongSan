@@ -1,65 +1,73 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.htt.batdongsan.mapper.UserMapper">
-    <select id="getAllUser" resultMap="result" >
+    <select id="getAllUser" resultMap="result">
         select * from user
     </select>
-    
-    <select id="selectOne" resultMap="result" parameterType="Integer" >
+
+    <select id="selectOne" resultMap="result" parameterType="Integer">
         select * from user
         where id = #{id}
         and status = #{status}
     </select>
-    
-    <select id="selectUser" resultMap="result" parameterType="Integer" >
+
+    <select id="selectUser" resultMap="result" parameterType="Integer">
         select * from user
         where id = #{id}
     </select>
-    
-    <select id="selectOneByEmail" resultMap="result" parameterType="Hashmap" >
+
+    <select id="selectOneByEmail" resultMap="result" parameterType="Hashmap">
         select * from user
         where email = #{email}
         and status = #{status}
     </select>
-    <select id="selectListUser" resultMap="result" parameterType="Integer" >
+    <select id="selectListUser" resultMap="result" parameterType="Integer">
         select * from user
         where 1=1
         and status = #{status}
     </select>
-    
-    
-    
-     <update id="update" parameterType="UserModel" >
+
+
+    <update id="update" parameterType="UserModel">
         update user
         set username = #{username}
         where 1 = 1
         and email = #{email}
     </update>
-    
-     <update id="updateStatusOne" parameterType="Hashmap" >
+
+    <update id="updateStatusOne" parameterType="Hashmap">
         update user
         set status = #{status}
         where 1 = 1
         and id = #{id}
     </update>
-    <update id="updateUser" parameterType="UserModel" >
+    <update id="updateUser" parameterType="UserModel">
        UPDATE user SET username = #{username}, `password` = #{password}, `phone_number` = #{phone_number}, `address` = #{address}, `modified_date` = #{modified_date}, `dob` = #{dob} WHERE (`id` = #{id});
 
     </update>
-     <update id="updateUser2" parameterType="UserModel" >
+    <update id="updateUser2" parameterType="UserModel">
        UPDATE user SET username = #{username}, `phone_number` = #{phone_number}, `address` = #{address}, `modified_date` = #{modified_date}, `dob` = #{dob} WHERE (`id` = #{id});
 
     </update>
-    
-    
-    
-     <insert id="insert" parameterType="UserModel" >
+
+
+    <insert id="insert" parameterType="UserModel">
     INSERT INTO user (email,  username ,  password ,  phone_number ,  address ,  status ,  created_date ,  modified_date ,  created_by ,  modified_by ,  deactived_at ,  dob )
      VALUES (#{email}, #{username}, #{password}, #{phone_number}, #{address}, #{status}, #{created_date},  #{modified_date},  #{created_by},  #{modified_by},  #{deactived_at},  #{dob})
     </insert>
+
+
+    <update id="saveToken" parameterType="String">
+        UPDATE user SET token_reset_password = #{token} WHERE (`email` = #{email});
+    </update>
+
+
+    <update id="changePassword" parameterType="String">
+        UPDATE user SET password = #{password} WHERE (`email` = #{email});
+    </update>
     
-    
-    
-    <resultMap id = "result" type = "UserModel"/>
+
+
+    <resultMap id="result" type="UserModel" />
 </mapper>

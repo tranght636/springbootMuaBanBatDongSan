@@ -12,6 +12,8 @@ public class SitemeshDecoratorsFilter extends ConfigurableSiteMeshFilter {
         builder.addDecoratorPath("/admin*", "/WEB-INF/decorators/AdminDecorator.jsp")
                 .addDecoratorPath("/login*", "/WEB-INF/decorators/SignInSignUpDecorator.jsp")
                 .addDecoratorPath("/register*", "/WEB-INF/decorators/SignInSignUpDecorator.jsp")
+                .addDecoratorPath("/forgot-password*", "/WEB-INF/decorators/SignInSignUpDecorator.jsp")
+                .addDecoratorPath("/change-password*", "/WEB-INF/decorators/SignInSignUpDecorator.jsp")
                 .addDecoratorPath("/trang-ca-nhan*", "/WEB-INF/decorators/TrangCaNhan.jsp")
                 .addDecoratorPath("/*", "/WEB-INF/decorators/WebDecorator.jsp")
                 .addExcludedPath("/api*");

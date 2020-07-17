@@ -18,5 +18,7 @@ public interface UserMapper {
 	UserModel selectUser(Integer id);
 	Integer updateUser(UserModel userModel);
 	Integer updateUser2(UserModel userModel);
+	void saveToken(String email, String token);
+	void changePassword(String email, String password);
 	
 }
