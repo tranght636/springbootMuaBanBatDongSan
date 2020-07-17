@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.htt.batdongsan.model.BaiDangModel;
 import com.htt.batdongsan.model.UserModel;
 import com.htt.batdongsan.service.BaiDangService;
+import com.htt.batdongsan.service.RoleService;
 import com.htt.batdongsan.service.UserService;
 import com.htt.batdongsan.utils.AccountUtil;
 
@@ -29,6 +30,8 @@ public class HomeController {
 	BaiDangService baiDangService;
 	@Autowired
 	AccountUtil accountUtil;
+	@Autowired
+	RoleService roleService;
 	
 	@GetMapping("/quan-ly-nguoi-dung")
 	public String DanhSachNguoiDung(ModelMap modelMap) {
@@ -36,6 +39,8 @@ public class HomeController {
 		modelMap.addAttribute("userDangHoatDong", userDangHoatDong);
 		Object userDaXoa = userService.selectListUser(-1);
 		modelMap.addAttribute("userDaXoa", userDaXoa);
+		Object roles = roleService.selectAll();
+		modelMap.addAttribute("roles", roles);
 		return "admin/DanhSachNguoiDung";
 	}
 
