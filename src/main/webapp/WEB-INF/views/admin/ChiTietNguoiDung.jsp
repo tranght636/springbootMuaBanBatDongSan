@@ -80,21 +80,23 @@
 												name="dob" title="Date of birth" value="${userModel.dob}"
 												disabled="disabled" pattern="yyyy-MM-dd">
 										</div>
-										<c:choose>
-											<c:when test="${userModel.status == 1}">
-												<button id="btn-CTTK-XoaTaiKhoan" id-user="${userModel.id}"
-													type="button" class="mb-2 mr-2 btn btn-primary"
-													style="width: 300px; float: right; margin-bottom: 15px;">Xóa
-													tài khoản</button>
-											</c:when>
-											<c:otherwise>
-												<button id="btn-CTTK-KhoiPhucTaiKhoan"
-													id-user="${userModel.id}" type="button"
-													class="mb-2 mr-2 btn btn-primary"
-													style="width: 300px; float: right; margin-bottom: 15px;">Khôi
-													phục tài khoản</button>
-											</c:otherwise>
-										</c:choose>
+										<sec:authorize access="hasAnyAuthority('ADMIN')">
+											<c:choose>
+												<c:when test="${userModel.status == 1}">
+													<button id="btn-CTTK-XoaTaiKhoan" id-user="${userModel.id}"
+														type="button" class="mb-2 mr-2 btn btn-primary"
+														style="width: 300px; float: right; margin-bottom: 15px;">Xóa
+														tài khoản</button>
+												</c:when>
+												<c:otherwise>
+													<button id="btn-CTTK-KhoiPhucTaiKhoan"
+														id-user="${userModel.id}" type="button"
+														class="mb-2 mr-2 btn btn-primary"
+														style="width: 300px; float: right; margin-bottom: 15px;">Khôi
+														phục tài khoản</button>
+												</c:otherwise>
+											</c:choose>
+										</sec:authorize>
 									</div>
 								</div>
 							</div>
