@@ -6,7 +6,7 @@
 	<div class="main-card mb-3 card">
 		<div class="card-header">
 			<div class="btn-actions-pane-right">
-				<div class="nav">
+				<div class="nav" >
 					<a data-toggle="tab" href="#tab-eg4-0"
 						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show active">Thông
 						tin</a> <a data-toggle="tab" href="#tab-eg4-1"
@@ -17,11 +17,14 @@
 						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show ">BDS
 						chờ xác nhận</a> <a data-toggle="tab" href="#tab-eg4-4"
 						class="mr-1 ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-danger show">BDS
-						đẩy tin</a> <a data-toggle="tab" href="#tab-eg4-5"
-						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show ">BDS
-						đã mua/ đã thuê</a> <a data-toggle="tab" href="#tab-eg4-6"
-						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show">BDS
-						đã bán/ đã cho thuê</a> <a data-toggle="tab" href="#tab-eg4-7"
+						đẩy tin</a> 
+						<a data-toggle="tab" href="#tab-eg4-5"
+						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show " hidden="true">BDS
+						đã mua/ đã thuê </a> <a data-toggle="tab" href="#tab-eg4-6"
+						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show"  hidden="true">BDS
+						đã bán/ đã cho thuê</a> 
+						
+						<a data-toggle="tab" href="#tab-eg4-7"
 						class="mr-1 ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-danger show">BDS
 						bị cấm</a> <a data-toggle="tab" href="#tab-eg4-8"
 						class="border-0 btn-pill btn-wide btn-transition btn btn-outline-danger show ">BDS

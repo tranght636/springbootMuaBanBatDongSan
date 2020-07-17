@@ -12,5 +12,11 @@
     satus =1 đăng ký đẩy tin, status =2 đã đẩy tin, status =0 đăng ký đẩy tin k hợp lệ
      -->
    	
+   	<select id="select" resultMap="result">
+   		select * from thong_tin_day_tin where status =1
+   	</select>
+   	<update id="update"  parameterType="Integer">
+   		UPDATE thong_tin_day_tin SET `status` = #{status} WHERE (`bai_dang_id` = #{bai_dang_id} and `status` = 1 )
+   	</update >
     <resultMap id = "result" type = "ThongTinDayTinModel"/>
 </mapper>

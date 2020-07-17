@@ -24,6 +24,7 @@
 																			<h6 style="color: black;">${bds.title}</h6>
 																			<h6 style="color: blue;">${bds.money}-
 																				${bds.dien_tich} - ${bds.dia_chi_chi_tiet}</h6>
+																			<p style="color: red;">${maptheCao.get(bds.id)}</p>
 																		</div>
 																		</a>
 																	</div>

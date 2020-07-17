@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htt.batdongsan.service.BaiDangService;
+import com.htt.batdongsan.service.ThongTinDayTinService;
 
 @RestController
 @RequestMapping("/api")
 public class BaiDangApi {
 	@Autowired
 	BaiDangService baiDangService;
+	@Autowired
+	ThongTinDayTinService thongTinDayTinService;
 	
 	@PutMapping("/xac-nhan-bds")
 	public ResponseEntity<?> XacNhanBDS(@RequestParam("id") Integer id){
@@ -22,6 +25,7 @@ public class BaiDangApi {
 	
 	@PutMapping("/day-bds")
 	public ResponseEntity<?> DayBDS(@RequestParam("id") Integer id){
+		thongTinDayTinService.update(id);
 		return ResponseEntity.ok(baiDangService.updateActivedBDS(id,2));
 	}
 	

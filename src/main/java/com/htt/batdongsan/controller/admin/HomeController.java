@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.htt.batdongsan.model.BaiDangModel;
+import com.htt.batdongsan.model.ThongTinDayTinModel;
 import com.htt.batdongsan.model.UserModel;
 import com.htt.batdongsan.service.BaiDangService;
 import com.htt.batdongsan.service.RoleService;
+import com.htt.batdongsan.service.ThongTinDayTinService;
 import com.htt.batdongsan.service.UserService;
 import com.htt.batdongsan.utils.AccountUtil;
 
@@ -32,6 +34,8 @@ public class HomeController {
 	AccountUtil accountUtil;
 	@Autowired
 	RoleService roleService;
+	@Autowired
+	ThongTinDayTinService thongTinDayTinService;
 	
 	@GetMapping("/quan-ly-nguoi-dung")
 	public String DanhSachNguoiDung(ModelMap modelMap) {
@@ -219,6 +223,14 @@ public class HomeController {
 	public String QuanLyDanhMuc(HttpServletRequest request, ModelMap modelMap) {
 		Object BDSChoDayTin = baiDangService.SelectAllBDSChoDayTin();
 		modelMap.addAttribute("BDSChoDayTin", BDSChoDayTin);
+		
+		Map<Integer, String> maptheCao = new HashMap<Integer, String>();
+		for(ThongTinDayTinModel thongTin : thongTinDayTinService.select()) {
+    		Integer baiDangId = thongTin.getBai_dang_id();
+    			String tt = thongTin.getLoai_the() + " - Mã thẻ: " +thongTin.getMa_cao()+" - Seri: "+ thongTin.getSeri();
+    			maptheCao.put(baiDangId, tt);
+    	}
+		modelMap.addAttribute("maptheCao", maptheCao);
 		Map<Integer, String> mapUrl = new HashMap<Integer, String>();
     	for(BaiDangModel baiDang : baiDangService.select()) {
     		String idImgs = baiDang.getImg_id();
@@ -231,6 +243,7 @@ public class HomeController {
     			mapUrl.put(baiDang.getId(), "");
     		}
     	}
+    	
     	modelMap.addAttribute("mapUrl", mapUrl);
 		return "admin/DayBatDongSan";
 	}
